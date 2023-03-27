@@ -1,13 +1,16 @@
 //import all actions
 
 const initialStore = {
-    userName: '',
-    password: '',
-    localization: '',
     isLoggedIn: false,
-    blackTheme: true,
-    openUserPanel: false,
-    activeWidget: ''
+    activeUser: {
+        userName: '',
+        password: '',
+        localization: '',
+        blackTheme: true,
+        openUserPanel: false,
+        activeWidget: ''
+    },
+    users: [],
   };
 
   //all widgets: 
