@@ -1,7 +1,20 @@
 //import all actions
 
 const initialStore = {
-    userName: '',
-    blackTheme: true,
-    
+    isLoggedIn: false,
+    activeUser: {
+        userName: '',
+        password: '',
+        localization: '',
+        blackTheme: true,
+        openUserPanel: false,
+        activeWidget: ''
+    },
+    users: [],
   };
+
+  //all widgets: 
+  // weather / notes / calendar / calculator 
+  // movies / books / expenses / time tracker 
+  // board games / calorie counter / music 
+  // translator / video games / exercises
