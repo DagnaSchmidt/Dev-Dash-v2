@@ -8,7 +8,7 @@ const initialStore = {
         localization: '',
         blackTheme: true,
         openUserPanel: false,
-        activeWidget: ''
+        activeWidget: 'none'
     },
     users: [],
   };
@@ -18,3 +18,9 @@ const initialStore = {
   // movies / books / expenses / time tracker 
   // board games / calorie counter / music 
   // translator / video games / exercises
+
+  function reducer(state = initialStore, action) {
+
+  }
+
+  export default reducer;
