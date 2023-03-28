@@ -1,10 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
 import { createStore } from "redux";
 import reducer from "./reducer";
 import { Provider } from "react-redux";
 import Info from "./Components/Info";
 import BottomBar from "./Components/BottomBar";
 import Main from "./Main";
+import './Styles/app.css';
 
 const store = createStore(
   reducer,
