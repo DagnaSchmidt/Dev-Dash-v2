@@ -1,0 +1,11 @@
+:root {
+  --color-bg: #1E1E1E;
+  --color-white: #E7E7E7;
+  --color-light-grey: #AFAFAF;
+}
+
+.bottom-bar {
+  background-color: var(--color-white);
+  border-radius: 24px;
+  padding: 12px;
+}/*# sourceMappingURL=BottomBar.css.map */

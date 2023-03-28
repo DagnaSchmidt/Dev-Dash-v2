@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import '../Styles/Components_Styles/BottomBar.css';
 
 const BottomBar = () => {
   return (
@@ -8,4 +9,4 @@ const BottomBar = () => {
   )
 }
 
-export default BottomBar
+export default BottomBar;

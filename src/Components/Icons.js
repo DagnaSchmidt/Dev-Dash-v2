@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import '../Styles/Components_Styles/Icons.css';
 
 const Icons = ( {activeWidget} ) => {
   return (
