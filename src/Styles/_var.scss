@@ -3,3 +3,9 @@
     --color-white: #E7E7E7;
     --color-light-grey: #AFAFAF;
 }
+
+@mixin background-white {
+    background-color: var(--color-white);
+    border-radius: 24px;
+    padding: 12px;
+}

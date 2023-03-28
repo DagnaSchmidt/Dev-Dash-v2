@@ -11,7 +11,7 @@ const Main = ( {activeWidget} ) => {
             <BrowserRouter>
                 <div>Main</div>
                 <Routes>
-                    <Route path='/weather' element={<Weather />} />
+                    <Route path='/' element={<Weather />} />
                 </Routes>
             </BrowserRouter>
         </main>

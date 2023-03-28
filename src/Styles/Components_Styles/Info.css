@@ -1,0 +1,13 @@
+:root {
+  --color-bg: #1E1E1E;
+  --color-white: #E7E7E7;
+  --color-light-grey: #AFAFAF;
+}
+
+.info {
+  height: 100%;
+  min-height: 528px;
+  background-color: var(--color-white);
+  border-radius: 24px;
+  padding: 12px;
+}/*# sourceMappingURL=Info.css.map */
