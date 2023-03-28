@@ -5,13 +5,18 @@ import Weather from './Components/Weather/Weather';
 
 const Main = ( {activeWidget} ) => {
   return (
-    <main>
-        <BrowserRouter>
-            <Routes>
-                <Route path='/weather' element={<Weather />} />
-            </Routes>
-        </BrowserRouter>
-    </main>
+    <>
+    {activeWidget !== 'none' &&
+        <main className='main'>
+            <BrowserRouter>
+                <div>Main</div>
+                <Routes>
+                    <Route path='/weather' element={<Weather />} />
+                </Routes>
+            </BrowserRouter>
+        </main>
+    }
+    </>
   )
 }
 

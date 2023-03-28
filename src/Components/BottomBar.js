@@ -2,7 +2,7 @@ import React from 'react'
 
 const BottomBar = () => {
   return (
-    <footer>
+    <footer className='bottom-bar'>
         bottom bar
     </footer>
   )
