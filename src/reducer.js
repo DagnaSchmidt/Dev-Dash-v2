@@ -25,6 +25,7 @@ const initialStore = {
     if (action.type === TOGGLE_COLOR_THEME) {
         return { ...state, activeUser: { ...state.activeUser, blackTheme: !state.activeUser.blackTheme} };
       }
+      return state;
   }
 
   export default reducer;
