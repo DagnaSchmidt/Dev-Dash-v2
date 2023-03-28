@@ -8,7 +8,7 @@ const initialStore = {
         localization: '',
         blackTheme: true,
         openUserPanel: false,
-        activeWidget: ''
+        activeWidget: 'none'
     },
     users: [],
   };

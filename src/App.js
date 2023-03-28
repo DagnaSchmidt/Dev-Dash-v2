@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes,  } from "react-router-dom";
+import { connect } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./reducer";
 import { Provider } from "react-redux";
@@ -13,19 +14,22 @@ const store = createStore(
 
 //changed createStore for configureStore
 
+console.log(store);
 
-function App() {
+function App( {activeWidget} ) {
   return (
     <Provider store={store}>
       <div className='app'>
         <Info />
-        <main>
-          <BrowserRouter>
-            <Routes>
-              <Route path='/weather' element={<Weather />} />
-            </Routes>
-          </BrowserRouter>
-        </main>
+        {activeWidget !== 'none' &&
+          <main>
+            <BrowserRouter>
+              <Routes>
+                <Route path='/weather' element={<Weather />} />
+              </Routes>
+            </BrowserRouter>
+          </main>
+        }
         <div className='icons'>
 
         </div>
@@ -35,4 +39,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return { activeWidget: state.activeUser.activeWidget };
+};
+
+export default connect(mapStateToProps)(App);
