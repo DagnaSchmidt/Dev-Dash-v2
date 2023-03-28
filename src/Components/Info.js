@@ -2,7 +2,9 @@ import React from 'react';
 
 const Info = () => {
   return (
-    <header>Info</header>
+    <header className='info'>
+        Info
+    </header>
   )
 }
 

@@ -1,10 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
 import { createStore } from "redux";
 import reducer from "./reducer";
 import { Provider } from "react-redux";
 import Info from "./Components/Info";
 import BottomBar from "./Components/BottomBar";
 import Main from "./Main";
+import './Styles/app.css';
+import Icons from "./Components/Icons";
 
 const store = createStore(
   reducer,
@@ -19,9 +20,7 @@ function App() {
       <div className='app'>
         <Info />
         <Main />
-        <div className='icons'>
-
-        </div>
+        <Icons />
         <BottomBar />
       </div>
     </Provider>
