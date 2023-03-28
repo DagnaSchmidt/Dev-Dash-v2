@@ -23,7 +23,7 @@ const initialStore = {
 
   function reducer(state = initialStore, action) {
     if (action.type === TOGGLE_COLOR_THEME) {
-        return { ...state, activeUser: { ...activeUser, blackTheme: !state.activeUser.blackTheme} };
+        return { ...state, activeUser: { ...state.activeUser, blackTheme: !state.activeUser.blackTheme} };
       }
   }
 
