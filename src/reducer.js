@@ -1,4 +1,6 @@
-//import all actions
+import {
+    TOGGLE_COLOR_THEME
+} from './actions';
 
 const initialStore = {
     isLoggedIn: false,
@@ -20,7 +22,9 @@ const initialStore = {
   // translator / video games / exercises
 
   function reducer(state = initialStore, action) {
-
+    if (action.type === TOGGLE_COLOR_THEME) {
+        return { ...state, activeUser: { ...activeUser, blackTheme: !state.activeUser.blackTheme} };
+      }
   }
 
   export default reducer;

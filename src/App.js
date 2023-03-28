@@ -1,11 +1,10 @@
-import { BrowserRouter, Route, Routes,  } from "react-router-dom";
-import { connect } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
 import { createStore } from "redux";
 import reducer from "./reducer";
 import { Provider } from "react-redux";
 import Info from "./Components/Info";
 import BottomBar from "./Components/BottomBar";
-import Weather from './Components/Weather/Weather';
+import Main from "./Main";
 
 const store = createStore(
   reducer,
@@ -14,22 +13,12 @@ const store = createStore(
 
 //changed createStore for configureStore
 
-console.log(store);
-
-function App( {activeWidget} ) {
+function App() {
   return (
     <Provider store={store}>
       <div className='app'>
         <Info />
-        {activeWidget !== 'none' &&
-          <main>
-            <BrowserRouter>
-              <Routes>
-                <Route path='/weather' element={<Weather />} />
-              </Routes>
-            </BrowserRouter>
-          </main>
-        }
+        <Main />
         <div className='icons'>
 
         </div>
@@ -39,8 +28,4 @@ function App( {activeWidget} ) {
   );
 }
 
-const mapStateToProps = state => {
-  return { activeWidget: state.activeUser.activeWidget };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;

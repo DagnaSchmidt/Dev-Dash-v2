@@ -18,5 +18,8 @@
         "titleBar.inactiveBackground": "#e7e7e799",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#E7E7E7"
+    "peacock.color": "#E7E7E7",
+    "cSpell.words": [
+        "reduxjs"
+    ]
 }
