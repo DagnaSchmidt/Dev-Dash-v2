@@ -54,6 +54,7 @@ body{
 
 @media screen and (max-width: 1140px) {
     .app {
+        margin: 24px;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [last];
     }
     .info {
@@ -96,6 +97,23 @@ body{
     }
     .icons-closed {
         grid-row: 2 / 8;
+    }
+}
+@media screen and (max-width: 480px) {
+    .app {
+        min-height: 85vh;
+        margin: 16px;
+        gap: 12px;
+        grid-template-columns: 1fr 1fr 1fr 1fr [last];
+        grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr 1fr 48px;
+    }
+    .info {
+        min-height: 180px;
+        grid-column: 1 / 5;
+        grid-row: 1 / 2;
+    }
+    .main, .bottom-bar, .icons {
+        grid-column: 1 / 5;
     }
 }
 ///////////////////////////////////////////////////////////////////////
