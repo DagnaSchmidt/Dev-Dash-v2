@@ -11,6 +11,13 @@
   line-height: 44px;
 }
 
+.title-large {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -30,6 +37,14 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
+}
+
+a, button, input, h1, h2, h3, h4, h5, h6, p, ul, li, textarea {
+  all: unset;
+}
+
+ul, li {
+  list-style-type: none;
 }
 
 .app {

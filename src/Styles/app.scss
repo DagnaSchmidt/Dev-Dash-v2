@@ -20,6 +20,12 @@ body{
     display: flex;
     align-items: center;
 }
+a, button, input, h1, h2, h3, h4, h5, h6, p, ul, li, textarea {
+    all: unset;
+}
+ul, li {
+    list-style-type: none;
+}
 
 //GRID SYSTEM/////////////////////////////////////////////////////////////////////////////
 .app {

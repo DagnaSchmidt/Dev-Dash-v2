@@ -5,7 +5,7 @@ const Info = () => {
   return (
     <header className='info'>
         <div className='info__top'>
-          <p className='info__top__greeting'>
+          <p className='info__top__greeting title-large'>
             Good morning
           </p>
           <p className='info__top__username display-small'>
