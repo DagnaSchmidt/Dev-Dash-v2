@@ -9,23 +9,23 @@ const Info = () => {
             Good morning
           </p>
           <p className='info__top__username display-small'>
-            Username
+            Dagna
           </p>
         </div>
         <div className='info__bottom'>
           <div className='info__bottom__day'>
-            <p className='info__bottom__day-name'>
+            <p className='info__bottom__day-name title-medium'>
               monday
             </p>
-            <p className='info__bottom__date'>
+            <p className='info__bottom__date body-large'>
               10 / 12 / 2022
             </p>
           </div>
           <div className='info__bottom__localization'>
-            <p className='info__bottom__city'>
+            <p className='info__bottom__city body-large'>
               Gothenburg, Sweden
             </p>
-            <p className='info__bottom__clock'>
+            <p className='info__bottom__clock display-small'>
               12:30
             </p>
           </div>

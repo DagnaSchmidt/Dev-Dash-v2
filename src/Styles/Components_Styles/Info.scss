@@ -5,5 +5,34 @@
     min-height: 528px;
     @include background-white;
     color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 36px;
+    &__top {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        &__day, &__localization {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        &__day-name {
+            text-transform: uppercase;
+            opacity: .7;
+        }
+        &__clock {
+            background-color: var(--color-bg);
+            color: var(--color-white);
+            border-radius: 12px;
+            padding: 8px 12px 4px 12px;
+        }
+    }
 }
 
