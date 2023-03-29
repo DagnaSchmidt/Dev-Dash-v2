@@ -40,7 +40,7 @@ body{
     grid-row: 1 / 2;
 }
 .bottom-bar {
-    grid-column: 1 / 13;
+    grid-column: 1 / span last;
     grid-row: 2 / 3;
 }
 .icons {
@@ -50,5 +50,23 @@ body{
 }
 .icons-closed {
     grid-column-start: 4;
+}
+
+@media screen and (max-width: 1140px) {
+    .app {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [last];
+    }
+    .info {
+        grid-column: 1 / 3;
+    }
+    .main {
+        grid-column: 3 / 7;
+    }
+    .icons {
+        grid-column-start: 7;
+    }
+    .icons-closed {
+        grid-column-start: 3;
+    }
 }
 ///////////////////////////////////////////////////////////////////////
