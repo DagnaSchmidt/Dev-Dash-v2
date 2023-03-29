@@ -4,6 +4,13 @@
   --color-light-grey: #AFAFAF;
 }
 
+.display-small {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+}
+
 * {
   box-sizing: border-box;
 }

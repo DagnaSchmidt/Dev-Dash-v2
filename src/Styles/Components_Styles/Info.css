@@ -4,10 +4,18 @@
   --color-light-grey: #AFAFAF;
 }
 
+.display-small {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+}
+
 .info {
   height: 100%;
   min-height: 528px;
   background-color: var(--color-white);
   border-radius: 24px;
   padding: 12px;
+  color: var(--color-bg);
 }/*# sourceMappingURL=Info.css.map */
