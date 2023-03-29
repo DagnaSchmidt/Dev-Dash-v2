@@ -6,14 +6,29 @@ const Info = () => {
     <header className='info'>
         <div className='info__top'>
           <p className='info__top__greeting'>
-            Greeting hardcoded
+            Good morning
           </p>
           <p className='info__top__username display-small'>
-            Username hardcoded
+            Username
           </p>
         </div>
         <div className='info__bottom'>
-
+          <div className='info__bottom__day'>
+            <p className='info__bottom__day-name'>
+              monday
+            </p>
+            <p className='info__bottom__date'>
+              10 / 12 / 2022
+            </p>
+          </div>
+          <div className='info__bottom__localization'>
+            <p className='info__bottom__city'>
+              Gothenburg, Sweden
+            </p>
+            <p className='info__bottom__clock'>
+              12:30
+            </p>
+          </div>
         </div>
     </header>
   )
