@@ -7,6 +7,11 @@ const Info = () => {
   const [currentDay, setCurrentDay] = useState('');
   const day = new Date().getDay();
   const hour = new Date().getHours();
+  const minutes = new Date().getMinutes();
+
+  const date = new Date().getDate();
+  const month = new Date().getMonth();
+  const year = new Date().getFullYear();
 
 
   function checkTime(){
@@ -59,7 +64,7 @@ useEffect(() => {
               {currentDay}
             </p>
             <p className='info__bottom__date body-large'>
-              10 / 12 / 2022
+              {date} / {month +1} / {year}
             </p>
           </div>
           <div className='info__bottom__localization'>
@@ -67,7 +72,7 @@ useEffect(() => {
               Gothenburg, Sweden
             </p>
             <p className='info__bottom__clock display-small'>
-              12:30
+              {hour.toString().length === 1 ? `0${hour}` : hour}:{minutes.toString().length === 1 ? `0${minutes}` : minutes}
             </p>
           </div>
         </div>
