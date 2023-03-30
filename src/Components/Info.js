@@ -8,6 +8,8 @@ const KEY = process.env.REACT_APP_GEODB_KEY
 const Info = () => {
   const [greeting, setGreeting] = useState('');
   const [currentDay, setCurrentDay] = useState('');
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
   const day = new Date().getDay();
   const hour = new Date().getHours();
   const minutes = new Date().getMinutes();
@@ -15,6 +17,8 @@ const Info = () => {
   const date = new Date().getDate();
   const month = new Date().getMonth();
   const year = new Date().getFullYear();
+
+  // think about user name !!!!! 
 
 
   function checkTime(){
@@ -47,12 +51,15 @@ const Info = () => {
 
   function checkLocalization(){
     if (window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(localizationAccepted, localizationDenied)
+      window.navigator.geolocation.getCurrentPosition(localizationAccepted, localizationDenied);
     } else {
-      console.error('geolocation is not supported by this browser')
+      setCity('denied');
+      setCountry('denied');
     }
   }
-  
+
+  //  think about not fetching every time page reloads!
+  // check with console.logs when data is fetched!
 
   function localizationAccepted(position){
     const { latitude, longitude } = position.coords;
@@ -67,16 +74,19 @@ const Info = () => {
       }
     };
     axios.request(geodb).then(function (response) {
-      const json = response.data.json();
-      console.log(json);
+      const json = response.data.data[0];
+      setCity(json.city);
+      setCountry(json.country);
     }).catch(function (error) {
-      console.log(error);
+      setCity('denied');
+      setCountry('denied');
     });
   }
 
   function localizationDenied(error){
+    setCity('denied');
+    setCountry('denied');
     //add to store that localization: 'denied'
-    //inline conditional rendering of city and country
   }
 
 useEffect(() => {
@@ -107,7 +117,7 @@ useEffect(() => {
           </div>
           <div className='info__bottom__localization'>
             <p className='info__bottom__city body-large'>
-              Gothenburg, Sweden
+              {city !== 'denied' && `${city}, ${country}`}
             </p>
             <p className='info__bottom__clock display-small'>
               {hour.toString().length === 1 ? `0${hour}` : hour}:{minutes.toString().length === 1 ? `0${minutes}` : minutes}
