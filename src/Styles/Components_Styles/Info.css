@@ -43,6 +43,20 @@
     line-height: 22px;
   }
 }
+@media screen and (max-width: 480px) {
+  .display-small {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .title-large {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .title-medium, .body-large {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
 .info {
   height: 100%;
   min-height: 528px;
@@ -87,5 +101,22 @@
   }
   .info__bottom__day, .info__bottom__localization {
     width: 200px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .info {
+    padding-top: 18px;
+  }
+  .info__top {
+    gap: 8px;
+  }
+  .info__bottom__clock {
+    display: none;
+  }
+  .info__bottom__localization {
+    justify-content: flex-end;
+  }
+  .info__bottom__day {
+    flex-direction: column;
   }
 }/*# sourceMappingURL=Info.css.map */

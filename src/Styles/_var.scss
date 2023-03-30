@@ -47,3 +47,18 @@
         line-height: 22px;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .display-small {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .title-large {
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .title-medium, .body-large {
+        font-size: 12px;
+        line-height: 20px;
+    }
+}
