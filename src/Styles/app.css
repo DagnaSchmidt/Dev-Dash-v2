@@ -29,6 +29,34 @@
   line-height: 24px;
 }
 
+@media screen and (max-width: 1140px) {
+  .display-small {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .title-large {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .title-medium, .body-large {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .display-small {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .title-large {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .title-medium, .body-large {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -111,7 +139,7 @@ ul, li {
     grid-column-start: 3;
   }
 }
-@media screen and (max-width: 1240px) and (orientation: portrait) {
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
   .app {
     min-height: 90vh;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr [last];

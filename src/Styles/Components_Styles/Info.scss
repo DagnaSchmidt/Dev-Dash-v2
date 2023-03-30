@@ -36,3 +36,32 @@
     }
 }
 
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+    .info__bottom {
+        align-self: flex-end;
+        &__day, &__localization {
+            width: 200px;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .info {
+        padding-top: 18px;
+        &__top {
+            gap: 8px;
+        }
+        &__bottom {
+            &__clock {
+                display: none;
+            }
+            &__localization {
+                justify-content: flex-end;
+            }
+            &__day {
+                flex-direction: column;
+            }
+        }
+    }
+}
+
