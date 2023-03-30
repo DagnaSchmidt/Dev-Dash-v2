@@ -1,6 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 import '../Styles/Components_Styles/Info.css';
+const KEY = process.env.REACT_APP_GEODB_KEY
+
 
 const Info = () => {
   const [greeting, setGreeting] = useState('');
@@ -14,37 +17,72 @@ const Info = () => {
   const year = new Date().getFullYear();
 
 
-function checkTime(){
-  if(hour < 12){
-    setGreeting("Good morning")
-  }else if(hour < 18){
-    setGreeting("Good afternoon")
-  }else{
-    setGreeting("Good evening")
+  function checkTime(){
+    if(hour < 12){
+      setGreeting("Good morning")
+    }else if(hour < 18){
+      setGreeting("Good afternoon")
+    }else{
+      setGreeting("Good evening")
+    }
   }
-}
 
-function checkDay(){
-  if(day === 1){
-    setCurrentDay('Monday')
-  }else if(day === 2){
-    setCurrentDay('Tuesday')
-  }else if(day === 3){
-    setCurrentDay('Wednesday')
-  }else if(day === 4){
-    setCurrentDay('Thursday')
-  }else if(day === 5){
-    setCurrentDay('Friday')
-  }else if(day === 6){
-    setCurrentDay('Saturday')
-  }else{
-    setCurrentDay('Sunday')
+  function checkDay(){
+    if(day === 1){
+      setCurrentDay('Monday')
+    }else if(day === 2){
+      setCurrentDay('Tuesday')
+    }else if(day === 3){
+      setCurrentDay('Wednesday')
+    }else if(day === 4){
+      setCurrentDay('Thursday')
+    }else if(day === 5){
+      setCurrentDay('Friday')
+    }else if(day === 6){
+      setCurrentDay('Saturday')
+    }else{
+      setCurrentDay('Sunday')
+    }
   }
-}
+
+  function checkLocalization(){
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(localizationAccepted, localizationDenied)
+    } else {
+      console.error('geolocation is not supported by this browser')
+    }
+  }
+  
+
+  function localizationAccepted(position){
+    const { latitude, longitude } = position.coords;
+    console.log(latitude, longitude);
+    const geodb = {
+      method: 'GET',
+      params: {types: 'CITY', location: `+${latitude}+${longitude}`, minPopulation: '10000'},
+      url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities',
+      headers: {
+        'X-RapidAPI-Key': KEY,
+        'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
+      }
+    };
+    axios.request(geodb).then(function (response) {
+      const json = response.data.json();
+      console.log(json);
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  function localizationDenied(error){
+    //add to store that localization: 'denied'
+    //inline conditional rendering of city and country
+  }
 
 useEffect(() => {
     checkTime();
     checkDay();
+    checkLocalization();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
