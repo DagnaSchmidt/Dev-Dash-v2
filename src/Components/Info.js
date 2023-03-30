@@ -18,6 +18,8 @@ const Info = () => {
   const month = new Date().getMonth();
   const year = new Date().getFullYear();
 
+  // think about user name !!!!! 
+
 
   function checkTime(){
     if(hour < 12){
@@ -49,13 +51,13 @@ const Info = () => {
 
   function checkLocalization(){
     if (window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(localizationAccepted, localizationDenied)
+      window.navigator.geolocation.getCurrentPosition(localizationAccepted, localizationDenied);
     } else {
       setCity('denied');
       setCountry('denied');
     }
   }
-  
+
   //  think about not fetching every time page reloads!
   // check with console.logs when data is fetched!
 
