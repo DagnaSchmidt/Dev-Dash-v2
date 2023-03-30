@@ -14,32 +14,32 @@ const Info = () => {
   const year = new Date().getFullYear();
 
 
-  function checkTime(){
-    if(hour < 12){
-        setGreeting("Good morning")
-    }else if(hour < 18){
-        setGreeting("Good afternoon")
-    }else{
-        setGreeting("Good evening")
-    }
+function checkTime(){
+  if(hour < 12){
+    setGreeting("Good morning")
+  }else if(hour < 18){
+    setGreeting("Good afternoon")
+  }else{
+    setGreeting("Good evening")
+  }
 }
 
 function checkDay(){
-    if(day === 1){
-        setCurrentDay('Monday')
-    }else if(day === 2){
-        setCurrentDay('Tuesday')
-    }else if(day === 3){
-        setCurrentDay('Wednesday')
-    }else if(day === 4){
-        setCurrentDay('Thursday')
-    }else if(day === 5){
-        setCurrentDay('Friday')
-    }else if(day === 6){
-        setCurrentDay('Saturday')
-    }else{
-        setCurrentDay('Sunday')
-    }
+  if(day === 1){
+    setCurrentDay('Monday')
+  }else if(day === 2){
+    setCurrentDay('Tuesday')
+  }else if(day === 3){
+    setCurrentDay('Wednesday')
+  }else if(day === 4){
+    setCurrentDay('Thursday')
+  }else if(day === 5){
+    setCurrentDay('Friday')
+  }else if(day === 6){
+    setCurrentDay('Saturday')
+  }else{
+    setCurrentDay('Sunday')
+  }
 }
 
 useEffect(() => {
