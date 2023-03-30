@@ -125,7 +125,7 @@ ul, li {
     grid-column-start: 3;
   }
 }
-@media screen and (max-width: 1240px) and (orientation: portrait) {
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
   .app {
     min-height: 90vh;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr [last];

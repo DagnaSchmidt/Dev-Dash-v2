@@ -79,4 +79,13 @@
   color: var(--color-white);
   border-radius: 12px;
   padding: 8px 12px 4px 12px;
+}
+
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+  .info__bottom {
+    align-self: flex-end;
+  }
+  .info__bottom__day, .info__bottom__localization {
+    width: 200px;
+  }
 }/*# sourceMappingURL=Info.css.map */

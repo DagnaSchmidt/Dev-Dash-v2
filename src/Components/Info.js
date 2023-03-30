@@ -23,7 +23,7 @@ const Info = () => {
           </div>
           <div className='info__bottom__localization'>
             <p className='info__bottom__city body-large'>
-              Gothenburg, Sweden
+              Gothenburg <br/> Sweden
             </p>
             <p className='info__bottom__clock display-small'>
               12:30

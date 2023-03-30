@@ -36,3 +36,12 @@
     }
 }
 
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+    .info__bottom {
+        align-self: flex-end;
+    }
+    .info__bottom__day, .info__bottom__localization {
+        width: 200px;
+    }
+}
+
