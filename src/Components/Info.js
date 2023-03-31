@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { connect } from "react-redux";
 import '../Styles/Components_Styles/Info.css';
 const KEY = process.env.REACT_APP_GEODB_KEY
 
 
-const Info = () => {
+const Info = ( {userName} ) => {
   const [greeting, setGreeting] = useState('');
   const [currentDay, setCurrentDay] = useState('');
   const [city, setCity] = useState('');
@@ -63,7 +64,6 @@ const Info = () => {
 
   function localizationAccepted(position){
     const { latitude, longitude } = position.coords;
-    console.log(latitude, longitude);
     const geodb = {
       method: 'GET',
       params: {types: 'CITY', location: `+${latitude}+${longitude}`, minPopulation: '10000'},
@@ -82,6 +82,7 @@ const Info = () => {
       setCountry('denied');
     });
   }
+  console.log(userName);
 
   function localizationDenied(error){
     setCity('denied');
@@ -102,9 +103,16 @@ useEffect(() => {
           <p className='info__top__greeting title-large'>
             {greeting}
           </p>
-          <p className='info__top__username display-small'>
-            Dagna
-          </p>
+          <input 
+            type='text'
+            className='info__top__input display-small' 
+            id='userName'
+            name='userName'
+            placeholder='your name here'
+            value={userName}
+            onChange={console.log('changed')}
+            autoComplete='off'
+          />
         </div>
         <div className='info__bottom'>
           <div className='info__bottom__day'>
@@ -128,4 +136,8 @@ useEffect(() => {
   )
 }
 
-export default Info;
+const mapStateToProps = store => {
+  return { userName: store.activeUser.userName };
+};
+
+export default connect(mapStateToProps)(Info);

@@ -1,8 +1,9 @@
 import {
-    TOGGLE_COLOR_THEME
+    TOGGLE_COLOR_THEME,
+    CHANGE_USERNAME
 } from './actions';
 
-const initialStore = {
+export const initialStore = {
     isLoggedIn: false,
     activeUser: {
         userName: '',
@@ -24,7 +25,9 @@ const initialStore = {
   function reducer(state = initialStore, action) {
     if (action.type === TOGGLE_COLOR_THEME) {
         return { ...state, activeUser: { ...state.activeUser, blackTheme: !state.activeUser.blackTheme} };
-      }
+    }else if(action.type === CHANGE_USERNAME ){
+        return {...state, activeUser: {...state.activeUser, userName: 'changed value'} };
+    }
       return state;
   }
 

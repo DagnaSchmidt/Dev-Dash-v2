@@ -13,6 +13,14 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+        &__input {
+            &::placeholder {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                opacity: .6;
+            }
+        }
     }
     &__bottom {
         display: flex;
