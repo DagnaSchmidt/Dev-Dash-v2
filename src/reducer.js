@@ -6,7 +6,7 @@ import {
 const initialStore = {
     isLoggedIn: false,
     activeUser: {
-        userName: 'empty',
+        userName: 'some value',
         password: '',
         localization: '',
         blackTheme: true,

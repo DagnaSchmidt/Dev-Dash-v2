@@ -64,7 +64,6 @@ const Info = ( {userName} ) => {
 
   function localizationAccepted(position){
     const { latitude, longitude } = position.coords;
-    console.log(latitude, longitude);
     const geodb = {
       method: 'GET',
       params: {types: 'CITY', location: `+${latitude}+${longitude}`, minPopulation: '10000'},
@@ -83,6 +82,7 @@ const Info = ( {userName} ) => {
       setCountry('denied');
     });
   }
+  console.log(userName);
 
   function localizationDenied(error){
     setCity('denied');
@@ -106,6 +106,16 @@ useEffect(() => {
           <p className='info__top__username display-small'>
             Dagna
           </p>
+          <input 
+            type='text'
+            className='info__top__input' 
+            id='userName'
+            name='userName'
+            placeholder='type your name here'
+            value={userName}
+            onChange={console.log('changed')}
+            autoComplete='off'
+          />
         </div>
         <div className='info__bottom'>
           <div className='info__bottom__day'>
@@ -129,8 +139,8 @@ useEffect(() => {
   )
 }
 
-const mapStateToProps = state => {
-  return { userName: state.activeUser.userName };
+const mapStateToProps = store => {
+  return { userName: store.activeUser.userName };
 };
 
 export default connect(mapStateToProps)(Info);
