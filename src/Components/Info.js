@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { connect } from "react-redux";
 import '../Styles/Components_Styles/Info.css';
 const KEY = process.env.REACT_APP_GEODB_KEY
 
 
-const Info = () => {
+const Info = ( {userName} ) => {
   const [greeting, setGreeting] = useState('');
   const [currentDay, setCurrentDay] = useState('');
   const [city, setCity] = useState('');
@@ -128,4 +129,8 @@ useEffect(() => {
   )
 }
 
-export default Info;
+const mapStateToProps = state => {
+  return { userName: state.activeUser.userName };
+};
+
+export default connect(mapStateToProps)(Info);
