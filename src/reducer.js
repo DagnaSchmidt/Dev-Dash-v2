@@ -32,10 +32,12 @@ export const initialStore = {
     }else if(action.type === CHANGE_USERNAME){
         return {...state, activeUser: {...state.activeUser, userName: 'changed value'} };
     }else if(action.type === UPDATE_LOCALIZATION){
-        return {...state, activeUser: {...state.activeUser, city: 'new city', country: 'new country', localization: true}}
+        console.log(state)
+        return {...state, activeUser: {...state.activeUser, city: action.payload.city, country: action.payload.country, localization: true}}
     }else if(action.type === DENY_LOCALIZATION){
         return {...state, activeUser: {...state.activeUser, localization: false}}
     }
+    console.log(state);
       return state;
   }
 

@@ -7,7 +7,7 @@ import '../Styles/Components_Styles/Info.css';
 const KEY = process.env.REACT_APP_GEODB_KEY
 
 
-const Info = ( {userName, deny} ) => {
+const Info = ( {userName, deny, updateLocalization, error} ) => {
   const [greeting, setGreeting] = useState('');
   const [currentDay, setCurrentDay] = useState('');
   const [city, setCity] = useState('');
@@ -79,6 +79,7 @@ const Info = ( {userName, deny} ) => {
       const json = response.data.data[0];
       setCity(json.city);
       setCountry(json.country);
+      updateLocalization(json.city, json.country);
       //add to store city and country name
     }).catch(function (error) {
       setCity('denied');
@@ -117,6 +118,7 @@ useEffect(() => {
             onChange={console.log('changed')}
             autoComplete='off'
           />
+          <button onClick={() => error()}>button</button>
         </div>
         <div className='info__bottom'>
           <div className='info__bottom__day'>
@@ -144,8 +146,13 @@ const mapStateToProps = store => {
   return { userName: store.activeUser.userName };
 };
 
-const mapDispatchToProps = dispatch => {
-  return { deny: () => dispatch({type: DENY_LOCALIZATION})}
+const mapDispatchToProps = (dispatch, ownProps) => {
+  console.log(ownProps);
+  return { 
+    deny: () => dispatch({type: DENY_LOCALIZATION}),
+    updateLocalization: (city, country) => dispatch({type: UPDATE_LOCALIZATION, payload: {city: city, country: country}}),
+    error: () => dispatch({type: 'ERROR'})
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Info);
