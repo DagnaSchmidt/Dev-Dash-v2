@@ -7,7 +7,7 @@ import '../Styles/Components_Styles/Info.css';
 const KEY = process.env.REACT_APP_GEODB_KEY
 
 
-const Info = ( {userName, deny, updateLocalization, error} ) => {
+const Info = ( {userName, deny, updateLocalization, error, changeUserName} ) => {
   const [greeting, setGreeting] = useState('');
   const [currentDay, setCurrentDay] = useState('');
   const [city, setCity] = useState('');
@@ -19,9 +19,6 @@ const Info = ( {userName, deny, updateLocalization, error} ) => {
   const date = new Date().getDate();
   const month = new Date().getMonth();
   const year = new Date().getFullYear();
-
-  // think about user name !!!!! 
-
 
   function checkTime(){
     if(hour < 12){
@@ -61,7 +58,7 @@ const Info = ( {userName, deny, updateLocalization, error} ) => {
     }
   }
 
-  //  think about not fetching every time page reloads!
+  //  think about not fetching every time page reloads?
   // check with console.logs when data is fetched!
 
   function localizationAccepted(position){
@@ -80,19 +77,24 @@ const Info = ( {userName, deny, updateLocalization, error} ) => {
       setCity(json.city);
       setCountry(json.country);
       updateLocalization(json.city, json.country);
-      //add to store city and country name
     }).catch(function (error) {
       setCity('denied');
       setCountry('denied');
       deny();
     });
   }
-  console.log(userName);
 
   function localizationDenied(error){
     setCity('denied');
     setCountry('denied');
     deny();
+  }
+
+  //THINK ABOUT STYLING INPUT
+  const handleChange = (e) => {
+    e.preventDefault();
+    const {value} = e.target;
+    changeUserName(value);
   }
 
 useEffect(() => {
@@ -113,9 +115,9 @@ useEffect(() => {
             className='info__top__input display-small' 
             id='userName'
             name='userName'
-            placeholder='your name here'
+            placeholder={userName}
             value={userName}
-            onChange={console.log('changed')}
+            onChange={handleChange}
             autoComplete='off'
           />
           <button onClick={() => error()}>button</button>
@@ -151,6 +153,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return { 
     deny: () => dispatch({type: DENY_LOCALIZATION}),
     updateLocalization: (city, country) => dispatch({type: UPDATE_LOCALIZATION, payload: {city: city, country: country}}),
+    changeUserName: (name) => dispatch({type: CHANGE_USERNAME, payload: {name: name}}),
     error: () => dispatch({type: 'ERROR'})
   }
 }

@@ -8,7 +8,7 @@ import {
 export const initialStore = {
     isLoggedIn: false,
     activeUser: {
-        userName: '',
+        userName: 'your name',
         password: '',
         localization: '', // true / false
         city: '',
@@ -28,9 +28,9 @@ export const initialStore = {
 
   function reducer(state = initialStore, action) {
     if (action.type === TOGGLE_COLOR_THEME) {
-        return { ...state, activeUser: { ...state.activeUser, blackTheme: !state.activeUser.blackTheme} };
+        return { ...state, activeUser: { ...state.activeUser, blackTheme: !state.activeUser.blackTheme}};
     }else if(action.type === CHANGE_USERNAME){
-        return {...state, activeUser: {...state.activeUser, userName: 'changed value'} };
+        return {...state, activeUser: {...state.activeUser, userName: action.payload.name}};
     }else if(action.type === UPDATE_LOCALIZATION){
         console.log(state)
         return {...state, activeUser: {...state.activeUser, city: action.payload.city, country: action.payload.country, localization: true}}
