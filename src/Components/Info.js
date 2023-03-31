@@ -103,15 +103,12 @@ useEffect(() => {
           <p className='info__top__greeting title-large'>
             {greeting}
           </p>
-          <p className='info__top__username display-small'>
-            Dagna
-          </p>
           <input 
             type='text'
-            className='info__top__input' 
+            className='info__top__input display-small' 
             id='userName'
             name='userName'
-            placeholder='type your name here'
+            placeholder='your name here'
             value={userName}
             onChange={console.log('changed')}
             autoComplete='off'

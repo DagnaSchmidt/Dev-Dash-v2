@@ -74,6 +74,18 @@
   flex-direction: column;
   gap: 12px;
 }
+.info__top__input::-moz-placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  opacity: 0.6;
+}
+.info__top__input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  opacity: 0.6;
+}
 .info__bottom {
   display: flex;
   flex-direction: column;
