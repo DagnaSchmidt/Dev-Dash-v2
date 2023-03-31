@@ -2,11 +2,12 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { connect } from "react-redux";
+import { DENY_LOCALIZATION, UPDATE_LOCALIZATION, CHANGE_USERNAME } from '../actions';
 import '../Styles/Components_Styles/Info.css';
 const KEY = process.env.REACT_APP_GEODB_KEY
 
 
-const Info = ( {userName} ) => {
+const Info = ( {userName, deny} ) => {
   const [greeting, setGreeting] = useState('');
   const [currentDay, setCurrentDay] = useState('');
   const [city, setCity] = useState('');
@@ -56,6 +57,7 @@ const Info = ( {userName} ) => {
     } else {
       setCity('denied');
       setCountry('denied');
+      deny();
     }
   }
 
@@ -77,9 +79,11 @@ const Info = ( {userName} ) => {
       const json = response.data.data[0];
       setCity(json.city);
       setCountry(json.country);
+      //add to store city and country name
     }).catch(function (error) {
       setCity('denied');
       setCountry('denied');
+      deny();
     });
   }
   console.log(userName);
@@ -87,7 +91,7 @@ const Info = ( {userName} ) => {
   function localizationDenied(error){
     setCity('denied');
     setCountry('denied');
-    //add to store that localization: 'denied'
+    deny();
   }
 
 useEffect(() => {
@@ -140,4 +144,8 @@ const mapStateToProps = store => {
   return { userName: store.activeUser.userName };
 };
 
-export default connect(mapStateToProps)(Info);
+const mapDispatchToProps = dispatch => {
+  return { deny: () => dispatch({type: DENY_LOCALIZATION})}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Info);
