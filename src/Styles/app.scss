@@ -57,7 +57,6 @@ ul, li {
 .icons-closed {
     grid-column-start: 4;
 }
-
 @media screen and (max-width: 1140px) {
     .app {
         margin: 24px;
@@ -76,7 +75,6 @@ ul, li {
         grid-column-start: 3;
     }
 }
-//THINK ABOUT ORIENTATION ???
 @media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
     .app {
         min-height: 90vh;
@@ -105,7 +103,6 @@ ul, li {
         grid-row: 2 / 8;
     }
 }
-
 @media screen and (max-width: 480px) {
     .app {
         min-height: 85vh;
@@ -124,3 +121,23 @@ ul, li {
     }
 }
 ///////////////////////////////////////////////////////////////////////
+/// 
+/// //ICONS
+.icon-48 {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: var(--color-bg);
+    background-color: var(--color-light-grey);
+    border-radius: 12px;
+    opacity: .9;
+    transition: var(--transition);
+    &:hover {
+        cursor: pointer;
+        border-radius: 18px;
+        opacity: 1;
+    }
+}
