@@ -2,7 +2,8 @@ import {
     TOGGLE_COLOR_THEME,
     CHANGE_USERNAME,
     UPDATE_LOCALIZATION,
-    DENY_LOCALIZATION
+    DENY_LOCALIZATION,
+    CLOSE_WIDGET
 } from './actions';
 
 export const initialStore = {
@@ -15,7 +16,7 @@ export const initialStore = {
         country: '',
         blackTheme: true,
         openUserPanel: false,
-        activeWidget: 'none'
+        activeWidget: 'weather'
     },
     users: [],
   };
@@ -36,8 +37,9 @@ export const initialStore = {
         return {...state, activeUser: {...state.activeUser, city: action.payload.city, country: action.payload.country, localization: true}}
     }else if(action.type === DENY_LOCALIZATION){
         return {...state, activeUser: {...state.activeUser, localization: false}}
+    }else if(action.type === CLOSE_WIDGET){
+        return {...state, activeUser: {...state.activeUser, activeWidget: 'none'}}
     }
-    console.log(state);
       return state;
   }
 
