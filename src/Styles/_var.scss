@@ -2,6 +2,8 @@
     --color-bg: #1E1E1E;
     --color-white: #E7E7E7;
     --color-light-grey: #AFAFAF;
+
+    --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
 }
 
 @mixin background-white {
