@@ -2,4 +2,17 @@
 
 .bottom-bar {
     @include background-white;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [last];
+    &__icons {
+        grid-column: 1 / 4;
+    }
+    &__widget {
+        grid-column: 4 / 10;
+    }
+    &__navigation {
+        grid-column-start: 10;
+        grid-column-end: span last;
+    }
 }

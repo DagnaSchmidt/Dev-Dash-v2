@@ -4,6 +4,7 @@
     height: 100%;
     min-height: 528px;
     @include background-white;
+    padding: 12px;
     color: var(--color-bg);
     display: flex;
     flex-direction: column;

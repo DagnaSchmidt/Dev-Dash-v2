@@ -91,6 +91,7 @@ const Info = ( {userName, deny, updateLocalization, error, changeUserName} ) => 
   }
 
   //THINK ABOUT STYLING INPUT
+  //DELETE CHECK BUTTON ERROR
   const handleChange = (e) => {
     e.preventDefault();
     const {value} = e.target;
@@ -120,7 +121,7 @@ useEffect(() => {
             onChange={handleChange}
             autoComplete='off'
           />
-          <button onClick={() => error()}>button</button>
+          <button onClick={() => error()}>button</button> 
         </div>
         <div className='info__bottom'>
           <div className='info__bottom__day'>
