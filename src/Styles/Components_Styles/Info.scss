@@ -45,6 +45,13 @@
     }
 }
 
+@media screen and (max-width: 1140px) {
+    .info__top__input::placeholder {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
 @media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
     .info__bottom {
         align-self: flex-end;
@@ -59,6 +66,10 @@
         padding-top: 18px;
         &__top {
             gap: 8px;
+            &__input::placeholder {
+                font-size: 18px;
+                line-height: 22px;
+            }
         }
         &__bottom {
             &__clock {

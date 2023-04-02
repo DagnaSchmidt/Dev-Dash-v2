@@ -108,6 +108,16 @@
   padding: 8px 12px 4px 12px;
 }
 
+@media screen and (max-width: 1140px) {
+  .info__top__input::-moz-placeholder {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .info__top__input::placeholder {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
 @media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
   .info__bottom {
     align-self: flex-end;
@@ -122,6 +132,14 @@
   }
   .info__top {
     gap: 8px;
+  }
+  .info__top__input::-moz-placeholder {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .info__top__input::placeholder {
+    font-size: 18px;
+    line-height: 22px;
   }
   .info__bottom__clock {
     display: none;
