@@ -77,4 +77,25 @@
 .bottom-bar__navigation {
   grid-column-start: 10;
   grid-column-end: span last;
+}
+
+@media screen and (max-width: 1140px) {
+  .bottom-bar {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [last];
+  }
+  .bottom-bar__icons {
+    grid-column: 1/3;
+  }
+  .bottom-bar__widget {
+    grid-column: 3/7;
+  }
+  .bottom-bar__navigation {
+    grid-column-start: 7;
+  }
+}
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+  .bottom-bar {
+    display: flex;
+    justify-content: space-between;
+  }
 }/*# sourceMappingURL=BottomBar.css.map */
