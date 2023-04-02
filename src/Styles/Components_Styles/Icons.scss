@@ -1,10 +1,30 @@
 @import '../var';
 
 .icons {
-    border: 1px solid white; //temp style DELETE LATER
     display: grid;
     column-gap: 20px;
     row-gap: 24px;
     grid-template-columns: 1fr 1fr 1fr [last];
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    &__icon {
+        display: flex;
+        align-items: center;
+        border-radius: 24px;
+        border: var(--border-white-dashed);
+        font-size: 32px;
+        color: var(--color-white);
+        padding: 0 24px;
+        transition: var(--transition);
+        opacity: .8;
+        &__title {
+            width: 100%;
+            text-align: center;
+        }
+        &:hover {
+            border: var(--border-white);
+            cursor: pointer;
+            border-radius: 18px;
+            opacity: 1;
+        }
+    }
 }
