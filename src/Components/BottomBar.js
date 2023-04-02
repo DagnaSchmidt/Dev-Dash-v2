@@ -2,9 +2,10 @@ import React from 'react';
 import '../Styles/Components_Styles/BottomBar.css';
 import { IoApps, IoPerson } from "react-icons/io5";
 import { connect } from "react-redux";
-import { CLOSE_WIDGET } from '../actions';
+import { CLOSE_WIDGET, TOGGLE_COLOR_THEME, TOGGLE_COLOR_THEME_BLACK } from '../actions';
+import ColorThemeToggle from './ColorThemeToggle';
 
-const BottomBar = ( { closeWidget } ) => {
+const BottomBar = ( { closeWidget, activeWidget } ) => {
   return (
     <footer className='bottom-bar'>
       <div className='bottom-bar__icons'>
@@ -15,9 +16,12 @@ const BottomBar = ( { closeWidget } ) => {
           <IoPerson />
         </button>
       </div>
-      <div className='bottom-bar__widget'>
-        widget
-      </div>
+      {activeWidget !== 'none' && 
+        <div className='bottom-bar__widget'>
+          <h5 className='bottom-bar__widget__title title-large'>{activeWidget}</h5>
+          <ColorThemeToggle />
+        </div>
+      }
       <div className='bottom-bar__navigation'>
         nav
       </div>
@@ -26,7 +30,10 @@ const BottomBar = ( { closeWidget } ) => {
 }
 
 const mapStateToProps = store => {
-  return { userName: store.activeUser.userName };
+  return { 
+    userName: store.activeUser.userName, 
+    activeWidget: store.activeUser.activeWidget
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

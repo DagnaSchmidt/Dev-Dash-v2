@@ -3,6 +3,7 @@
   --color-white: #E7E7E7;
   --color-light-grey: #AFAFAF;
   --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
+  --border-white: 1px solid var(--color-white);
 }
 
 .display-small {
@@ -77,14 +78,14 @@
 }
 .info__top__input::-moz-placeholder {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 22px;
+  line-height: 26px;
   opacity: 0.6;
 }
 .info__top__input::placeholder {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 22px;
+  line-height: 26px;
   opacity: 0.6;
 }
 .info__bottom {
@@ -106,8 +107,19 @@
   color: var(--color-white);
   border-radius: 12px;
   padding: 8px 12px 4px 12px;
+  margin-left: 8px;
 }
 
+@media screen and (max-width: 1140px) {
+  .info__top__input::-moz-placeholder {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .info__top__input::placeholder {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
 @media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
   .info__bottom {
     align-self: flex-end;
@@ -122,6 +134,14 @@
   }
   .info__top {
     gap: 8px;
+  }
+  .info__top__input::-moz-placeholder {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .info__top__input::placeholder {
+    font-size: 18px;
+    line-height: 22px;
   }
   .info__bottom__clock {
     display: none;
