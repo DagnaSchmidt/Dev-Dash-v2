@@ -9,7 +9,7 @@ import {
 export const initialStore = {
     isLoggedIn: false,
     activeUser: {
-        userName: 'your name',
+        userName: '',
         password: '',
         localization: '', // true / false
         city: '',
