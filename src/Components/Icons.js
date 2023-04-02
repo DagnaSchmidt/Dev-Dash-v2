@@ -6,7 +6,7 @@ import '../Styles/Components_Styles/Icons.css';
 
 const Icons = ( {activeWidget} ) => {
 
-  const allWidgets = [
+  const widgetsList = [
     ['calculator', 'IoCalculator'],
     ['notes', 'IoCopy'],
     ['calendar', 'IoCalendar'],
@@ -24,9 +24,17 @@ const Icons = ( {activeWidget} ) => {
     ['drink recipes', 'IoBeer']
   ]
 
+  const allWidgets = widgetsList.map((item) => {
+    return (
+      <div key={item[0]}>
+        {item[0]}
+      </div>
+    )
+  })
+
   return (
     <section className={`icons ${activeWidget === 'none' && 'icons-closed'}`}>
-        Icons
+        {allWidgets}
     </section>
   )
 }

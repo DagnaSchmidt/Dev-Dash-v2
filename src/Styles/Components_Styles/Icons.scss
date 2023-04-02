@@ -2,4 +2,9 @@
 
 .icons {
     border: 1px solid white; //temp style DELETE LATER
+    display: grid;
+    column-gap: 20px;
+    row-gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr [last];
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
