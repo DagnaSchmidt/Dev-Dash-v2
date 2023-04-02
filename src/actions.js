@@ -1,6 +1,7 @@
 //actions redux
 
 export const TOGGLE_COLOR_THEME = "TOGGLE_COLOR_THEME";
+export const TOGGLE_COLOR_THEME_BLACK = "TOGGLE_COLOR_THEME_BLACK";
 
 export const LOG_IN = "LOG_IN";
 export const SIGN_UP = "SIGN_UP";

@@ -236,6 +236,7 @@ ul, li {
   background-color: var(--color-bg);
   border-radius: 12px;
   border: var(--border-white);
+  transition: var(--transition);
 }
 .color-theme-toggle__btns .black, .color-theme-toggle__btns .color {
   width: 36px;

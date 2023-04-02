@@ -173,6 +173,7 @@ ul, li {
             background-color: var(--color-bg);
             border-radius: 12px;
             border: var(--border-white);
+            transition: var(--transition);
         }
         .black, .color {
             width: 36px;

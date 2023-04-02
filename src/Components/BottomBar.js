@@ -2,7 +2,7 @@ import React from 'react';
 import '../Styles/Components_Styles/BottomBar.css';
 import { IoApps, IoPerson } from "react-icons/io5";
 import { connect } from "react-redux";
-import { CLOSE_WIDGET } from '../actions';
+import { CLOSE_WIDGET, TOGGLE_COLOR_THEME, TOGGLE_COLOR_THEME_BLACK } from '../actions';
 import ColorThemeToggle from './ColorThemeToggle';
 
 const BottomBar = ( { closeWidget, activeWidget } ) => {
