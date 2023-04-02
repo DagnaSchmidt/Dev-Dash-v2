@@ -153,3 +153,55 @@ ul, li {
 }
 ///////////////////////////////////////////////////////////////////////
 /// 
+/// COLOR_THEME_TOGGLER
+.color-theme-toggle {
+    background-color: var(--color-light-grey);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    width: 162px;
+    &__btns {
+        position: relative;
+        width: 72px;
+        height: 36px;
+        display: flex;
+        .bg {
+            width: 36px;
+            height: 36px;
+            position: absolute;
+            left: 0;
+            background-color: var(--color-bg);
+            border-radius: 12px;
+            border: var(--border-white);
+        }
+        .black, .color {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            .dot {
+                z-index: 3;
+                width: 12px;
+                height: 12px;
+                border-radius: 6px;
+                border: var(--border-white);
+            }
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .black {
+            .dot {
+                background-color: var(--color-bg);
+            }
+        }
+        .active {
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+}
