@@ -84,6 +84,7 @@
 .bottom-bar__widget__title {
   text-align: center;
   text-transform: capitalize;
+  padding-top: 8px;
 }
 .bottom-bar__navigation {
   grid-column-start: 10;

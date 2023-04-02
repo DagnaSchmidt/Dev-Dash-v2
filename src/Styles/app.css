@@ -220,7 +220,11 @@ ul, li {
   border-radius: 12px;
   display: flex;
   align-items: center;
-  width: 162px;
+  width: 178px;
+}
+.color-theme-toggle__title {
+  padding: 0 8px;
+  opacity: 0.8;
 }
 .color-theme-toggle__btns {
   position: relative;
@@ -262,4 +266,13 @@ ul, li {
 }
 .color-theme-toggle__btns .active:hover {
   cursor: default;
+}
+
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+  .color-theme-toggle {
+    width: 72px;
+  }
+  .color-theme-toggle__title {
+    display: none;
+  }
 }/*# sourceMappingURL=app.css.map */

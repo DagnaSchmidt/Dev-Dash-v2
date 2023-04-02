@@ -159,7 +159,11 @@ ul, li {
     border-radius: 12px;
     display: flex;
     align-items: center;
-    width: 162px;
+    width: 178px;
+    &__title {
+        padding: 0 8px;
+        opacity: .8;
+    }
     &__btns {
         position: relative;
         width: 72px;
@@ -204,5 +208,13 @@ ul, li {
                 cursor: default;
             }
         }
+    }
+}
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+    .color-theme-toggle {
+        width: 72px;
+        &__title {
+            display: none
+        };
     }
 }
