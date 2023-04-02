@@ -65,14 +65,24 @@
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [last];
 }
+.bottom-bar__icons, .bottom-bar__widget, .bottom-bar__navigation {
+  padding: 12px;
+}
 .bottom-bar__icons {
   grid-column: 1/4;
-  padding: 12px;
   display: flex;
   gap: 12px;
 }
 .bottom-bar__widget {
   grid-column: 4/10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  gap: 20px;
+}
+.bottom-bar__widget__title {
+  text-align: center;
+  text-transform: capitalize;
 }
 .bottom-bar__navigation {
   grid-column-start: 10;
@@ -103,8 +113,10 @@
   .bottom-bar {
     border-radius: 12px;
   }
-  .bottom-bar__icons {
+  .bottom-bar__icons, .bottom-bar__widget, .bottom-bar__navigation {
     padding: 6px;
+  }
+  .bottom-bar__icons {
     gap: 6px;
   }
 }/*# sourceMappingURL=BottomBar.css.map */

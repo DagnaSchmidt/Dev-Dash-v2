@@ -36,6 +36,7 @@ ul, li {
     max-width: 1320px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [last];
     grid-template-rows: auto 72px;
+    transition: var(--transition);  //not working -> how to animate grid change??
 }
 .info {
     grid-column: 1 / 4;
@@ -44,6 +45,7 @@ ul, li {
 .main {
     grid-column: 4 / 10;
     grid-row: 1 / 2;
+    transition: var(--transition);  //not working -> how to animate grid change??
 }
 .bottom-bar {
     grid-column: 1 / span last;
@@ -53,6 +55,7 @@ ul, li {
     grid-column-start: 10;
     grid-column-end: span last;
     grid-row: 1 / 2;
+    transition: var(--transition); //not working -> how to animate grid change??
 }
 .icons-closed {
     grid-column-start: 4;

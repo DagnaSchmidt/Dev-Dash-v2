@@ -5,14 +5,24 @@
     display: grid;
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [last];
+    &__icons, &__widget, &__navigation {
+        padding: 12px;
+    }
     &__icons {
         grid-column: 1 / 4;
-        padding: 12px;
         display: flex;
         gap: 12px;
     }
     &__widget {
         grid-column: 4 / 10;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-content: center;
+        gap: 20px;
+        &__title {
+            text-align: center;
+            text-transform: capitalize;
+        }
     }
     &__navigation {
         grid-column-start: 10;
@@ -45,8 +55,10 @@
 @media screen and (max-width: 480px) {
     .bottom-bar {
         border-radius: 12px;
-        &__icons {
+        &__icons, &__widget, &__navigation {
             padding: 6px;
+        }
+        &__icons {
             gap: 6px;
         }
     }
