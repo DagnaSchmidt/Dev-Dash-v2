@@ -28,13 +28,11 @@ const Icons = ( {activeWidget, changeWidget} ) => {
 
   const allWidgets = widgetsList.map((item) => {
     return (
-      <Link to='/' key={item[0]} className='icons__icon' style={{justifyContent: activeWidget !== 'none' && 'center'}}>
-        <div onClick={() => changeWidget(item[2])}>
+      <Link to='/' key={item[0]} className='icons__icon' style={{justifyContent: activeWidget !== 'none' && 'center'}} onClick={() => changeWidget(item[2])}>
           {item[1]}
           <p className='icons__icon__title headline-small' style={{display: activeWidget !== 'none' && 'none'}}>
             {item[0]}
           </p>
-        </div>
       </Link>
     )
   })
