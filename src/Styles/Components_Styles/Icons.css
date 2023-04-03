@@ -2,6 +2,7 @@
   --color-bg: #1E1E1E;
   --color-white: #E7E7E7;
   --color-light-grey: #AFAFAF;
+  --color-light-grey-10: #AFAFAF10;
   --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
   --border-white: 1px solid var(--color-white);
   --border-white-dashed: 1px dashed var(--color-white);
@@ -90,6 +91,7 @@
   text-align: center;
 }
 .icons__icon:hover {
+  background-color: var(--color-light-grey-10);
   border: var(--border-white);
   cursor: pointer;
   border-radius: 18px;
