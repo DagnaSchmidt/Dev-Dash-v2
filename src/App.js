@@ -7,6 +7,7 @@ import BottomBar from "./Components/BottomBar";
 import Main from "./Main";
 import './Styles/app.css';
 import Icons from "./Components/Icons";
+import { BrowserRouter } from "react-router-dom";
 
 const store = createStore(
   reducer,
@@ -19,12 +20,14 @@ console.log(store.getState());
 function App() {
   return (
     <Provider store={store}>
-      <div className='app'>
-        <Info />
-        <Main />
-        <Icons />
-        <BottomBar />
-      </div>
+      <BrowserRouter>
+        <div className='app'>
+          <Info />
+          <Main />
+          <Icons />
+          <BottomBar />
+        </div>
+      </BrowserRouter>
     </Provider>
   );
 }

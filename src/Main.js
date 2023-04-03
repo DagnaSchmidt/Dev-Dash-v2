@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes,  } from "react-router-dom";
+import { Route, Routes,  } from "react-router-dom";
 import { connect } from "react-redux";
 import Weather from './Components/Weather/Weather';
 
@@ -8,12 +8,10 @@ const Main = ( {activeWidget} ) => {
     <>
     {activeWidget !== 'none' &&
         <main className='main'>
-            <BrowserRouter>
-                <div>Main</div>
-                <Routes>
-                    <Route path='/' element={<Weather />} />
-                </Routes>
-            </BrowserRouter>
+          <div>Main</div>
+          <Routes>
+              <Route path='/' element={<Weather />} />
+          </Routes>
         </main>
     }
     </>
