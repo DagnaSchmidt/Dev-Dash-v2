@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { CLOSE_WIDGET, TOGGLE_COLOR_THEME, TOGGLE_COLOR_THEME_BLACK } from '../actions';
 import ColorThemeToggle from './ColorThemeToggle';
 
+//change display of widget_title !!!
+
 const BottomBar = ( { closeWidget, activeWidget } ) => {
   return (
     <footer className='bottom-bar'>
@@ -18,7 +20,7 @@ const BottomBar = ( { closeWidget, activeWidget } ) => {
       </div>
       {activeWidget !== 'none' && 
         <div className='bottom-bar__widget'>
-          <h5 className='bottom-bar__widget__title title-large'>{activeWidget}</h5>
+          <h5 className='bottom-bar__widget__title title-large'>{activeWidget}</h5> 
           <ColorThemeToggle />
         </div>
       }

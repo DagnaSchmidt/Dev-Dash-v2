@@ -21,6 +21,7 @@
             text-align: center;
         }
         &:hover {
+            background-color: var(--color-light-grey-10);
             border: var(--border-white);
             cursor: pointer;
             border-radius: 18px;

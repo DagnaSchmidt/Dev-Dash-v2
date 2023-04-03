@@ -4,7 +4,8 @@ import {
     CHANGE_USERNAME,
     UPDATE_LOCALIZATION,
     DENY_LOCALIZATION,
-    CLOSE_WIDGET
+    CLOSE_WIDGET,
+    CHANGE_ACTIVE_WIDGET
 } from './actions';
 
 export const initialStore = {
@@ -42,6 +43,8 @@ export const initialStore = {
         return {...state, activeUser: {...state.activeUser, localization: false}}
     }else if(action.type === CLOSE_WIDGET){
         return {...state, activeUser: {...state.activeUser, activeWidget: 'none'}}
+    }else if(action.type === CHANGE_ACTIVE_WIDGET){
+        return {...state, activeUser: {...state.activeUser, activeWidget: action.payload.widget}}
     }
       return state;
   }
