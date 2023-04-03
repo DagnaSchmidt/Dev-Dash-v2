@@ -4,6 +4,7 @@ import { IoCalculator, IoBeer ,  IoCopy, IoCalendar, IoBarbell, IoCaretForwardCi
 import { IoMdPartlySunny } from "react-icons/io";
 import '../Styles/Components_Styles/Icons.css';
 import { CHANGE_ACTIVE_WIDGET } from '../actions';
+import { Link } from 'react-router-dom';
 
 const Icons = ( {activeWidget, changeWidget} ) => {
 
@@ -27,12 +28,14 @@ const Icons = ( {activeWidget, changeWidget} ) => {
 
   const allWidgets = widgetsList.map((item) => {
     return (
-      <div key={item[0]} className='icons__icon' style={{justifyContent: activeWidget !== 'none' && 'center'}} onClick={() => changeWidget(item[2])}>
-        {item[1]}
-        <p className='icons__icon__title headline-small' style={{display: activeWidget !== 'none' && 'none'}}>
-          {item[0]}
-        </p>
-      </div>
+      <Link to='/' key={item[0]} className='icons__icon' style={{justifyContent: activeWidget !== 'none' && 'center'}}>
+        <div onClick={() => changeWidget(item[2])}>
+          {item[1]}
+          <p className='icons__icon__title headline-small' style={{display: activeWidget !== 'none' && 'none'}}>
+            {item[0]}
+          </p>
+        </div>
+      </Link>
     )
   })
 
