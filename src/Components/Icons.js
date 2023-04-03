@@ -7,21 +7,21 @@ import '../Styles/Components_Styles/Icons.css';
 const Icons = ( {activeWidget} ) => {
 
   const widgetsList = [
-    ['calculator', <IoCalculator />],
-    ['notes', <IoCopy />],
-    ['calendar', <IoCalendar />],
-    ['weather', <IoMdPartlySunny />],
-    ['time tracker', <IoCaretForwardCircle />],
-    ['expenses', <IoCellular />],
-    ['calorie counter', <IoFastFood />],
-    ['translator', <IoLanguage />],
-    ['movies', <IoFilm />],
-    ['books', <IoLibrary />],
-    ['board games', <IoDice />],
-    ['music', <IoHeadset />],
-    ['video games', <IoGameController />],
-    ['exercises', <IoBarbell />],
-    ['drink recipes', <IoBeer />]
+    ['calculator', <IoCalculator />, 'calculator'],
+    ['notes', <IoCopy />, 'notes'],
+    ['calendar', <IoCalendar />, 'calendar'],
+    ['weather', <IoMdPartlySunny />, 'weather'],
+    ['time tracker', <IoCaretForwardCircle />, 'timeTracker'],
+    ['expenses', <IoCellular />, 'expenses'],
+    ['calorie counter', <IoFastFood />, 'calorieCounter'],
+    ['translator', <IoLanguage />, 'translator'],
+    ['movies', <IoFilm />, 'movies'],
+    ['books', <IoLibrary />, 'books'],
+    ['board games', <IoDice />, 'boardGames'],
+    ['music', <IoHeadset />, 'music'],
+    ['video games', <IoGameController />, 'videoGames'],
+    ['exercises', <IoBarbell />, 'exercises'],
+    ['drink recipes', <IoBeer />, 'drinkRecipes']
   ]
 
   const allWidgets = widgetsList.map((item) => {
