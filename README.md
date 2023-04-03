@@ -2,7 +2,7 @@
 
 Free-time project: Dashboard with widgets.
 
-Functions: create an account, log in to an account, personalize dashboard (choose which widgets should be displayed). User data stored in local storage.
+Functions: create an account, log in to an account, delete account. User data stored in local storage.
 
 Available widgets:
 
