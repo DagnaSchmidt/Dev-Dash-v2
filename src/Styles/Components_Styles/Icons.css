@@ -117,5 +117,8 @@
   .icons__container-open {
     position: absolute;
     overflow: hidden;
+    gap: 8px;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(15, 1fr);
   }
 }/*# sourceMappingURL=Icons.css.map */
