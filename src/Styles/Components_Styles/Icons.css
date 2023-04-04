@@ -76,6 +76,7 @@
   row-gap: 24px;
   grid-template-columns: 1fr 1fr 1fr [last];
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  overflow: hidden;
 }
 .icons__icon {
   display: flex;
@@ -98,4 +99,10 @@
   cursor: pointer;
   border-radius: 18px;
   opacity: 1;
+}
+
+@media screen and (max-width: 1140px) {
+  .icons__container {
+    row-gap: 42px;
+  }
 }/*# sourceMappingURL=Icons.css.map */
