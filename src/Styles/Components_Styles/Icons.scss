@@ -1,11 +1,14 @@
 @import '../var';
 
 .icons {
-    display: grid;
-    column-gap: 20px;
-    row-gap: 24px;
-    grid-template-columns: 1fr 1fr 1fr [last];
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    &__container {
+        height: 100%;
+        display: grid;
+        column-gap: 20px;
+        row-gap: 24px;
+        grid-template-columns: 1fr 1fr 1fr [last];
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    }
     &__icon {
         display: flex;
         align-items: center;

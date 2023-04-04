@@ -68,7 +68,8 @@
     line-height: 20px;
   }
 }
-.icons {
+.icons__container {
+  height: 100%;
   display: grid;
   -moz-column-gap: 20px;
        column-gap: 20px;
