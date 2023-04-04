@@ -39,7 +39,7 @@ const Icons = ( {activeWidget, changeWidget} ) => {
 
   return (
     <section className={`icons ${activeWidget === 'none' && 'icons-closed'}`}>
-      <div className='icons__container'>
+      <div className={`icons__container ${activeWidget !== 'none' && 'icons__container-open'}`}>
         {allWidgets}
       </div>
     </section>

@@ -1,8 +1,10 @@
 @import '../var';
 
 .icons {
+    position: relative;
     &__container {
         height: 100%;
+        width: 100%;
         display: grid;
         column-gap: 20px;
         row-gap: 24px;
@@ -33,8 +35,19 @@
         }
     }
 }
+
 @media screen and (max-width: 1140px) {
     .icons__container {
         row-gap: 42px;
+    }
+}
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+    .icons__container {
+        row-gap: 24px;
+    }
+    .icons__container-open {
+        position: absolute;
+        overflow: hidden;
+
     }
 }
