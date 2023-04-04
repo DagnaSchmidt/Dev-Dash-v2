@@ -68,9 +68,6 @@
     line-height: 20px;
   }
 }
-.icons {
-  position: relative;
-}
 .icons__container {
   height: 100%;
   width: 100%;
@@ -118,8 +115,7 @@
     row-gap: 24px;
   }
   .icons__container-open {
-    position: absolute;
-    overflow: hidden;
+    overflow: scroll;
     gap: 8px;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(15, 10%);
