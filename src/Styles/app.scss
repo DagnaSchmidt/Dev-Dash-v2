@@ -43,6 +43,8 @@ ul, li {
     grid-row: 1 / 2;
 }
 .main {
+    border: var(--border-white-3);
+    border-radius: 24px;
     grid-column: 4 / 10;
     grid-row: 1 / 2;
     transition: var(--transition);  //not working -> how to animate grid change??
