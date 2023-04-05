@@ -91,7 +91,6 @@ const Info = ( {userName, deny, updateLocalization, error, changeUserName} ) => 
   }
 
   //THINK ABOUT STYLING INPUT
-  //DELETE CHECK BUTTON ERROR
   const handleChange = (e) => {
     e.preventDefault();
     const {value} = e.target;
@@ -121,7 +120,6 @@ useEffect(() => {
             onChange={handleChange}
             autoComplete='off'
           />
-          <button onClick={() => error()}>button</button> 
         </div>
         <div className='info__bottom'>
           <div className='info__bottom__day'>
@@ -154,8 +152,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return { 
     deny: () => dispatch({type: DENY_LOCALIZATION}),
     updateLocalization: (city, country) => dispatch({type: UPDATE_LOCALIZATION, payload: {city: city, country: country}}),
-    changeUserName: (name) => dispatch({type: CHANGE_USERNAME, payload: {name: name}}),
-    error: () => dispatch({type: 'ERROR'})
+    changeUserName: (name) => dispatch({type: CHANGE_USERNAME, payload: {name: name}})
   }
 }
 

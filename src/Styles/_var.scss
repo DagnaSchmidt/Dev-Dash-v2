@@ -9,6 +9,8 @@
 
     --border-white: 1px solid var(--color-white);
     --border-white-dashed: 1px dashed var(--color-white);
+
+    --border-white-3: 3px solid var(--color-white);
 }
 
 @mixin background-white {

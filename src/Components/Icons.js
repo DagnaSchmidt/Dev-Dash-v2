@@ -9,26 +9,26 @@ import { Link } from 'react-router-dom';
 const Icons = ( {activeWidget, changeWidget} ) => {
 
   const widgetsList = [
-    ['calculator', <IoCalculator />, 'calculator'],
+    ['calculator', <IoCalculator />, ''],
     ['notes', <IoCopy />, 'notes'],
-    ['calendar', <IoCalendar />, 'calendar'],
+    ['calendar', <IoCalendar />, ''],
     ['weather', <IoMdPartlySunny />, 'weather'],
-    ['time tracker', <IoCaretForwardCircle />, 'timeTracker'],
-    ['expenses', <IoCellular />, 'expenses'],
-    ['calorie counter', <IoFastFood />, 'calorieCounter'],
-    ['translator', <IoLanguage />, 'translator'],
-    ['movies', <IoFilm />, 'movies'],
-    ['books', <IoLibrary />, 'books'],
-    ['board games', <IoDice />, 'boardGames'],
-    ['music', <IoHeadset />, 'music'],
-    ['video games', <IoGameController />, 'videoGames'],
-    ['exercises', <IoBarbell />, 'exercises'],
-    ['drink recipes', <IoBeer />, 'drinkRecipes']
+    ['time tracker', <IoCaretForwardCircle />, ''],
+    ['expenses', <IoCellular />, ''],
+    ['calorie counter', <IoFastFood />, ''],
+    ['translator', <IoLanguage />, ''],
+    ['movies', <IoFilm />, ''],
+    ['books', <IoLibrary />, ''],
+    ['board games', <IoDice />, ''],
+    ['music', <IoHeadset />, ''],
+    ['video games', <IoGameController />, ''],
+    ['exercises', <IoBarbell />, ''],
+    ['drink recipes', <IoBeer />, '']
   ]
 
   const allWidgets = widgetsList.map((item) => {
     return (
-      <Link to='/' key={item[0]} className='icons__icon' style={{justifyContent: activeWidget !== 'none' && 'center'}} onClick={() => changeWidget(item[2])}>
+      <Link to={`/${item[2]}`} key={item[0]} className='icons__icon' style={{justifyContent: activeWidget !== 'none' && 'center', padding: activeWidget !== 'none' && '0'}} onClick={() => changeWidget(item[2])}>
           {item[1]}
           <p className='icons__icon__title headline-small' style={{display: activeWidget !== 'none' && 'none'}}>
             {item[0]}
@@ -39,7 +39,9 @@ const Icons = ( {activeWidget, changeWidget} ) => {
 
   return (
     <section className={`icons ${activeWidget === 'none' && 'icons-closed'}`}>
+      <div className={`icons__container ${activeWidget !== 'none' && 'icons__container-open'}`} id='icons-container'>
         {allWidgets}
+      </div>
     </section>
   )
 }
@@ -47,7 +49,6 @@ const Icons = ( {activeWidget, changeWidget} ) => {
 const mapStateToProps = state => {
     return { activeWidget: state.activeUser.activeWidget };
   };
-
 const mapDispatchToProps = dispatch => {
   return {
     changeWidget: (widget) => dispatch({type: CHANGE_ACTIVE_WIDGET, payload: {widget: widget}})

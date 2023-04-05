@@ -6,6 +6,7 @@
   --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
   --border-white: 1px solid var(--color-white);
   --border-white-dashed: 1px dashed var(--color-white);
+  --border-white-3: 3px solid var(--color-white);
 }
 
 .display-small {
@@ -67,13 +68,16 @@
     line-height: 20px;
   }
 }
-.icons {
+.icons__container {
+  height: 100%;
+  width: 100%;
   display: grid;
   -moz-column-gap: 20px;
        column-gap: 20px;
   row-gap: 24px;
   grid-template-columns: 1fr 1fr 1fr [last];
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  overflow: hidden;
 }
 .icons__icon {
   display: flex;
@@ -96,4 +100,34 @@
   cursor: pointer;
   border-radius: 18px;
   opacity: 1;
+}
+
+@media screen and (max-width: 1140px) {
+  .icons__container {
+    row-gap: 42px;
+  }
+}
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+  .icons__icon {
+    font-size: 28px;
+  }
+  .icons__container {
+    row-gap: 24px;
+  }
+  .icons__container-open {
+    overflow: scroll;
+    gap: 8px;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(15, 10%);
+  }
+}
+@media screen and (max-width: 480px) {
+  .icons__icon {
+    font-size: 22px;
+    height: 70%;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 }/*# sourceMappingURL=Icons.css.map */

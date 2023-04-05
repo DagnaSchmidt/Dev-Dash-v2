@@ -6,6 +6,7 @@
   --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
   --border-white: 1px solid var(--color-white);
   --border-white-dashed: 1px dashed var(--color-white);
+  --border-white-3: 3px solid var(--color-white);
 }
 
 .display-small {
@@ -95,8 +96,20 @@
   padding-top: 8px;
 }
 .bottom-bar__navigation {
+  display: none;
   grid-column-start: 10;
   grid-column-end: span last;
+  align-items: center;
+}
+.bottom-bar__navigation__btns__btn {
+  height: 36px;
+  background-color: var(--color-light-grey);
+  border-radius: 12px;
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
 }
 
 @media screen and (max-width: 1140px) {
@@ -117,6 +130,9 @@
   .bottom-bar {
     display: flex;
     justify-content: space-between;
+  }
+  .bottom-bar__navigation {
+    display: flex;
   }
 }
 @media screen and (max-width: 480px) {

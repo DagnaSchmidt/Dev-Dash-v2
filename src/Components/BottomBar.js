@@ -1,13 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../Styles/Components_Styles/BottomBar.css';
-import { IoApps, IoPerson } from "react-icons/io5";
+import { IoApps, IoPerson, IoChevronBack, IoChevronForwardOutline } from "react-icons/io5";
 import { connect } from "react-redux";
-import { CLOSE_WIDGET, TOGGLE_COLOR_THEME, TOGGLE_COLOR_THEME_BLACK } from '../actions';
+import { CLOSE_WIDGET } from '../actions';
 import ColorThemeToggle from './ColorThemeToggle';
 
 //change display of widget_title !!!
 
 const BottomBar = ( { closeWidget, activeWidget } ) => {
+  const [scroll, setScroll] = useState('left');
+  //element = document.getElementById('icons-container');
+
+  console.log(document.getElementById('icons-container'))
+
+  const scrollLeft = () => {
+    setScroll('left');
+    //element.scroll(100, 0);
+  }
+
+  const scrollRight = () => {
+    setScroll('right');
+    //element.scroll(100, 0);
+  }
+
   return (
     <footer className='bottom-bar'>
       <div className='bottom-bar__icons'>
@@ -25,7 +40,17 @@ const BottomBar = ( { closeWidget, activeWidget } ) => {
         </div>
       }
       <div className='bottom-bar__navigation'>
-        nav
+        <div className='bottom-bar__navigation__btns'>
+          {scroll === 'left' ?
+            <button className='bottom-bar__navigation__btns__btn' onClick={() => scrollRight()}>
+              <IoChevronForwardOutline />
+            </button>
+          :
+            <button className='bottom-bar__navigation__btns__btn' onClick={() => scrollLeft()}>
+              <IoChevronBack />
+            </button>
+          }
+        </div>
       </div>
     </footer>
   )
