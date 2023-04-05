@@ -49,7 +49,6 @@ const Icons = ( {activeWidget, changeWidget} ) => {
 const mapStateToProps = state => {
     return { activeWidget: state.activeUser.activeWidget };
   };
-
 const mapDispatchToProps = dispatch => {
   return {
     changeWidget: (widget) => dispatch({type: CHANGE_ACTIVE_WIDGET, payload: {widget: widget}})
