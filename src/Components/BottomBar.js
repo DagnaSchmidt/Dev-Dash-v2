@@ -10,7 +10,8 @@ import ColorThemeToggle from './ColorThemeToggle';
 const BottomBar = ( { closeWidget, activeWidget } ) => {
   const [scroll, setScroll] = useState('left');
   const element = document.getElementById('icons-container');
-  console.log(element)
+  
+  console.log(element) // null on first render (scroll function don't work)
 
   const scrollLeft = () => {
     setScroll('left');

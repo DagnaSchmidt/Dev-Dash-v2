@@ -43,9 +43,10 @@
 @media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
     .icons__icon {
         font-size: 28px;
+        min-height: 44px;
     }
     .icons__container {
-        row-gap: 24px;
+        row-gap: 12px;
     }
     .icons__container-open {
         overflow: scroll;
