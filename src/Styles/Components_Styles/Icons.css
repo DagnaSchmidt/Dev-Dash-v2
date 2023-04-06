@@ -19,7 +19,7 @@
 .headline-small {
   font-weight: 300;
   font-size: 24px;
-  line-height: 32px;
+  line-height: 26px;
 }
 
 .title-large {
@@ -45,6 +45,10 @@
     font-size: 32px;
     line-height: 40px;
   }
+  .headline-small {
+    font-size: 22px;
+    line-height: 24px;
+  }
   .title-large {
     font-size: 20px;
     line-height: 24px;
@@ -58,6 +62,10 @@
   .display-small {
     font-size: 28px;
     line-height: 36px;
+  }
+  .headline-small {
+    font-size: 16px;
+    line-height: 18px;
   }
   .title-large {
     font-size: 18px;
@@ -110,9 +118,13 @@
 @media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
   .icons__icon {
     font-size: 28px;
+    min-height: 44px;
+    padding: 8px 12px;
   }
   .icons__container {
-    row-gap: 24px;
+    -moz-column-gap: 12px;
+         column-gap: 12px;
+    row-gap: 8px;
   }
   .icons__container-open {
     overflow: scroll;
@@ -129,5 +141,9 @@
     bottom: 0;
     margin-top: auto;
     margin-bottom: auto;
+  }
+  .icons__container, .icons__container-open {
+    row-gap: 8px;
+    gap: 8px;
   }
 }/*# sourceMappingURL=Icons.css.map */
