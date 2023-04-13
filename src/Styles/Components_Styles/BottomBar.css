@@ -138,6 +138,7 @@
   .bottom-bar {
     display: flex;
     justify-content: space-between;
+    gap: 0;
   }
   .bottom-bar__navigation {
     display: flex;
@@ -152,5 +153,9 @@
   }
   .bottom-bar__icons {
     gap: 6px;
+  }
+  .bottom-bar__widget {
+    gap: 8px;
+    padding: 12px 0;
   }
 }/*# sourceMappingURL=BottomBar.css.map */

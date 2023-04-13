@@ -23,6 +23,7 @@ body{
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 a, button, input, h1, h2, h3, h4, h5, h6, p, ul, li, textarea {
     all: unset;
@@ -40,7 +41,7 @@ ul, li {
     max-width: 1320px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [last];
     grid-template-rows: auto 72px;
-    transition: var(--transition);  //not working -> how to animate grid change??
+    //transition: var(--transition);  //not working -> how to animate grid change??
 }
 .info {
     grid-column: 1 / 4;
@@ -51,7 +52,7 @@ ul, li {
     border-radius: 24px;
     grid-column: 4 / 10;
     grid-row: 1 / 2;
-    transition: var(--transition);  //not working -> how to animate grid change??
+    //transition: var(--transition);  //not working -> how to animate grid change??
 }
 .bottom-bar {
     grid-column: 1 / span last;
@@ -61,7 +62,7 @@ ul, li {
     grid-column-start: 10;
     grid-column-end: span last;
     grid-row: 1 / 2;
-    transition: var(--transition); //not working -> how to animate grid change??
+    //transition: var(--transition); //not working -> how to animate grid change??
 }
 .icons-closed {
     grid-column-start: 4;
