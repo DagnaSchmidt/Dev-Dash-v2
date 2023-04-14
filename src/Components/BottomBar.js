@@ -48,11 +48,11 @@ const BottomBar = ( { closeWidget, activeWidget } ) => {
       <div className='bottom-bar__navigation'>
         <div className='bottom-bar__navigation__btns'>
           {scroll === 'left' ?
-            <button className='bottom-bar__navigation__btns__btn' onClick={() => scrollRight()}>
+            <button className='scroll-btn' onClick={() => scrollRight()}>
               <IoChevronForwardOutline />
             </button>
           :
-            <button className='bottom-bar__navigation__btns__btn' onClick={() => scrollLeft()}>
+            <button className='scroll-btn' onClick={() => scrollLeft()}>
               <IoChevronBack />
             </button>
           }

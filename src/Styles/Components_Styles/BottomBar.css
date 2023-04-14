@@ -109,16 +109,6 @@
   grid-column-end: span last;
   align-items: center;
 }
-.bottom-bar__navigation__btns__btn {
-  height: 36px;
-  background-color: var(--color-light-grey);
-  border-radius: 12px;
-  width: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 22px;
-}
 
 @media screen and (max-width: 1140px) {
   .bottom-bar {
