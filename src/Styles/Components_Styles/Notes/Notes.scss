@@ -1,0 +1,10 @@
+@import '../../var';
+
+.notes {
+    height: 100%;
+    display: flex;
+    background-color: aqua;
+    &__left, &__right {
+        width: 50%;
+    }
+}

@@ -1,0 +1,86 @@
+:root {
+  --color-bg: #1E1E1E;
+  --color-white: #E7E7E7;
+  --color-light-grey: #AFAFAF;
+  --color-light-grey-10: #AFAFAF10;
+  --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
+  --border-white: 1px solid var(--color-white);
+  --border-white-dashed: 1px dashed var(--color-white);
+  --border-white-3: 3px solid var(--color-white);
+}
+
+.display-small {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.headline-small {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.title-large {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.title-medium {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.body-large {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 1140px) {
+  .display-small {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .headline-small {
+    font-size: 22px;
+    line-height: 24px;
+  }
+  .title-large {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .title-medium, .body-large {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .display-small {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .headline-small {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  .title-large {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .title-medium, .body-large {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+.notes {
+  height: 100%;
+  display: flex;
+  background-color: aqua;
+}
+.notes__left, .notes__right {
+  width: 50%;
+}/*# sourceMappingURL=Notes.css.map */
