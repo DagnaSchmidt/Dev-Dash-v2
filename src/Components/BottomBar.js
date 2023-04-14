@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../Styles/Components_Styles/BottomBar.css';
-import { IoApps, IoPerson, IoChevronBack, IoChevronForwardOutline } from "react-icons/io5";
+import { IoApps, IoPerson, IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { connect } from "react-redux";
 import { CLOSE_WIDGET } from '../actions';
 import ColorThemeToggle from './ColorThemeToggle';
@@ -49,7 +49,7 @@ const BottomBar = ( { closeWidget, activeWidget } ) => {
         <div className='bottom-bar__navigation__btns'>
           {scroll === 'left' ?
             <button className='scroll-btn' onClick={() => scrollRight()}>
-              <IoChevronForwardOutline />
+              <IoChevronForward />
             </button>
           :
             <button className='scroll-btn' onClick={() => scrollLeft()}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
-import { IoAdd } from "react-icons/io5";
+import { IoAdd, IoChevronUp, IoChevronDown } from "react-icons/io5";
 import { connect } from "react-redux";
 
 const Notes = ( {activeNote, allNotes} ) => {
@@ -12,7 +12,12 @@ const Notes = ( {activeNote, allNotes} ) => {
         </div>
         <div className='notes__left__nav'> 
           <div className='notes__left__nav__scroll-btns'>
-
+            <button className='scroll-btn'>
+              <IoChevronDown />
+            </button>
+            <button className='scroll-btn'>
+              <IoChevronUp />
+            </button>
           </div>
           <button className='icon-36'>
             <IoAdd />
