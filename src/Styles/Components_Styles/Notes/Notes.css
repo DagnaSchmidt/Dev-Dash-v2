@@ -79,8 +79,26 @@
 .notes {
   height: 100%;
   display: flex;
-  background-color: aqua;
 }
 .notes__left, .notes__right {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.notes__left {
+  gap: 16px;
+}
+.notes__left__list {
+  height: 100%;
+  border-radius: 12px;
+  border: var(--border-white);
+}
+.notes__left__nav {
+  display: flex;
+}
+.notes__left__nav__scroll-btns {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 6px;
 }/*# sourceMappingURL=Notes.css.map */

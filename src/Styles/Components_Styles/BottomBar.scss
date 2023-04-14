@@ -30,18 +30,6 @@
         grid-column-start: 10;
         grid-column-end: span last;
         align-items: center;
-        &__btns {
-            &__btn {
-                height: 36px;
-                background-color: var(--color-light-grey);
-                border-radius: 12px;
-                width: 36px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 22px;
-            }
-        }
     }
 }
 

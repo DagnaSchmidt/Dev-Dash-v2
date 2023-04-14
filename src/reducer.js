@@ -19,7 +19,13 @@ export const initialStore = {
         blackTheme: true,
         openUserPanel: false,
         activeWidget: 'weather',
-        activeWidgetColor: '#49DEB3'
+        activeWidgetColor: '#49DEB3',
+        widgets: {
+            notes: {
+                activeNote: {},
+                allNotes: []
+            }
+        }
     },
     users: [],
   };
