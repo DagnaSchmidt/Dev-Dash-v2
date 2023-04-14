@@ -4,12 +4,19 @@ import { connect } from "react-redux";
 
 const Notes = () => {
   return (
-    <div>Notes</div>
+    <section className='notes'>
+      <div className='notes__left'>
+
+      </div>
+      <div className='notes__right'>
+
+      </div>
+    </section>
   )
 }
 
 const mapStateToProps = state => {
-  return { };
+  return {};
 };
 const mapDispatchToProps = dispatch => {
   return {};

@@ -75,4 +75,12 @@
     font-size: 12px;
     line-height: 20px;
   }
+}
+.notes {
+  height: 100%;
+  display: flex;
+  background-color: aqua;
+}
+.notes__left, .notes__right {
+  width: 50%;
 }/*# sourceMappingURL=Notes.css.map */
