@@ -5,8 +5,10 @@ import {
     UPDATE_LOCALIZATION,
     DENY_LOCALIZATION,
     CLOSE_WIDGET,
-    CHANGE_ACTIVE_WIDGET
+    CHANGE_ACTIVE_WIDGET,
+    CREATE_NEW_NOTE
 } from './actions';
+import { v4 as uuidv4 } from 'uuid';
 
 export const initialStore = {
     isLoggedIn: false,
@@ -51,6 +53,33 @@ export const initialStore = {
         return {...state, activeUser: {...state.activeUser, activeWidget: 'none'}}
     }else if(action.type === CHANGE_ACTIVE_WIDGET){
         return {...state, activeUser: {...state.activeUser, activeWidget: action.payload.widget}}
+    }else if(action.type === CREATE_NEW_NOTE){
+        const date = new Date().getDate();
+        const month = new Date().getMonth();
+        const year = new Date().getFullYear();
+        const fullDate = `${date}/${month +1}/${year}`
+        const newNote = {
+            id: uuidv4(),
+            date: fullDate,
+            title: 'Your title',
+            content: 'Your note'
+            }
+        return {
+            ...state, 
+            activeUser: {
+                ...state.activeUser, 
+                widgets: {
+                    ...state.activeUser.widgets, 
+                    notes: { 
+                        ...state.activeUser.widgets.notes,
+                        allNotes: [
+                            newNote,
+                            ...state.activeUser.widgets.notes.allNotes
+                        ]
+                     } 
+                }
+            }
+        }
     }
       return state;
   }
