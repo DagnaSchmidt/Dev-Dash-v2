@@ -26,7 +26,10 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
           {allNotes.length === 0 ?
             <div className='notes__left__list__empty'>
                 <h5 className='subtitle-medium'>Nothing here!</h5>
-                <button>create first note</button>
+                <button className='primary-button-with-icon' onClick={() => createNewNote()}>
+                  <IoAdd />
+                  <p>create first note</p>
+                </button>
             </div>
           :
           notesList

@@ -6,6 +6,7 @@
   --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
   --border-white: 1px solid var(--color-white);
   --border-white-dashed: 1px dashed var(--color-white);
+  --border-white-2: 2px solid var(--color-white);
   --border-white-3: 3px solid var(--color-white);
 }
 
@@ -283,6 +284,22 @@ ul, li {
     font-size: 22px;
   }
 }
+.primary-button-with-icon {
+  display: flex;
+  border: var(--border-white-2);
+  border-radius: 22px;
+  padding: 12px 24px 12px 12px;
+  gap: 12px;
+  transition: var(--transition);
+  opacity: 0.9;
+}
+.primary-button-with-icon:hover {
+  cursor: pointer;
+  border-radius: 18px;
+  background-color: var(--color-light-grey-10);
+  opacity: 1;
+}
+
 .color-theme-toggle {
   background-color: var(--color-light-grey);
   border-radius: 12px;

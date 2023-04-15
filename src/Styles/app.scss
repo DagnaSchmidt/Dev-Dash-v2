@@ -199,6 +199,24 @@ ul, li {
 }
 ///////////////////////////////////////////////////////////////////////
 /// 
+///     BUTTONS
+.primary-button-with-icon {
+    display: flex;
+    border: var(--border-white-2);
+    border-radius: 22px;
+    padding: 12px 24px 12px 12px;
+    gap: 12px;
+    transition: var(--transition);
+    opacity: .9;
+    &:hover {
+        cursor: pointer;
+        border-radius: 18px;
+        background-color: var(--color-light-grey-10);
+        opacity: 1;
+    }
+}
+///////////////////////////////////////////////////////////////////////
+/// 
 /// COLOR_THEME_TOGGLER
 .color-theme-toggle {
     background-color: var(--color-light-grey);

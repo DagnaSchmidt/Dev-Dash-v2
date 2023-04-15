@@ -6,6 +6,7 @@
   --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
   --border-white: 1px solid var(--color-white);
   --border-white-dashed: 1px dashed var(--color-white);
+  --border-white-2: 2px solid var(--color-white);
   --border-white-3: 3px solid var(--color-white);
 }
 
