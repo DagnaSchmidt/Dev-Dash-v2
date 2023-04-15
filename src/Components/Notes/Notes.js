@@ -3,17 +3,30 @@ import '../../Styles/Components_Styles/Notes/Notes.css';
 import { IoAdd, IoChevronUp, IoChevronDown } from "react-icons/io5";
 import { connect } from "react-redux";
 import { CREATE_NEW_NOTE } from '../../actions';
+import NotesListElement from './NotesListElement';
 
 const Notes = ( {activeNote, allNotes, createNewNote} ) => {
   let activeNoteLength = Object.keys(activeNote).length
+
+  const notesList = allNotes.map((item) => {
+    return (
+      <NotesListElement
+        key={item.id}
+       />
+    )
+  })
 
   return (
     <section className='notes'>
       <div className='notes__left'>
         <div className='notes__left__list'>
-
+          {allNotes.length === 0 ?
+          <div></div>
+          :
+          notesList
+          }
         </div>
-        <div className='notes__left__nav' style={{opacity: activeNoteLength === 0 ? '1' : '1'}}> 
+        <div className='notes__left__nav' style={{opacity: activeNoteLength === 0 ? '0' : '1'}}> 
           <div className='notes__left__nav__scroll-btns'>
             <button className='scroll-btn' onClick={console.log(allNotes)}>
               <IoChevronDown />
