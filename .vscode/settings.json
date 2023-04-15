@@ -26,6 +26,7 @@
         "GEODB",
         "Gothenburg",
         "rapidapi",
-        "reduxjs"
+        "reduxjs",
+        "uuidv"
     ]
 }

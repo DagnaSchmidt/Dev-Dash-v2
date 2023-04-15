@@ -166,8 +166,10 @@ ul, li {
     transition: var(--transition);
     &:hover {
         cursor: pointer;
-        border-radius: 18px;
+        border-radius: 8px;
         opacity: 1;
+        border: var(--border-white);
+        background-color: var(--color-light-grey-10);
     }
 }
 .scroll-btn {
@@ -180,6 +182,13 @@ ul, li {
     justify-content: center;
     align-items: center;
     font-size: 22px;
+    opacity: .9;
+    transition: var(--transition);
+    &:hover {
+        cursor: pointer;
+        border-radius: 14px;
+        opacity: 1;
+    }
 }
 @media screen and (max-width: 480px) {
     .icon-48 {
