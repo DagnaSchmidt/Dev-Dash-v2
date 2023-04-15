@@ -23,7 +23,7 @@ export const initialStore = {
         activeWidget: 'weather',
         activeWidgetColor: '#49DEB3',
         notes: {
-            activeNote: 'none',
+            activeNote: {},
             allNotes: [
                 {
                     name: 'first note'

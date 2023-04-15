@@ -12,6 +12,9 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
     return (
       <NotesListElement
         key={item.id}
+        title={item.title}
+        date={item.date}
+        id={item.id}
        />
     )
   })
