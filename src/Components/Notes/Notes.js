@@ -35,8 +35,8 @@ const Notes = ( {activeNote, allNotes} ) => {
 
 const mapStateToProps = state => {
   return { 
-    activeNote: state.activeUser.widgets.notes.activeNote,
-    allNotes: state.activeUser.widgets.notes.allNotes 
+    activeNote: state.activeUser.notes.activeNote,
+    allNotes: state.activeUser.notes.allNotes 
   };
 };
 const mapDispatchToProps = dispatch => {

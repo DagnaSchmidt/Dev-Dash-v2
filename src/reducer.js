@@ -22,11 +22,9 @@ export const initialStore = {
         openUserPanel: false,
         activeWidget: 'weather',
         activeWidgetColor: '#49DEB3',
-        widgets: {
-            notes: {
-                activeNote: {},
-                allNotes: []
-            }
+        notes: {
+            activeNote: {},
+            allNotes: []
         }
     },
     users: [],
@@ -68,16 +66,13 @@ export const initialStore = {
             ...state, 
             activeUser: {
                 ...state.activeUser, 
-                widgets: {
-                    ...state.activeUser.widgets, 
-                    notes: { 
-                        ...state.activeUser.widgets.notes,
-                        allNotes: [
-                            newNote,
-                            ...state.activeUser.widgets.notes.allNotes
-                        ]
-                     } 
-                }
+                notes: { 
+                    ...state.activeUser.widgets.notes,
+                    allNotes: [
+                        newNote,
+                        ...state.activeUser.widgets.notes.allNotes
+                    ]
+                } 
             }
         }
     }
