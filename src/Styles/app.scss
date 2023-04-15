@@ -208,6 +208,11 @@ ul, li {
     gap: 12px;
     transition: var(--transition);
     opacity: .9;
+    color: var(--color-white);
+    &__title {
+        font-size: 16px;
+        font-weight: 400;
+    }
     &:hover {
         cursor: pointer;
         border-radius: 18px;
