@@ -24,11 +24,7 @@ export const initialStore = {
         activeWidgetColor: '#49DEB3',
         notes: {
             activeNote: {},
-            allNotes: [
-                {
-                    name: 'first note'
-                }
-            ]
+            allNotes: []
         },
     },
     users: [],

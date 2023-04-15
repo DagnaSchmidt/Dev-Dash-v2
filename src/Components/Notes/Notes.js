@@ -24,7 +24,10 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
       <div className='notes__left'>
         <div className='notes__left__list'>
           {allNotes.length === 0 ?
-          <div></div>
+            <div className='notes__left__list__empty'>
+                <h5 className='subtitle-medium'>Nothing here!</h5>
+                <button>create first note</button>
+            </div>
           :
           notesList
           }
