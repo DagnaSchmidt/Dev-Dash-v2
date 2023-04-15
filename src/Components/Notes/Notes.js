@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
 import { IoAdd, IoChevronUp, IoChevronDown } from "react-icons/io5";
 import { connect } from "react-redux";
@@ -6,12 +6,12 @@ import { CREATE_NEW_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
 
 const Notes = ( {activeNote, allNotes, createNewNote} ) => {
-  const [activeNoteLength, setActiveNoteLength] = useState();
+  // const [activeNoteLength, setActiveNoteLength] = useState();
 
-  useEffect(() =>{
-    const newActiveNoteLength = Object.keys(activeNote).length;
-    setActiveNoteLength(newActiveNoteLength);
-  }, [activeNote])
+  // useEffect(() =>{
+  //   const newActiveNoteLength = Object.keys(activeNote).length;
+  //   setActiveNoteLength(newActiveNoteLength);
+  // }, [activeNote])
   
 
   const notesList = allNotes.map((item) => {
