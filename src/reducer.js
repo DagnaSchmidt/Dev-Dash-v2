@@ -23,9 +23,13 @@ export const initialStore = {
         activeWidget: 'weather',
         activeWidgetColor: '#49DEB3',
         notes: {
-            activeNote: {},
-            allNotes: []
-        }
+            activeNote: 'none',
+            allNotes: [
+                {
+                    name: 'first note'
+                }
+            ]
+        },
     },
     users: [],
   };
@@ -57,22 +61,37 @@ export const initialStore = {
         const year = new Date().getFullYear();
         const fullDate = `${date}/${month +1}/${year}`
         const newNote = {
-            id: uuidv4(),
-            date: fullDate,
-            title: 'Your title',
-            content: 'Your note'
+                id: uuidv4(),
+                date: fullDate,
+                title: 'Your title',
+                content: 'Your note'
             }
-        return {
-            ...state, 
-            activeUser: {
-                ...state.activeUser, 
-                notes: { 
-                    ...state.activeUser.widgets.notes,
-                    allNotes: [
-                        newNote,
-                        ...state.activeUser.widgets.notes.allNotes
-                    ]
-                } 
+        if(state.activeUser.notes.allNotes.length === 0){
+            return {
+                ...state, 
+                activeUser: {
+                    ...state.activeUser, 
+                    notes: { 
+                        ...state.activeUser.notes,
+                        allNotes: [
+                            newNote
+                        ]
+                    } 
+                }
+            }
+        }else{
+            return {
+                ...state, 
+                activeUser: {
+                    ...state.activeUser, 
+                    notes: { 
+                        ...state.activeUser.notes,
+                        allNotes: [
+                            newNote,
+                            ...state.activeUser.notes.allNotes
+                        ]
+                    } 
+                }
             }
         }
     }
