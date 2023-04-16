@@ -21,6 +21,7 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
         title={item.title}
         date={item.date}
         id={item.id}
+        content={item.content}
        />
     )
   })

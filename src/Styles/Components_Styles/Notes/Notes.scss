@@ -33,6 +33,16 @@
                 border-bottom: var(--border-white);
                 display: flex;
                 padding: 18px 18px 12px 0;
+                &__btn {
+                    opacity: 0;
+                    color: var(--color-white);
+                }
+                &:hover {
+                    cursor: pointer;
+                    .notes-list-element__btn {
+                        opacity: 1;
+                    }
+                }
                 &__text-container {
                     color: var(--color-white);
                     display: flex;

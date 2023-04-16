@@ -126,6 +126,16 @@
   display: flex;
   padding: 18px 18px 12px 0;
 }
+.notes__left__list .notes-list-element__btn {
+  opacity: 0;
+  color: var(--color-white);
+}
+.notes__left__list .notes-list-element:hover {
+  cursor: pointer;
+}
+.notes__left__list .notes-list-element:hover .notes-list-element__btn {
+  opacity: 1;
+}
 .notes__left__list .notes-list-element__text-container {
   color: var(--color-white);
   display: flex;
