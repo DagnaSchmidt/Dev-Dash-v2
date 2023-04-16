@@ -165,4 +165,12 @@
   flex-direction: column;
   justify-content: flex-end;
   color: var(--color-white);
+}
+.notes__right__content {
+  margin: 16px 0;
+  border-radius: 12px;
+  border: var(--border-white-dashed);
+  padding: 16px;
+  height: 60%;
+  overflow: scroll;
 }/*# sourceMappingURL=Notes.css.map */

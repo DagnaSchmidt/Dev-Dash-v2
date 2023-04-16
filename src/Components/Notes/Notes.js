@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
-import { IoAdd, IoChevronUp, IoChevronDown } from "react-icons/io5";
+import { IoAdd, IoChevronUp, IoChevronDown, IoTrash } from "react-icons/io5";
 import { connect } from "react-redux";
 import { CREATE_NEW_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
@@ -56,8 +56,22 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
           </button>
         </div>
       </div>
-      <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.3' : '1'}}>
+      <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.2' : '1'}}>
           <h3 className='notes__right__title headline-medium'>{activeNote.title ? activeNote.title : 'Your title...'}</h3>
+          <p className='notes__right__content '>{activeNote.content ? activeNote.content : 'Your note...'}</p>
+          <div className='notes__left__nav'>
+            <div className='notes__left__nav__scroll-btns'>
+              <button className='scroll-btn'>
+                <IoChevronDown />
+              </button>
+              <button className='scroll-btn'>
+                <IoChevronUp />
+              </button>
+            </div>
+            <button className='icon-36'>
+              <IoTrash />
+            </button>
+          </div>
       </div>
     </section>
   )
