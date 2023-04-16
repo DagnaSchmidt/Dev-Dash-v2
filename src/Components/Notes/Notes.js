@@ -57,7 +57,7 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
         </div>
       </div>
       <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.3' : '1'}}>
-          
+          <h3 className='notes__right__title headline-medium'>{activeNote.title ? activeNote.title : 'Your title...'}</h3>
       </div>
     </section>
   )

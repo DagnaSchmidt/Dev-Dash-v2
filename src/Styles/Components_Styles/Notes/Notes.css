@@ -17,6 +17,12 @@
   line-height: 44px;
 }
 
+.headline-medium {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+}
+
 .headline-small {
   font-weight: 300;
   font-size: 24px;
@@ -92,6 +98,7 @@
 .notes {
   height: 100%;
   display: flex;
+  gap: 48px;
 }
 .notes__left, .notes__right {
   width: 50%;
@@ -151,5 +158,11 @@
   justify-content: center;
   width: 100%;
   gap: 6px;
+  color: var(--color-white);
+}
+.notes__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   color: var(--color-white);
 }/*# sourceMappingURL=Notes.css.map */

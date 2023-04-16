@@ -3,6 +3,7 @@
 .notes {
     height: 100%;
     display: flex;
+    gap: 48px;
     &__left, &__right {
         width: 50%;
         display: flex;
@@ -62,5 +63,11 @@
                 color: var(--color-white);
             }
         }
+    }
+    &__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: var(--color-white);
     }
 }
