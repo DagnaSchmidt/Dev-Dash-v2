@@ -30,7 +30,6 @@ const mapStateToProps = store => {
   };
   const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        // changeUserName: (name) => dispatch({type: CHANGE_USERNAME, payload: {name: name}}),
         displayActiveNote: (newActiveNote) => dispatch({type: DISPLAY_ACTIVE_NOTE, payload: {newActiveNote}})
     };
   }

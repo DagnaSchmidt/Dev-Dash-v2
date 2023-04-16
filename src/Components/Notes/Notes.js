@@ -44,7 +44,7 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
         </div>
         <div className='notes__left__nav' style={{opacity: allNotes.length === 0 ? '0' : '1'}}> 
           <div className='notes__left__nav__scroll-btns' style={{opacity: allNotes.length > 5 ? '1' : '0'}}>
-            <button className='scroll-btn' onClick={console.log(allNotes)}>
+            <button className='scroll-btn' onClick={console.log(allNotes, activeNote)}>
               <IoChevronDown />
             </button>
             <button className='scroll-btn'>
@@ -56,8 +56,8 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
           </button>
         </div>
       </div>
-      <div className='notes__right'>
-
+      <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.3' : '1'}}>
+          
       </div>
     </section>
   )

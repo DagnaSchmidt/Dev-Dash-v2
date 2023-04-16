@@ -267,8 +267,6 @@ ul, li {
 .scroll-btn {
   height: 36px;
   width: 36px;
-  background-color: var(--color-light-grey);
-  border-radius: 12px;
   width: 36px;
   display: flex;
   justify-content: center;
@@ -279,7 +277,6 @@ ul, li {
 }
 .scroll-btn:hover {
   cursor: pointer;
-  border-radius: 14px;
   opacity: 1;
 }
 
