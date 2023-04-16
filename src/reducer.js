@@ -6,7 +6,8 @@ import {
     DENY_LOCALIZATION,
     CLOSE_WIDGET,
     CHANGE_ACTIVE_WIDGET,
-    CREATE_NEW_NOTE
+    CREATE_NEW_NOTE,
+    DISPLAY_ACTIVE_NOTE
 } from './actions';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -87,6 +88,17 @@ export const initialStore = {
                             ...state.activeUser.notes.allNotes
                         ]
                     } 
+                }
+            }
+        }
+    }else if(action.type === DISPLAY_ACTIVE_NOTE){
+        return {
+            ...state,
+            activeUser: {
+                ...state.activeUser,
+                notes: {
+                    ...state.activeUser.notes,
+                    activeNote: action.payload.newActiveNote
                 }
             }
         }

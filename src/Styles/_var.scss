@@ -10,6 +10,7 @@
     --border-white: 1px solid var(--color-white);
     --border-white-dashed: 1px dashed var(--color-white);
 
+    --border-white-2: 2px solid var(--color-white);
     --border-white-3: 3px solid var(--color-white);
 }
 
@@ -24,6 +25,11 @@
     font-weight: 700;
     font-size: 36px;
     line-height: 44px;
+}
+.headline-medium {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
 }
 .headline-small {
     font-weight: 300;
@@ -49,6 +55,11 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+}
+.label-medium {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
 }
 
 @media screen and (max-width: 1140px) {

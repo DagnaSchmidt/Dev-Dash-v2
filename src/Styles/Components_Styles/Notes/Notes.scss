@@ -3,6 +3,7 @@
 .notes {
     height: 100%;
     display: flex;
+    gap: 48px;
     &__left, &__right {
         width: 50%;
         display: flex;
@@ -12,11 +13,12 @@
         gap: 16px;
         &__list {
             height: 100%;
+            max-height: 420px;
             border-radius: 12px;
             border: var(--border-white);
-            padding: 18px 0;
             display: flex;
             flex-direction: column;
+            overflow: scroll;
             &__empty {
                 display: flex;
                 flex-direction: column;
@@ -28,8 +30,27 @@
                 color: var(--color-white);
             }
             .notes-list-element {
-                margin-left: 18px;
+                margin-left: 24px;
                 border-bottom: var(--border-white);
+                display: flex;
+                padding: 18px 18px 12px 0;
+                &__btn {
+                    opacity: 0;
+                    color: var(--color-white);
+                }
+                &:hover {
+                    cursor: pointer;
+                    .notes-list-element__btn {
+                        opacity: 1;
+                    }
+                }
+                &__text-container {
+                    color: var(--color-white);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    width: 100%;
+                }
             }
         }
         &__nav {
@@ -39,7 +60,22 @@
                 justify-content: center;
                 width: 100%;
                 gap: 6px;
+                color: var(--color-white);
             }
+        }
+    }
+    &__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: var(--color-white);
+        &__content {
+            margin: 16px 0;
+            border-radius: 12px;
+            border: var(--border-white-dashed);
+            padding: 16px;
+            height: 60%;
+            overflow: scroll;
         }
     }
 }

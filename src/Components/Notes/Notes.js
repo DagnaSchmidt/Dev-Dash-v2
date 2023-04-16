@@ -1,12 +1,18 @@
 import React from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
-import { IoAdd, IoChevronUp, IoChevronDown } from "react-icons/io5";
+import { IoAdd, IoChevronUp, IoChevronDown, IoTrash } from "react-icons/io5";
 import { connect } from "react-redux";
 import { CREATE_NEW_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
 
 const Notes = ( {activeNote, allNotes, createNewNote} ) => {
-  let activeNoteLength = Object.keys(activeNote).length
+  // const [activeNoteLength, setActiveNoteLength] = useState();
+
+  // useEffect(() =>{
+  //   const newActiveNoteLength = Object.keys(activeNote).length;
+  //   setActiveNoteLength(newActiveNoteLength);
+  // }, [activeNote])
+  
 
   const notesList = allNotes.map((item) => {
     return (
@@ -15,6 +21,7 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
         title={item.title}
         date={item.date}
         id={item.id}
+        content={item.content}
        />
     )
   })
@@ -26,15 +33,18 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
           {allNotes.length === 0 ?
             <div className='notes__left__list__empty'>
                 <h5 className='subtitle-medium'>Nothing here!</h5>
-                <button>create first note</button>
+                <button className='primary-button-with-icon' onClick={() => createNewNote()}>
+                  <IoAdd />
+                  <p className='primary-button-with-icon__title'>create first note</p>
+                </button>
             </div>
           :
           notesList
           }
         </div>
-        <div className='notes__left__nav' style={{opacity: activeNoteLength === 0 ? '0' : '1'}}> 
-          <div className='notes__left__nav__scroll-btns'>
-            <button className='scroll-btn' onClick={console.log(allNotes)}>
+        <div className='notes__left__nav' style={{opacity: allNotes.length === 0 ? '0' : '1'}}> 
+          <div className='notes__left__nav__scroll-btns' style={{opacity: allNotes.length > 5 ? '1' : '0'}}>
+            <button className='scroll-btn' onClick={console.log(allNotes, activeNote)}>
               <IoChevronDown />
             </button>
             <button className='scroll-btn'>
@@ -46,8 +56,22 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
           </button>
         </div>
       </div>
-      <div className='notes__right'>
-
+      <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.2' : '1'}}>
+          <h3 className='notes__right__title headline-medium'>{activeNote.title ? activeNote.title : 'Your title...'}</h3>
+          <p className='notes__right__content '>{activeNote.content ? activeNote.content : 'Your note...'}</p>
+          <div className='notes__left__nav'>
+            <div className='notes__left__nav__scroll-btns'>
+              <button className='scroll-btn'>
+                <IoChevronDown />
+              </button>
+              <button className='scroll-btn'>
+                <IoChevronUp />
+              </button>
+            </div>
+            <button className='icon-36'>
+              <IoTrash />
+            </button>
+          </div>
       </div>
     </section>
   )

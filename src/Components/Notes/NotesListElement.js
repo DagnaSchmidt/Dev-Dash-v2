@@ -1,14 +1,24 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { IoChevronForward } from "react-icons/io5";
+import { DISPLAY_ACTIVE_NOTE } from '../../actions';
 
-const NotesListElement = ({title, date, id, activeNote}) => {
+const NotesListElement = ({title, date, id, content, activeNote, displayActiveNote}) => {
+    const noteDetails = {
+        id: id,
+        date: date,
+        title: title,
+        content: content
+    }
   return (
-    <div className='notes-list-element'>
+    <div onClick={() => displayActiveNote(noteDetails)} className='notes-list-element' style={{opacity: id === activeNote.id ? '1' : '.5', paddingLeft: id === activeNote.id ? '12px' : '0', borderBottomWidth: id === activeNote.id ? '3px' : '1px'}}>
         <div className='notes-list-element__text-container'>
-            <h5 className='note-title'>{title}</h5>
-            <p className='note-date'>{date}</p>
+            <h5 className='body-large'>{title}</h5>
+            <p className='label-medium'>{date}</p>
         </div>
-        <button></button>
+        <button className='notes-list-element__btn' style={{opacity: id === activeNote.id && '0'}}>
+            <IoChevronForward />
+        </button>
     </div>
   )
 }
@@ -20,7 +30,7 @@ const mapStateToProps = store => {
   };
   const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-
+        displayActiveNote: (newActiveNote) => dispatch({type: DISPLAY_ACTIVE_NOTE, payload: {newActiveNote}})
     };
   }
 
