@@ -105,8 +105,6 @@ export const initialStore = {
         }
     }else if(action.type === DELETE_NOTE){
         const newAllNotes = state.activeUser.notes.allNotes.filter((item) => item.id !== action.payload.id);
-        console.log(action.payload.id)
-        console.log(newAllNotes);
         return {
             ...state,
             activeUser: {
