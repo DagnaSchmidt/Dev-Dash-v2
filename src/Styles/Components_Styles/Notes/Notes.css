@@ -151,6 +151,7 @@
   width: 100%;
 }
 .notes__left__nav {
+  padding-left: 36px;
   display: flex;
 }
 .notes__left__nav__scroll-btns {
