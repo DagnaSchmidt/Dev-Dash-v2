@@ -2,10 +2,10 @@ import React from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
 import { IoAdd, IoChevronUp, IoChevronDown, IoTrash } from "react-icons/io5";
 import { connect } from "react-redux";
-import { CREATE_NEW_NOTE } from '../../actions';
+import { CREATE_NEW_NOTE, DELETE_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
 
-const Notes = ( {activeNote, allNotes, createNewNote} ) => {
+const Notes = ( {activeNote, allNotes, createNewNote, deleteNote} ) => {
 
   const notesList = allNotes.map((item) => {
     return (
@@ -61,7 +61,7 @@ const Notes = ( {activeNote, allNotes, createNewNote} ) => {
                 <IoChevronUp />
               </button>
             </div>
-            <button className='icon-36'>
+            <button className='icon-36' onClick={() => deleteNote(activeNote.id)}>
               <IoTrash />
             </button>
           </div>
@@ -78,7 +78,8 @@ const mapStateToProps = store => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    createNewNote: () => dispatch({type: CREATE_NEW_NOTE})
+    createNewNote: () => dispatch({type: CREATE_NEW_NOTE}),
+    deleteNote: (id) => dispatch({type: DELETE_NOTE, payload: {id}})
   };
 }
 
