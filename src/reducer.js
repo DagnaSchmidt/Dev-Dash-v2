@@ -70,7 +70,7 @@ export const initialStore = {
                 activeUser: {
                     ...state.activeUser, 
                     notes: { 
-                        ...state.activeUser.notes,
+                        activeNote: newNote,
                         allNotes: [
                             newNote
                         ]
@@ -83,7 +83,7 @@ export const initialStore = {
                 activeUser: {
                     ...state.activeUser, 
                     notes: { 
-                        ...state.activeUser.notes,
+                        activeNote: newNote,
                         allNotes: [
                             newNote,
                             ...state.activeUser.notes.allNotes
