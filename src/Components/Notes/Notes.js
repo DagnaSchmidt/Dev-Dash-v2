@@ -6,13 +6,6 @@ import { CREATE_NEW_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
 
 const Notes = ( {activeNote, allNotes, createNewNote} ) => {
-  // const [activeNoteLength, setActiveNoteLength] = useState();
-
-  // useEffect(() =>{
-  //   const newActiveNoteLength = Object.keys(activeNote).length;
-  //   setActiveNoteLength(newActiveNoteLength);
-  // }, [activeNote])
-  
 
   const notesList = allNotes.map((item) => {
     return (
