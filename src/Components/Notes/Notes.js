@@ -31,6 +31,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
 
   //FIX EDIT NOTE WHEN INPUT IS EMPTY!!!
   //FIX NAV BTNS opacity when scrolling note content
+  //FIX GRID CHANGE WHEN THERE IS NO NOTES / SOME NOTES
 
   return (
     <section className='notes'>
@@ -66,7 +67,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
           {activeNote.title ? 
             <input 
               type='text'
-              className='notes__right__title headline-medium' 
+              className='notes__right__title headline-medium'
               id='noteTitle'
               name='noteTitle'
               value={activeNote.title}
