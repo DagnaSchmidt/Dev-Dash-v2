@@ -72,6 +72,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
               value={activeNote.title}
               onChange={handleChange}
               autoComplete='off'
+              maxLength={20}
             />
           : 
             <h3 className='notes__right__title headline-medium'>Your title...</h3>
