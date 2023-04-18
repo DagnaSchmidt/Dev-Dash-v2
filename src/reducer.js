@@ -39,7 +39,6 @@ export const initialStore = {
     const year = new Date().getFullYear();
     const fullDate = `${date}/${month +1}/${year}`
 
-
     if (action.type === TOGGLE_COLOR_THEME_BLACK){
         return { ...state, activeUser: { ...state.activeUser, blackTheme: true}};
     }else if(action.type === TOGGLE_COLOR_THEME){
@@ -113,7 +112,7 @@ export const initialStore = {
             }
         }
     }else if(action.type === EDIT_NOTE){
-        const newNotes = state.activeUser.notes.allNotes.filter((item) => item.id !== action.payload.id);
+        const newAllNotes = state.activeUser.notes.allNotes.filter((item) => item.id !== action.payload.id);
         if(action.payload.edit === 'noteTitle'){
             const newActiveNote = {
                 id: action.payload.id,
@@ -129,7 +128,7 @@ export const initialStore = {
                         activeNote: newActiveNote,
                         allNotes: [
                             newActiveNote,
-                            ...newNotes
+                            ...newAllNotes
                         ]
                     }
                 }
@@ -149,7 +148,7 @@ export const initialStore = {
                         activeNote: newActiveNote,
                         allNotes: [
                             newActiveNote,
-                            ...newNotes
+                            ...newAllNotes
                         ]
                     }
                 }
