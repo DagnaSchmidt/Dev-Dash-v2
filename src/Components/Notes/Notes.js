@@ -79,7 +79,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
           {Object.keys(activeNote).length !== 0 ? 
             <textarea 
               type='text'
-              className='notes__right__content' 
+              className='notes__right__content body-medium' 
               id='noteContent'
               name='noteContent'
               value={activeNote.content}
@@ -87,7 +87,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
               autoComplete='off'
             /> 
           : 
-            <p className='notes__right__content'>Your note...</p>
+            <p className='notes__right__content body-medium'>Your note...</p>
           }
 
           <div className='notes__left__nav' style={{opacity: Object.keys(activeNote).length === 0 ? '0' : '1'}}>
