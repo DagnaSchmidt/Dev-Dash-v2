@@ -10,7 +10,7 @@ const Icons = ( {activeWidget, changeWidget} ) => {
 
   const widgetsList = [
     ['calculator', <IoCalculator />, ''],
-    ['notes', <IoCopy />, 'notes'],
+    ['notes', <IoCopy />, 'notes', '#C00A5A'],
     ['calendar', <IoCalendar />, ''],
     ['weather', <IoMdPartlySunny />, 'weather'],
     ['time tracker', <IoCaretForwardCircle />, ''],
@@ -28,7 +28,7 @@ const Icons = ( {activeWidget, changeWidget} ) => {
 
   const allWidgets = widgetsList.map((item) => {
     return (
-      <Link to={`/${item[2]}`} key={item[0]} className='icons__icon' style={{justifyContent: activeWidget !== 'none' && 'center', padding: activeWidget !== 'none' && '0'}} onClick={() => changeWidget(item[2])}>
+      <Link to={`/${item[2]}`} key={item[0]} className='icons__icon' style={{justifyContent: activeWidget !== 'none' && 'center', padding: activeWidget !== 'none' && '0'}} onClick={() => changeWidget(item[2], item[3])}>
           {item[1]}
           <p className='icons__icon__title headline-small' style={{display: activeWidget !== 'none' && 'none'}}>
             {item[0]}
@@ -51,7 +51,7 @@ const mapStateToProps = state => {
   };
 const mapDispatchToProps = dispatch => {
   return {
-    changeWidget: (widget) => dispatch({type: CHANGE_ACTIVE_WIDGET, payload: {widget: widget}})
+    changeWidget: (widget, color) => dispatch({type: CHANGE_ACTIVE_WIDGET, payload: {widget, color}})
   }
 }
 

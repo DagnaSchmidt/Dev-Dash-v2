@@ -30,6 +30,8 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
   }
 
   //FIX NAV BTNS opacity when scrolling note content
+  //MAKE EVERYTHING RESPONSIVE
+  //CREATE COLOR THEME
 
   return (
     <section className='notes'>

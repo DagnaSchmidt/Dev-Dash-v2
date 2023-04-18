@@ -52,7 +52,7 @@ export const initialStore = {
     }else if(action.type === CLOSE_WIDGET){
         return {...state, activeUser: {...state.activeUser, activeWidget: 'none'}}
     }else if(action.type === CHANGE_ACTIVE_WIDGET){
-        return {...state, activeUser: {...state.activeUser, activeWidget: action.payload.widget}}
+        return {...state, activeUser: {...state.activeUser, activeWidget: action.payload.widget, activeWidgetColor: action.payload.color}}
     }else if(action.type === CREATE_NEW_NOTE){
         const newNote = {
                 id: uuidv4(),
