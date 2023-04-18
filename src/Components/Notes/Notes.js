@@ -2,10 +2,10 @@ import React from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
 import { IoAdd, IoChevronUp, IoChevronDown, IoTrash } from "react-icons/io5";
 import { connect } from "react-redux";
-import { CREATE_NEW_NOTE, DELETE_NOTE } from '../../actions';
+import { CREATE_NEW_NOTE, DELETE_NOTE, EDIT_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
 
-const Notes = ( {activeNote, allNotes, createNewNote, deleteNote} ) => {
+const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) => {
 
   const notesList = allNotes.map((item) => {
     return (
@@ -18,6 +18,19 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote} ) => {
        />
     )
   })
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const {value, id} = e.target;
+    if(id === 'noteTitle'){
+      editNote(activeNote.id, 'noteTitle', value)
+    }else{
+      editNote(activeNote.id, 'noteContent', value)
+    }
+  }
+
+  //FIX EDIT NOTE WHEN INPUT IS EMPTY!!!
+  //FIX NAV BTNS opacity when scrolling note content
 
   return (
     <section className='notes'>
@@ -50,8 +63,34 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote} ) => {
         </div>
       </div>
       <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.2' : '1'}}>
-          <h3 className='notes__right__title headline-medium'>{activeNote.title ? activeNote.title : 'Your title...'}</h3>
-          <p className='notes__right__content '>{activeNote.content ? activeNote.content : 'Your note...'}</p>
+          {activeNote.title ? 
+            <input 
+              type='text'
+              className='notes__right__title headline-medium' 
+              id='noteTitle'
+              name='noteTitle'
+              value={activeNote.title}
+              onChange={handleChange}
+              autoComplete='off'
+              maxLength={20}
+            />
+          : 
+            <h3 className='notes__right__title headline-medium'>Your title...</h3>
+          }
+          {activeNote.content ? 
+            <textarea 
+              type='text'
+              className='notes__right__content' 
+              id='noteContent'
+              name='noteContent'
+              value={activeNote.content}
+              onChange={handleChange}
+              autoComplete='off'
+            /> 
+          : 
+            <p className='notes__right__content'>Your note...</p>
+          }
+
           <div className='notes__left__nav' style={{opacity: Object.keys(activeNote).length === 0 ? '0' : '1'}}>
             <div className='notes__left__nav__scroll-btns'>
               <button className='scroll-btn'>
@@ -79,7 +118,8 @@ const mapStateToProps = store => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     createNewNote: () => dispatch({type: CREATE_NEW_NOTE}),
-    deleteNote: (id) => dispatch({type: DELETE_NOTE, payload: {id}})
+    deleteNote: (id) => dispatch({type: DELETE_NOTE, payload: {id}}),
+    editNote: (id, edit, changedText) => dispatch({type: EDIT_NOTE, payload: {id, edit, changedText}})
   };
 }
 

@@ -174,4 +174,7 @@
   padding: 16px;
   height: 60%;
   overflow: scroll;
+}
+.notes__right__title {
+  overflow: scroll;
 }/*# sourceMappingURL=Notes.css.map */
