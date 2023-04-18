@@ -30,6 +30,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
   }
 
   //FIX EDIT NOTE WHEN INPUT IS EMPTY!!!
+  //FIX NAV BTNS opacity when scrolling note content
 
   return (
     <section className='notes'>
@@ -76,7 +77,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
             <h3 className='notes__right__title headline-medium'>Your title...</h3>
           }
           {activeNote.content ? 
-            <input 
+            <textarea 
               type='text'
               className='notes__right__content' 
               id='noteContent'
