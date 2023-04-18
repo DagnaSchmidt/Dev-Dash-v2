@@ -29,9 +29,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
     }
   }
 
-  //FIX EDIT NOTE WHEN INPUT IS EMPTY!!!
   //FIX NAV BTNS opacity when scrolling note content
-  //FIX GRID CHANGE WHEN THERE IS NO NOTES / SOME NOTES
 
   return (
     <section className='notes'>
@@ -64,7 +62,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
         </div>
       </div>
       <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.2' : '1'}}>
-          {activeNote.title ? 
+          {Object.keys(activeNote).length !== 0 ? 
             <input 
               type='text'
               className='notes__right__title headline-medium'
@@ -78,7 +76,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
           : 
             <h3 className='notes__right__title headline-medium'>Your title...</h3>
           }
-          {activeNote.content ? 
+          {Object.keys(activeNote).length !== 0 ? 
             <textarea 
               type='text'
               className='notes__right__content' 
