@@ -18,7 +18,7 @@ export const initialStore = {
     activeUser: {
         userName: '',
         password: '',
-        localization: '', // true / false
+        localization: '',
         city: '',
         country: '',
         blackTheme: true,
@@ -33,18 +33,11 @@ export const initialStore = {
     users: [],
   };
 
-  //all widgets: 
-  // weather / notes / calendar / calculator 
-  // movies / books / expenses / time tracker 
-  // board games / calorie counter / music 
-  // translator / video games / exercises
-
   function reducer(state = initialStore, action) {
     const date = new Date().getDate();
     const month = new Date().getMonth();
     const year = new Date().getFullYear();
     const fullDate = `${date}/${month +1}/${year}`
-
 
     if (action.type === TOGGLE_COLOR_THEME_BLACK){
         return { ...state, activeUser: { ...state.activeUser, blackTheme: true}};
@@ -61,10 +54,6 @@ export const initialStore = {
     }else if(action.type === CHANGE_ACTIVE_WIDGET){
         return {...state, activeUser: {...state.activeUser, activeWidget: action.payload.widget}}
     }else if(action.type === CREATE_NEW_NOTE){
-        // const date = new Date().getDate();
-        // const month = new Date().getMonth();
-        // const year = new Date().getFullYear();
-        // const fullDate = `${date}/${month +1}/${year}`
         const newNote = {
                 id: uuidv4(),
                 date: fullDate,
@@ -123,7 +112,7 @@ export const initialStore = {
             }
         }
     }else if(action.type === EDIT_NOTE){
-        const newNotes = state.activeUser.notes.allNotes.filter((item) => item.id !== action.payload.id);
+        const newAllNotes = state.activeUser.notes.allNotes.filter((item) => item.id !== action.payload.id);
         if(action.payload.edit === 'noteTitle'){
             const newActiveNote = {
                 id: action.payload.id,
@@ -139,7 +128,7 @@ export const initialStore = {
                         activeNote: newActiveNote,
                         allNotes: [
                             newActiveNote,
-                            ...newNotes
+                            ...newAllNotes
                         ]
                     }
                 }
@@ -159,7 +148,7 @@ export const initialStore = {
                         activeNote: newActiveNote,
                         allNotes: [
                             newActiveNote,
-                            ...newNotes
+                            ...newAllNotes
                         ]
                     }
                 }

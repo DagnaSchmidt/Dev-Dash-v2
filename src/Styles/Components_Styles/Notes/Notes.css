@@ -53,6 +53,12 @@
   line-height: 24px;
 }
 
+.body-medium {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
 .label-medium {
   font-weight: 300;
   font-size: 12px;
@@ -176,5 +182,5 @@
   overflow: scroll;
 }
 .notes__right__title {
-  overflow: scroll;
+  width: 100%;
 }/*# sourceMappingURL=Notes.css.map */

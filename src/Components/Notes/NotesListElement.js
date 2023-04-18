@@ -15,7 +15,7 @@ const NotesListElement = ({title, date, id, content, activeNote, displayActiveNo
   return (
     <div onClick={() => displayActiveNote(noteDetails)} className='notes-list-element' style={{opacity: id === activeNote.id ? '1' : '.5', paddingLeft: id === activeNote.id ? '12px' : '0', borderBottomWidth: id === activeNote.id ? '3px' : '1px'}}>
         <div className='notes-list-element__text-container'>
-            <h5 className='body-large'>{titleLength < 10 ? title : `${title.slice(0, 10)}...`}</h5>
+            <h5 className='body-large'>{titleLength < 12 ? title : `${title.slice(0, 12)}...`}</h5>
             <p className='label-medium'>{date}</p>
         </div>
         <button className='notes-list-element__btn' style={{opacity: id === activeNote.id && '0'}}>
