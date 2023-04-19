@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
 import { IoAdd, IoChevronUp, IoChevronDown, IoTrash } from "react-icons/io5";
 import { connect } from "react-redux";
 import { CREATE_NEW_NOTE, DELETE_NOTE, EDIT_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
 
-const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blackTheme, activeWidgetColor } ) => {
+const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blackTheme, activeWidgetColor} ) => {
 
   const notesList = allNotes.map((item) => {
     return (
@@ -19,13 +19,21 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
     )
   })
 
+  const [scrollContent, setScrollContent] = useState(false);
+
   const handleChange = (e) => {
     e.preventDefault();
     const {value, id} = e.target;
+    const element = document.getElementById('noteContent');
     if(id === 'noteTitle'){
       editNote(activeNote.id, 'noteTitle', value)
     }else{
       editNote(activeNote.id, 'noteContent', value)
+    }
+    if(element.scrollHeight > element.clientHeight){
+      setScrollContent(true);
+    }else{
+      setScrollContent(false);
     }
   }
 
@@ -45,7 +53,6 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
     });;
   }
 
-  //FIX NAV BTNS opacity when scrolling note content
   //MAKE EVERYTHING RESPONSIVE
 
   return (
@@ -61,7 +68,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
                 </button>
             </div>
           :
-          notesList
+            notesList
           }
         </div>
         <div className='notes__left__nav' style={{opacity: allNotes.length === 0 ? '0' : '1'}}> 
@@ -103,13 +110,13 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
               onChange={handleChange}
               autoComplete='off'
               style={{borderColor: !blackTheme && activeWidgetColor}}
+              wrap='off'
             /> 
           : 
             <p className='notes__right__content body-medium' style={{borderColor: !blackTheme && activeWidgetColor}}>Your note...</p>
           }
-
           <div className='notes__left__nav' style={{opacity: Object.keys(activeNote).length === 0 ? '0' : '1'}}>
-            <div className='notes__left__nav__scroll-btns'>
+            <div className='notes__left__nav__scroll-btns' style={{opacity: scrollContent ? '1' : '0'}}>
               <button className='scroll-btn' onClick={() => scrollDown('noteContent')} style={{color: !blackTheme && activeWidgetColor}}>
                 <IoChevronDown />
               </button>
@@ -134,7 +141,7 @@ const mapStateToProps = store => {
     activeWidgetColor: store.activeUser.activeWidgetColor
   };
 };
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
     createNewNote: () => dispatch({type: CREATE_NEW_NOTE}),
     deleteNote: (id) => dispatch({type: DELETE_NOTE, payload: {id}}),
