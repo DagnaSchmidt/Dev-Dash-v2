@@ -54,16 +54,24 @@
 }
 
 @media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
-    .info__bottom {
-        align-self: flex-end;
-        &__day, &__localization {
-            width: 200px;
+    .info {
+        flex-direction: row;
+        min-height: 420px;
+        &__top {
+            max-width: 220px;
+        }
+        &__bottom {
+            align-self: flex-end;
+            &__day, &__localization {
+                width: 200px;
+            }
         }
     }
 }
 
 @media screen and (max-width: 480px) {
     .info {
+        flex-direction: column;
         padding-top: 18px;
         &__top {
             gap: 8px;

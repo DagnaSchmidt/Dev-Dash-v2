@@ -163,6 +163,13 @@
   }
 }
 @media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+  .info {
+    flex-direction: row;
+    min-height: 420px;
+  }
+  .info__top {
+    max-width: 220px;
+  }
   .info__bottom {
     align-self: flex-end;
   }
@@ -172,6 +179,7 @@
 }
 @media screen and (max-width: 480px) {
   .info {
+    flex-direction: column;
     padding-top: 18px;
   }
   .info__top {

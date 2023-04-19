@@ -53,6 +53,7 @@ ul, li {
     border-radius: 24px;
     grid-column: 4 / 10;
     grid-row: 1 / 2;
+    height: 100%;
     //transition: var(--transition);  //not working -> how to animate grid change??
 }
 .bottom-bar {
@@ -88,12 +89,13 @@ ul, li {
 }
 @media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
     .app {
-        min-height: 90vh;
+        height: 90vh;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr [last];
         grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr 1fr 72px;
     }
     .info {
-        min-height: 228px;
+        //min-height: 228px;
+        min-height: 180px;
         grid-column: 1 / 7;
         grid-row: 1 / 2;
     }
@@ -218,6 +220,13 @@ ul, li {
         border-radius: 18px;
         background-color: var(--color-light-grey-10);
         opacity: 1;
+    }
+}
+@media screen and (max-width: 1140px) {
+    .primary-button-with-icon {
+        &__title {
+            font-size: 14px;
+        }
     }
 }
 ///////////////////////////////////////////////////////////////////////
