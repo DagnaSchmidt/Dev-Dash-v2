@@ -23,8 +23,8 @@ export const initialStore = {
         country: '',
         blackTheme: true,
         openUserPanel: false,
-        activeWidget: 'weather',
-        activeWidgetColor: '#49DEB3',
+        activeWidget: 'none',
+        activeWidgetColor: '',
         notes: {
             activeNote: {},
             allNotes: []

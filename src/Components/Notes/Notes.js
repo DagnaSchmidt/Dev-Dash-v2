@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { CREATE_NEW_NOTE, DELETE_NOTE, EDIT_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
 
-const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) => {
+const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote } ) => {
 
   const notesList = allNotes.map((item) => {
     return (
@@ -30,6 +30,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
   }
 
   //FIX NAV BTNS opacity when scrolling note content
+  //ADD FUNCTION TO SCROLL NOTE CONTENT AND NOTE LIST
   //MAKE EVERYTHING RESPONSIVE
   //CREATE COLOR THEME
 
@@ -113,7 +114,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote} ) =>
 const mapStateToProps = store => {
   return { 
     activeNote: store.activeUser.notes.activeNote,
-    allNotes: store.activeUser.notes.allNotes 
+    allNotes: store.activeUser.notes.allNotes
   };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
