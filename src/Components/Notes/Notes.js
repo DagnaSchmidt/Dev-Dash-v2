@@ -50,24 +50,15 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
     checkScroll('noteContent', setScrollContent);
   }
 
-  const scrollDown = (item) => {
+  const scrollContainer = (item, top) => {
     const element = document.getElementById(item);
     element.scrollBy({
-      top: 72,
-      behavior: "smooth",
-    });;
-  }
-  const scrollUp = (item) => {
-    const element = document.getElementById(item);
-    element.scrollBy({
-      top: -72,
+      top: top,
       behavior: "smooth",
     });;
   }
 
   //MAKE EVERYTHING RESPONSIVE
-  //DISPLAY NOTES LIST ON MOBILE - check btns, style and functionality
-  //opacity: allNotes.length > 5 ? '1' : '0'
 
   return (
     <section className='notes'>
@@ -87,10 +78,10 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
         </div>
         <div className='notes__left__nav' style={{opacity: allNotes.length === 0 ? '0' : '1'}}> 
           <div className='notes__left__nav__scroll-btns' style={{opacity: scrollNotesList ? '1' : '0'}}>
-            <button className='scroll-btn' onClick={() => scrollDown('scrollNotes')} style={{color: !blackTheme && activeWidgetColor}}>
+            <button className='scroll-btn' onClick={() => scrollContainer('scrollNotes', '72')} style={{color: !blackTheme && activeWidgetColor}}>
               <IoChevronDown />
             </button>
-            <button className='scroll-btn' onClick={() => scrollUp('scrollNotes')} style={{color: !blackTheme && activeWidgetColor}}>
+            <button className='scroll-btn' onClick={() => scrollContainer('scrollNotes', '-72')} style={{color: !blackTheme && activeWidgetColor}}>
               <IoChevronUp />
             </button>
           </div>
@@ -131,10 +122,10 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
           }
           <div className='notes__left__nav' style={{opacity: Object.keys(activeNote).length === 0 ? '0' : '1'}}>
             <div className='notes__left__nav__scroll-btns' style={{opacity: scrollContent ? '1' : '0'}}>
-              <button className='scroll-btn' onClick={() => scrollDown('noteContent')} style={{color: !blackTheme && activeWidgetColor}}>
+              <button className='scroll-btn' onClick={() => scrollContainer('noteContent', '72')} style={{color: !blackTheme && activeWidgetColor}}>
                 <IoChevronDown />
               </button>
-              <button className='scroll-btn' onClick={() => scrollUp('noteContent')} style={{color: !blackTheme && activeWidgetColor}}>
+              <button className='scroll-btn' onClick={() => scrollContainer('noteContent', '-72')} style={{color: !blackTheme && activeWidgetColor}}>
                 <IoChevronUp />
               </button>
             </div>
