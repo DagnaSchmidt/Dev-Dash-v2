@@ -103,6 +103,8 @@
 }
 .notes {
   height: 100%;
+  width: 100%;
+  overflow: scroll;
   display: flex;
   gap: 48px;
 }
@@ -183,4 +185,10 @@
 }
 .notes__right__title {
   width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .notes__left, .notes__right {
+    width: 100%;
+  }
 }/*# sourceMappingURL=Notes.css.map */

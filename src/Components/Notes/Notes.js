@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
 import { IoAdd, IoChevronUp, IoChevronDown, IoTrash } from "react-icons/io5";
 import { connect } from "react-redux";
@@ -20,6 +20,23 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
   })
 
   const [scrollContent, setScrollContent] = useState(false);
+  const [scrollNotesList, setScrollNotesList] = useState(false);
+  const checkScroll = (id, functionName) => {
+    const element = document.getElementById(id);
+    if(element.scrollHeight > element.clientHeight){
+      functionName(true);
+    }else{
+      functionName(false);
+    }
+  }
+  useEffect(() => {
+    if(activeNote.content){
+      checkScroll('noteContent', setScrollContent);
+    }
+    if(allNotes.length !== 0){
+      checkScroll('scrollNotes', setScrollNotesList);
+    }
+  }, [allNotes, activeNote]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -30,11 +47,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
     }else{
       editNote(activeNote.id, 'noteContent', value)
     }
-    if(element.scrollHeight > element.clientHeight){
-      setScrollContent(true);
-    }else{
-      setScrollContent(false);
-    }
+    checkScroll('noteContent', setScrollContent);
   }
 
   const scrollDown = (item) => {
@@ -44,7 +57,6 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
       behavior: "smooth",
     });;
   }
-
   const scrollUp = (item) => {
     const element = document.getElementById(item);
     element.scrollBy({
@@ -54,11 +66,13 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
   }
 
   //MAKE EVERYTHING RESPONSIVE
+  //DISPLAY NOTES LIST ON MOBILE - check btns, style and functionality
+  //opacity: allNotes.length > 5 ? '1' : '0'
 
   return (
     <section className='notes'>
       <div className='notes__left'>
-        <div className='notes__left__list' style={{backgroundColor: !blackTheme && activeWidgetColor}} id='scroll-notes' >
+        <div className='notes__left__list' style={{backgroundColor: !blackTheme && activeWidgetColor}} id='scrollNotes' >
           {allNotes.length === 0 ?
             <div className='notes__left__list__empty'>
                 <h5 className='subtitle-medium'>Nothing here!</h5>
@@ -72,11 +86,11 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
           }
         </div>
         <div className='notes__left__nav' style={{opacity: allNotes.length === 0 ? '0' : '1'}}> 
-          <div className='notes__left__nav__scroll-btns' style={{opacity: allNotes.length > 5 ? '1' : '0'}}>
-            <button className='scroll-btn' onClick={() => scrollDown('scroll-notes')} style={{color: !blackTheme && activeWidgetColor}}>
+          <div className='notes__left__nav__scroll-btns' style={{opacity: scrollNotesList ? '1' : '0'}}>
+            <button className='scroll-btn' onClick={() => scrollDown('scrollNotes')} style={{color: !blackTheme && activeWidgetColor}}>
               <IoChevronDown />
             </button>
-            <button className='scroll-btn' onClick={() => scrollUp('scroll-notes')} style={{color: !blackTheme && activeWidgetColor}}>
+            <button className='scroll-btn' onClick={() => scrollUp('scrollNotes')} style={{color: !blackTheme && activeWidgetColor}}>
               <IoChevronUp />
             </button>
           </div>

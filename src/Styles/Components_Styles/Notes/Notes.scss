@@ -2,6 +2,8 @@
 
 .notes {
     height: 100%;
+    width: 100%;
+    overflow: scroll;
     display: flex;
     gap: 48px;
     &__left, &__right {
@@ -79,6 +81,15 @@
             overflow: scroll;
         }
         &__title {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .notes {
+        //overflow: scroll;
+        &__left, &__right {
             width: 100%;
         }
     }
