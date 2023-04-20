@@ -159,7 +159,7 @@ ul, li {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
+    font-size: 20px;
     color: var(--color-white);
     border: var(--border-white-dashed);
     border-radius: 12px;
@@ -176,8 +176,6 @@ ul, li {
 .scroll-btn {
     height: 36px;
     width: 36px;
-    //background-color: var(--color-light-grey);
-    //border-radius: 12px;
     width: 36px;
     display: flex;
     justify-content: center;
@@ -187,7 +185,6 @@ ul, li {
     transition: var(--transition);
     &:hover {
         cursor: pointer;
-        //border-radius: 14px;
         opacity: 1;
     }
 }
@@ -196,6 +193,10 @@ ul, li {
         width: 38px;
         height: 38px;
         font-size: 22px;
+    }
+    .scroll-btn {
+        font-size: 18px;
+        width: 26px;
     }
 }
 ///////////////////////////////////////////////////////////////////////

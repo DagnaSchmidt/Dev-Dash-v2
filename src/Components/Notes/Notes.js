@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
-import { IoAdd, IoChevronUp, IoChevronDown, IoTrash } from "react-icons/io5";
+import { IoAdd, IoChevronUp, IoChevronDown, IoTrash, IoChevronBack } from "react-icons/io5";
 import { connect } from "react-redux";
 import { CREATE_NEW_NOTE, DELETE_NOTE, EDIT_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
 
 const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blackTheme, activeWidgetColor} ) => {
 
+  const [mobileDisplayActiveNote, setMobileDisplayActiveNote] = useState(false);
   const notesList = allNotes.map((item) => {
     return (
       <NotesListElement
@@ -15,6 +16,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
         date={item.date}
         id={item.id}
         content={item.content}
+        setMobileDisplayActiveNote={setMobileDisplayActiveNote}
        />
     )
   })
@@ -58,11 +60,11 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
     });;
   }
 
-  //MAKE EVERYTHING RESPONSIVE
+  //MAKE EVERYTHING RESPONSIVE -> mobile 480px
 
   return (
     <section className='notes'>
-      <div className='notes__left'>
+      <div className='notes__left' style={{backgroundColor: !blackTheme && '#E7E7E7'}}>
         <div className='notes__left__list' style={{backgroundColor: !blackTheme && activeWidgetColor}} id='scrollNotes' >
           {allNotes.length === 0 ?
             <div className='notes__left__list__empty'>
@@ -85,12 +87,12 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
               <IoChevronUp />
             </button>
           </div>
-          <button className='icon-36' onClick={() => createNewNote()} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
+          <button className='icon-36' onClick={() => {createNewNote(); setMobileDisplayActiveNote(true)}} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
             <IoAdd />
           </button>
         </div>
       </div>
-      <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.2' : '1', color: !blackTheme && activeWidgetColor}}>
+      <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.2' : '1', color: !blackTheme && activeWidgetColor, backgroundColor: !blackTheme && '#E7E7E7', left: !mobileDisplayActiveNote  && '480px'}}>
           {Object.keys(activeNote).length !== 0 ? 
             <input 
               type='text'
@@ -121,6 +123,10 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
             <p className='notes__right__content body-medium' style={{borderColor: !blackTheme && activeWidgetColor}}>Your note...</p>
           }
           <div className='notes__left__nav' style={{opacity: Object.keys(activeNote).length === 0 ? '0' : '1'}}>
+            <button className='notes__left__nav__back-btn' onClick={() => setMobileDisplayActiveNote(false)} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
+              <IoChevronBack /> 
+              <p className='subtitle-medium'>return</p>
+            </button>
             <div className='notes__left__nav__scroll-btns' style={{opacity: scrollContent ? '1' : '0'}}>
               <button className='scroll-btn' onClick={() => scrollContainer('noteContent', '72')} style={{color: !blackTheme && activeWidgetColor}}>
                 <IoChevronDown />
@@ -129,7 +135,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
                 <IoChevronUp />
               </button>
             </div>
-            <button className='icon-36' onClick={() => deleteNote(activeNote.id)} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
+            <button className='icon-36' onClick={() => {deleteNote(activeNote.id); setMobileDisplayActiveNote(false)}} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
               <IoTrash />
             </button>
           </div>
