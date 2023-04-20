@@ -91,7 +91,6 @@
 
 @media screen and (max-width: 480px) {
     .notes {
-        //overflow: scroll;
         position: relative;
         &__left, &__right {
             position: absolute;
@@ -111,6 +110,9 @@
                     color: var(--color-white);
                 }
             }
+        }
+        &__right {
+            padding-top: 16px;
         }
     }
 }
