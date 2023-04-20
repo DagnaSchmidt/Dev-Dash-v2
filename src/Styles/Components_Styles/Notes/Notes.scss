@@ -2,6 +2,8 @@
 
 .notes {
     height: 100%;
+    width: 100%;
+    overflow: scroll;
     display: flex;
     gap: 48px;
     &__left, &__right {
@@ -63,6 +65,9 @@
                 gap: 6px;
                 color: var(--color-white);
             }
+            &__back-btn {
+                display: none;
+            }
         }
     }
     &__right {
@@ -80,6 +85,32 @@
         }
         &__title {
             width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .notes {
+        //overflow: scroll;
+        position: relative;
+        &__left, &__right {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-bg);
+            transition: (--transition);
+        }
+        &__left {
+            &__nav {
+                padding-left: 0;
+                &__back-btn {
+                    display: flex;
+                    gap: 4px;
+                    align-items: center;
+                    font-size: 14px;
+                    color: var(--color-white);
+                }
+            }
         }
     }
 }

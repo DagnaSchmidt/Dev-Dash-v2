@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../Styles/Components_Styles/Notes/Notes.css';
-import { IoAdd, IoChevronUp, IoChevronDown, IoTrash } from "react-icons/io5";
+import { IoAdd, IoChevronUp, IoChevronDown, IoTrash, IoChevronBack } from "react-icons/io5";
 import { connect } from "react-redux";
 import { CREATE_NEW_NOTE, DELETE_NOTE, EDIT_NOTE } from '../../actions';
 import NotesListElement from './NotesListElement';
 
 const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blackTheme, activeWidgetColor} ) => {
 
+  const [mobileDisplayActiveNote, setMobileDisplayActiveNote] = useState(false);
   const notesList = allNotes.map((item) => {
     return (
       <NotesListElement
@@ -15,11 +16,29 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
         date={item.date}
         id={item.id}
         content={item.content}
+        setMobileDisplayActiveNote={setMobileDisplayActiveNote}
        />
     )
   })
 
   const [scrollContent, setScrollContent] = useState(false);
+  const [scrollNotesList, setScrollNotesList] = useState(false);
+  const checkScroll = (id, functionName) => {
+    const element = document.getElementById(id);
+    if(element.scrollHeight > element.clientHeight){
+      functionName(true);
+    }else{
+      functionName(false);
+    }
+  }
+  useEffect(() => {
+    if(activeNote.content){
+      checkScroll('noteContent', setScrollContent);
+    }
+    if(allNotes.length !== 0){
+      checkScroll('scrollNotes', setScrollNotesList);
+    }
+  }, [allNotes, activeNote]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -30,35 +49,23 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
     }else{
       editNote(activeNote.id, 'noteContent', value)
     }
-    if(element.scrollHeight > element.clientHeight){
-      setScrollContent(true);
-    }else{
-      setScrollContent(false);
-    }
+    checkScroll('noteContent', setScrollContent);
   }
 
-  const scrollDown = (item) => {
+  const scrollContainer = (item, top) => {
     const element = document.getElementById(item);
     element.scrollBy({
-      top: 72,
+      top: top,
       behavior: "smooth",
     });;
   }
 
-  const scrollUp = (item) => {
-    const element = document.getElementById(item);
-    element.scrollBy({
-      top: -72,
-      behavior: "smooth",
-    });;
-  }
-
-  //MAKE EVERYTHING RESPONSIVE
+  //MAKE EVERYTHING RESPONSIVE -> mobile 480px
 
   return (
     <section className='notes'>
-      <div className='notes__left'>
-        <div className='notes__left__list' style={{backgroundColor: !blackTheme && activeWidgetColor}} id='scroll-notes' >
+      <div className='notes__left' style={{backgroundColor: !blackTheme && '#E7E7E7'}}>
+        <div className='notes__left__list' style={{backgroundColor: !blackTheme && activeWidgetColor}} id='scrollNotes' >
           {allNotes.length === 0 ?
             <div className='notes__left__list__empty'>
                 <h5 className='subtitle-medium'>Nothing here!</h5>
@@ -72,20 +79,20 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
           }
         </div>
         <div className='notes__left__nav' style={{opacity: allNotes.length === 0 ? '0' : '1'}}> 
-          <div className='notes__left__nav__scroll-btns' style={{opacity: allNotes.length > 5 ? '1' : '0'}}>
-            <button className='scroll-btn' onClick={() => scrollDown('scroll-notes')} style={{color: !blackTheme && activeWidgetColor}}>
+          <div className='notes__left__nav__scroll-btns' style={{opacity: scrollNotesList ? '1' : '0'}}>
+            <button className='scroll-btn' onClick={() => scrollContainer('scrollNotes', '72')} style={{color: !blackTheme && activeWidgetColor}}>
               <IoChevronDown />
             </button>
-            <button className='scroll-btn' onClick={() => scrollUp('scroll-notes')} style={{color: !blackTheme && activeWidgetColor}}>
+            <button className='scroll-btn' onClick={() => scrollContainer('scrollNotes', '-72')} style={{color: !blackTheme && activeWidgetColor}}>
               <IoChevronUp />
             </button>
           </div>
-          <button className='icon-36' onClick={() => createNewNote()} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
+          <button className='icon-36' onClick={() => {createNewNote(); setMobileDisplayActiveNote(true)}} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
             <IoAdd />
           </button>
         </div>
       </div>
-      <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.2' : '1', color: !blackTheme && activeWidgetColor}}>
+      <div className='notes__right' style={{opacity: Object.keys(activeNote).length === 0 ? '.2' : '1', color: !blackTheme && activeWidgetColor, backgroundColor: !blackTheme && '#E7E7E7', left: !mobileDisplayActiveNote  && '480px'}}>
           {Object.keys(activeNote).length !== 0 ? 
             <input 
               type='text'
@@ -116,15 +123,19 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
             <p className='notes__right__content body-medium' style={{borderColor: !blackTheme && activeWidgetColor}}>Your note...</p>
           }
           <div className='notes__left__nav' style={{opacity: Object.keys(activeNote).length === 0 ? '0' : '1'}}>
+            <button className='notes__left__nav__back-btn' onClick={() => setMobileDisplayActiveNote(false)} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
+              <IoChevronBack /> 
+              <p className='subtitle-medium'>return</p>
+            </button>
             <div className='notes__left__nav__scroll-btns' style={{opacity: scrollContent ? '1' : '0'}}>
-              <button className='scroll-btn' onClick={() => scrollDown('noteContent')} style={{color: !blackTheme && activeWidgetColor}}>
+              <button className='scroll-btn' onClick={() => scrollContainer('noteContent', '72')} style={{color: !blackTheme && activeWidgetColor}}>
                 <IoChevronDown />
               </button>
-              <button className='scroll-btn' onClick={() => scrollUp('noteContent')} style={{color: !blackTheme && activeWidgetColor}}>
+              <button className='scroll-btn' onClick={() => scrollContainer('noteContent', '-72')} style={{color: !blackTheme && activeWidgetColor}}>
                 <IoChevronUp />
               </button>
             </div>
-            <button className='icon-36' onClick={() => deleteNote(activeNote.id)} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
+            <button className='icon-36' onClick={() => {deleteNote(activeNote.id); setMobileDisplayActiveNote(false)}} style={{color: !blackTheme && activeWidgetColor, borderColor: !blackTheme && activeWidgetColor}}>
               <IoTrash />
             </button>
           </div>
