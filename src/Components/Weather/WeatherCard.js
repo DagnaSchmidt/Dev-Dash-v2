@@ -21,33 +21,35 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
   return (
     <div className='weather-card' id={date}>
         <div className='weather-card__top'>
-            <div className='weather-card__top__current-temp'>{currentTemp}</div>
-            <div>
-                <div>
-                    <p>{maxTemp}</p>
-                    <p>day</p>
+            <div className='weather-card__top__current-temp display-large'>{currentTemp}<span>o</span></div>
+            <div className='weather-card__top__card'>
+                <div className='weather-card__top__card__text'>
+                    <p className='subtitle-medium'>{maxTemp}<span>o</span></p>
+                    <p className='body-large'>day</p>
                 </div>
-                <div>
-                    <p>{minTemp}</p>
-                    <p>night</p>
+                <div className='weather-card__top__card__text'>
+                    <p className='subtitle-medium'>{minTemp}<span>o</span></p>
+                    <p className='body-large'>night</p>
                 </div>
             </div>
-            <div>
-                <div>
+            <div className='weather-card__top__card'>
+                <div className='weather-card__top__card__text'>
                     <WiDaySunny />
-                    <p>{sunrise}</p>
+                    <p className='subtitle-medium'>{sunrise}</p>
                 </div>
-                <div>
+                <div className='weather-card__top__card__text'>
                     <WiNightClear />
-                    <p>{sunset}</p>
+                    <p className='subtitle-medium'>{sunset}</p>
                 </div>
             </div>
-            <div>
+            <div className='weather-card__top__symbol'>
                 <WiNightClear />
-                <p>{symbolPhrase}</p>
+                <p className='body-medium'>{symbolPhrase}</p>
             </div>
         </div>
-        WeatherCard {date}
+        <div className='weather-card__bottom'>
+
+        </div>
     </div>
   )
 }
