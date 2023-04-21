@@ -31,6 +31,9 @@ export const initialStore = {
             activeNote: {},
             allNotes: []
         },
+        weather: {
+            displayedDay: '',
+        }
     },
     users: [],
   };
