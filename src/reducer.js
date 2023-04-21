@@ -18,9 +18,11 @@ export const initialStore = {
     activeUser: {
         userName: '',
         password: '',
-        localization: '',
+        localization: false,
         city: '',
         country: '',
+        latitude: '',
+        longitude: '',
         blackTheme: true,
         openUserPanel: false,
         activeWidget: 'none',
@@ -46,9 +48,23 @@ export const initialStore = {
     }else if(action.type === CHANGE_USERNAME){
         return {...state, activeUser: {...state.activeUser, userName: action.payload.name}};
     }else if(action.type === UPDATE_LOCALIZATION){
-        return {...state, activeUser: {...state.activeUser, city: action.payload.city, country: action.payload.country, localization: true}}
+        return {
+            ...state, 
+            activeUser: {
+                ...state.activeUser,
+                city: action.payload.city, 
+                country: action.payload.country, 
+                localization: true,
+                latitude: action.payload.latitude,
+                longitude: action.payload.latitude
+            }}
     }else if(action.type === DENY_LOCALIZATION){
-        return {...state, activeUser: {...state.activeUser, localization: false}}
+        return {
+            ...state, 
+            activeUser: {
+                ...state.activeUser, 
+                localization: false
+            }}
     }else if(action.type === CLOSE_WIDGET){
         return {...state, activeUser: {...state.activeUser, activeWidget: 'none'}}
     }else if(action.type === CHANGE_ACTIVE_WIDGET){

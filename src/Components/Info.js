@@ -7,11 +7,9 @@ import '../Styles/Components_Styles/Info.css';
 const KEY = process.env.REACT_APP_GEODB_KEY
 
 
-const Info = ( {userName, deny, updateLocalization, error, changeUserName} ) => {
+const Info = ( {userName, deny, updateLocalization, error, changeUserName, localization, city, country} ) => {
   const [greeting, setGreeting] = useState('');
   const [currentDay, setCurrentDay] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
   const day = new Date().getDay();
   const hour = new Date().getHours();
   const minutes = new Date().getMinutes();
@@ -52,8 +50,6 @@ const Info = ( {userName, deny, updateLocalization, error, changeUserName} ) => 
     if (window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(localizationAccepted, localizationDenied);
     } else {
-      setCity('denied');
-      setCountry('denied');
       deny();
     }
   }
@@ -74,19 +70,13 @@ const Info = ( {userName, deny, updateLocalization, error, changeUserName} ) => 
     };
     axios.request(geodb).then(function (response) {
       const json = response.data.data[0];
-      setCity(json.city);
-      setCountry(json.country);
-      updateLocalization(json.city, json.country);
+      updateLocalization(json.city, json.country, latitude, longitude);
     }).catch(function (error) {
-      setCity('denied');
-      setCountry('denied');
       deny();
     });
   }
 
   function localizationDenied(error){
-    setCity('denied');
-    setCountry('denied');
     deny();
   }
 
@@ -132,7 +122,7 @@ useEffect(() => {
           </div>
           <div className='info__bottom__localization'>
             <p className='info__bottom__city body-large'>
-              {city !== 'denied' && `${city}, ${country}`}
+              {localization && `${city}, ${country}`}
             </p>
             <p className='info__bottom__clock display-small'>
               {hour.toString().length === 1 ? `0${hour}` : hour}:{minutes.toString().length === 1 ? `0${minutes}` : minutes}
@@ -144,14 +134,19 @@ useEffect(() => {
 }
 
 const mapStateToProps = store => {
-  return { userName: store.activeUser.userName };
+  return { 
+    userName: store.activeUser.userName,
+    localization: store.activeUser.localization,
+    city: store.activeUser.city,
+    country: store.activeUser.country
+   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   console.log(ownProps);
   return { 
     deny: () => dispatch({type: DENY_LOCALIZATION}),
-    updateLocalization: (city, country) => dispatch({type: UPDATE_LOCALIZATION, payload: {city: city, country: country}}),
+    updateLocalization: (city, country, latitude, longitude) => dispatch({type: UPDATE_LOCALIZATION, payload: {city, country, latitude, longitude}}),
     changeUserName: (name) => dispatch({type: CHANGE_USERNAME, payload: {name: name}})
   }
 }
