@@ -1,22 +1,6 @@
 import React from 'react';
 import { WiDaySunny, WiNightClear } from "react-icons/wi";
 
-// maxTemp={item.maxTemp}
-// minTemp={item.minTemp}
-// sunrise={item.sunrise}
-// sunset={item.sunset}
-// symbolPhrase={item.symbolPhrase}
-// pressure={item.pressure}
-// cloudiness={item.cloudiness}
-// maxRelHumidity={item.maxRelHumidity}
-// minRelHumidity={item.minRelHumidity}
-// maxWindSpeed={item.maxWindSpeed}
-// minWindSpeed={item.minWindSpeed}
-// precipProb={item.precipProb}
-// precipAccum={item.precipAccum}
-// uvIndex={item.uvIndex}
-//.date !
-
 const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date} ) => {
   return (
     <div className='weather-card' id={date}>
@@ -48,7 +32,40 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
             </div>
         </div>
         <div className='weather-card__bottom'>
-
+            <div className='weather-card__bottom__left'>
+                <div className='weather-card__bottom__info'>
+                    <h5 className='title-medium'>{pressure} mb</h5>
+                    <p className='subtitle-medium'>pressure</p>
+                    <h5 className='title-medium'>{cloudiness} %</h5>
+                    <p className='subtitle-medium'>cloudiness</p>
+                </div>
+                <div className='weather-card__bottom__info'>
+                    <h5 className='title-medium'>{maxRelHumidity} %</h5>
+                    <p className='subtitle-medium'>max humidity</p>
+                    <h5 className='title-medium'>{minRelHumidity} %</h5>
+                    <p className='subtitle-medium'>min humidity</p>
+                </div>
+                <div className='weather-card__bottom__info'>
+                    <h5 className='title-medium'>{precipProb} %</h5>
+                    <p className='subtitle-medium'>precipitation chance</p>
+                    <h5 className='title-medium'>{precipAccum} mm</h5>
+                    <p className='subtitle-medium'>precipitation</p>
+                </div>
+            </div>
+            <div className='weather-card__bottom__right'>
+                <div className='weather-card__bottom__info'>
+                </div>
+                <div className='weather-card__bottom__info'>
+                    <h5 className='title-medium'>{maxWindSpeed} km/h</h5>
+                    <p className='subtitle-medium'>max wind</p>
+                    <h5 className='title-medium'>{minWindSpeed} km/h</h5>
+                    <p className='subtitle-medium'>min wind</p>
+                </div>
+                <div className='weather-card__bottom__info'>
+                    <h5 className='title-medium'>{uvIndex}</h5>
+                    <p className='subtitle-medium'>uv index</p>
+                </div>
+            </div>
         </div>
     </div>
   )
