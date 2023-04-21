@@ -50,6 +50,7 @@ const WeatherForecastCards = ({latitude, longitude}) => {
         return (
             <WeatherCard
                 currentTemp={currentTemp}
+                key={item.date}
                 {...item}
                 // maxTemp={item.maxTemp}
                 // minTemp={item.minTemp}
