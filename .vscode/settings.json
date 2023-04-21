@@ -27,6 +27,8 @@
         "Gothenburg",
         "rapidapi",
         "reduxjs",
-        "uuidv"
+        "tempunit",
+        "uuidv",
+        "windunit"
     ]
 }

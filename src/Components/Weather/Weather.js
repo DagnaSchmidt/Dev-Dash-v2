@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { EDIT_NOTE } from '../../actions';
+import WeatherForecastCards from './WeatherForecastCards';
 
 const Weather = ({ localization, latitude, longitude }) => {
   return (
     <section className='weather'>
       {localization ?
-      <div>
-        {latitude} {longitude}
-      </div>
+        <WeatherForecastCards 
+          latitude={latitude}
+          longitude={longitude}
+        />
       :
       <div>
         denied
