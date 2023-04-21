@@ -56,7 +56,7 @@ export const initialStore = {
                 country: action.payload.country, 
                 localization: true,
                 latitude: action.payload.latitude,
-                longitude: action.payload.latitude
+                longitude: action.payload.longitude
             }}
     }else if(action.type === DENY_LOCALIZATION){
         return {
