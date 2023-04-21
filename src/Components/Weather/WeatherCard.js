@@ -35,11 +35,11 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
             <div className='weather-card__top__card'>
                 <div className='weather-card__top__card__text'>
                     <WiDaySunny />
-                    <p className='subtitle-medium'>{sunrise}</p>
+                    <p className='subtitle-medium'>{sunrise.slice(0,5)}</p>
                 </div>
                 <div className='weather-card__top__card__text'>
                     <WiNightClear />
-                    <p className='subtitle-medium'>{sunset}</p>
+                    <p className='subtitle-medium'>{sunset.slice(0,5)}</p>
                 </div>
             </div>
             <div className='weather-card__top__symbol'>
