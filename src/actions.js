@@ -20,3 +20,5 @@ export const CREATE_NEW_NOTE = "CREATE_NEW_NOTE";
 export const DELETE_NOTE = "DELETE_NOTE";
 export const DISPLAY_ACTIVE_NOTE = "DISPLAY_ACTIVE_NOTE";
 export const EDIT_NOTE = "EDIT_NOTE";
+
+export const SET_DISPLAYED_DAY = "SET_DISPLAYED_DAY";

@@ -3,9 +3,10 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import WeatherCard from './WeatherCard';
 import WeatherNavBtn from './WeatherNavBtn';
+import { SET_DISPLAYED_DAY } from '../../actions';
 const KEY = process.env.REACT_APP_GEODB_KEY
 
-const WeatherForecastCards = ({latitude, longitude}) => {
+const WeatherForecastCards = ({latitude, longitude, setDisplayedDay}) => {
     const [weatherForecastData, setWeatherForecastData] = useState([]);
     const [currentTemp, setCurrentTemp] = useState();
 
@@ -23,6 +24,8 @@ const WeatherForecastCards = ({latitude, longitude}) => {
             const json = response.data.forecast;
             console.log(response.data.forecast);  //-> delete later
             setWeatherForecastData(json);
+            setDisplayedDay(json[0].date);
+            console.log(json[0].date);  //-> delete later
         }).catch(function (error) {
             console.error(error);
         });
@@ -38,7 +41,7 @@ const WeatherForecastCards = ({latitude, longitude}) => {
         axios.request(currentWeather).then(function (response) {
             const json = response.data.current.temperature;
             setCurrentTemp(json);
-            console.log(response.data.current.temperature);  //-> delete later
+            //console.log(response.data.current.temperature);  //-> delete later
         }).catch(function (error) {
             console.error(error);
         });
@@ -52,31 +55,27 @@ const WeatherForecastCards = ({latitude, longitude}) => {
                 currentTemp={currentTemp}
                 key={item.date}
                 {...item}
-                // maxTemp={item.maxTemp}
-                // minTemp={item.minTemp}
-                // sunrise={item.sunrise}
-                // sunset={item.sunset}
-                // symbolPhrase={item.symbolPhrase}
-                // pressure={item.pressure}
-                // cloudiness={item.cloudiness}
-                // maxRelHumidity={item.maxRelHumidity}
-                // minRelHumidity={item.minRelHumidity}
-                // maxWindSpeed={item.maxWindSpeed}
-                // minWindSpeed={item.minWindSpeed}
-                // precipProb={item.precipProb}
-                // precipAccum={item.precipAccum}
-                // uvIndex={item.uvIndex}
+            />
+        )
+    })
+    const weatherNavBtns = weatherForecastData.map((item) =>{
+        return (
+            <WeatherNavBtn 
+                key={item.date}
+                date={item.date}
+                maxTemp={item.maxTemp} 
+                minTemp={item.minTemp}
             />
         )
     })
 
   return (
     <>
-        <div className='weather-forecast-cards'>
+        <div className='weather__forecast-cards'>
             {weatherForecastData.length != 0 && weatherCards}
         </div>
-        <div className='weather-forecast-nav'>
-
+        <div className='weather__nav'>
+            {weatherForecastData.length != 0 && weatherNavBtns}
         </div>
     </>
   )
@@ -88,7 +87,7 @@ const mapStateToProps = store => {
   };
   const mapDispatchToProps = dispatch => {
     return {
-
+        setDisplayedDay: (newDisplayedDay) => dispatch({type: SET_DISPLAYED_DAY, payload: { newDisplayedDay }})
     };
   }
 

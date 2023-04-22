@@ -1,9 +1,34 @@
 import React from 'react';
-import { WiDaySunny, WiNightClear } from "react-icons/wi";
+import { connect } from 'react-redux';
+import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy } from "react-icons/wi";
 
-const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date} ) => {
+const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay} ) => {
+    const setIcon = (symbolPhrase) => {
+        if(symbolPhrase === 'mostly clear' || symbolPhrase === 'partly cloudy'){
+            return (
+                <WiDayCloudy />
+            )
+        }else if(symbolPhrase === 'showers' || symbolPhrase === 'light rain'){
+            return (
+                <WiShowers />
+            )
+        }else if(symbolPhrase === 'rain'){
+            return (
+                <WiRain />
+            )
+        }else if(symbolPhrase === 'clear'){
+            return (
+                <WiDaySunny />
+            )
+        }else if(symbolPhrase === 'overcast'){
+            return (
+                <WiCloudy />
+            )
+        }
+    }
+    const icon = setIcon(symbolPhrase);
   return (
-    <div className='weather-card' id={date}>
+    <div className='weather-card' id={date} style={{opacity: displayedDay === date ? '1' : '0'}}>
         <div className='weather-card__top'>
             <div className='weather-card__top__current-temp display-large'>{currentTemp}<span>o</span></div>
             <div className='weather-card__top__card'>
@@ -27,7 +52,7 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
                 </div>
             </div>
             <div className='weather-card__top__symbol'>
-                <WiNightClear />
+                {icon}
                 <p className='body-medium'>{symbolPhrase}</p>
             </div>
         </div>
@@ -71,4 +96,10 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
   )
 }
 
-export default WeatherCard;
+const mapStateToProps = store => {
+    return { 
+        displayedDay: store.activeUser.weather.displayedDay
+    };
+  };
+
+export default connect(mapStateToProps)(WeatherCard);
