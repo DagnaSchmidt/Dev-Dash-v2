@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { SET_DISPLAYED_DAY } from '../../actions';
 
-const WeatherNavBtn = ( {date, maxTemp, minTemp, displayedDay} ) => {
+const WeatherNavBtn = ( {date, maxTemp, minTemp, displayedDay, setDisplayedDay} ) => {
   return (
-    <div className='weather-nav-btn' style={{backgroundColor: displayedDay === date ? '#E7E7E7' : 'transparent'}}>
+    <div className='weather-nav-btn' style={{backgroundColor: displayedDay === date ? '#E7E7E7' : 'transparent'}} onClick={() => setDisplayedDay(date)}>
         <h5>Mon</h5>
         <p>{maxTemp}<span>o</span>/{minTemp}<span>o</span></p>
     </div>

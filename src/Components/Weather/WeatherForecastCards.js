@@ -71,7 +71,7 @@ const WeatherForecastCards = ({latitude, longitude, setDisplayedDay}) => {
 
   return (
     <>
-        <div className='weather-forecast-cards'>
+        <div className='weather__forecast-cards'>
             {weatherForecastData.length != 0 && weatherCards}
         </div>
         <div className='weather__nav'>
