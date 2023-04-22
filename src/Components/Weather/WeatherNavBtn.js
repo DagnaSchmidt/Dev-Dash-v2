@@ -1,9 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { SET_DISPLAYED_DAY } from '../../actions';
 
-const WeatherNavBtn = () => {
+const WeatherNavBtn = ( {date, maxTemp, minTemp, displayedDay} ) => {
   return (
-    <div>WeatherNavBtn</div>
+    <div className='weather-nav-btn' style={{backgroundColor: displayedDay === date ? '#E7E7E7' : 'transparent'}}>
+        <h5>Mon</h5>
+        <p>{maxTemp}<span>o</span>/{minTemp}<span>o</span></p>
+    </div>
   )
 }
 
-export default WeatherNavBtn;
+
+const mapStateToProps = store => {
+    return { 
+        displayedDay: store.activeUser.weather.displayedDay
+    };
+  };
+  const mapDispatchToProps = dispatch => {
+    return {
+        setDisplayedDay: (newDisplayedDay) => dispatch({type: SET_DISPLAYED_DAY, payload: { newDisplayedDay }})
+    };
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherNavBtn);

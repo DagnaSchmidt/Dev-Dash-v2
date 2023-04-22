@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { WiDaySunny, WiNightClear } from "react-icons/wi";
 
-const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date} ) => {
+const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay} ) => {
   return (
-    <div className='weather-card' id={date}>
+    <div className='weather-card' id={date} style={{opacity: displayedDay === date ? '1' : '0'}}>
         <div className='weather-card__top'>
             <div className='weather-card__top__current-temp display-large'>{currentTemp}<span>o</span></div>
             <div className='weather-card__top__card'>

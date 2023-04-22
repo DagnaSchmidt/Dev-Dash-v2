@@ -58,14 +58,24 @@ const WeatherForecastCards = ({latitude, longitude, setDisplayedDay}) => {
             />
         )
     })
+    const weatherNavBtns = weatherForecastData.map((item) =>{
+        return (
+            <WeatherNavBtn 
+                key={item.date}
+                date={item.date}
+                maxTemp={item.maxTemp} 
+                minTemp={item.minTemp}
+            />
+        )
+    })
 
   return (
     <>
         <div className='weather-forecast-cards'>
             {weatherForecastData.length != 0 && weatherCards}
         </div>
-        <div className='weather-forecast-nav'>
-
+        <div className='weather__nav'>
+            {weatherForecastData.length != 0 && weatherNavBtns}
         </div>
     </>
   )
