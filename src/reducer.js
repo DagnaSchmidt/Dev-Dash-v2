@@ -9,7 +9,8 @@ import {
     CREATE_NEW_NOTE,
     DELETE_NOTE,
     DISPLAY_ACTIVE_NOTE,
-    EDIT_NOTE
+    EDIT_NOTE,
+    SET_DISPLAYED_DAY
 } from './actions';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -170,6 +171,16 @@ export const initialStore = {
                             ...newAllNotes
                         ]
                     }
+                }
+            }
+        }
+    }else if(action.type === SET_DISPLAYED_DAY){
+        return {
+            ...state,
+            activeUser: {
+                ...state.activeUser,
+                weather: {
+                    displayedDay: action.payload.newDisplayedDay
                 }
             }
         }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { WiDaySunny, WiNightClear } from "react-icons/wi";
 
 const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date} ) => {
@@ -71,4 +72,10 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
   )
 }
 
-export default WeatherCard;
+const mapStateToProps = store => {
+    return { 
+        displayedDay: store.activeUser.weather.displayedDay
+    };
+  };
+
+export default connect(mapStateToProps)(WeatherCard);
