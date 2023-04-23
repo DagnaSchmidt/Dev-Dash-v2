@@ -12,7 +12,7 @@ const Icons = ( {activeWidget, changeWidget} ) => {
     ['calculator', <IoCalculator />, ''],
     ['notes', <IoCopy />, 'notes', '#C00A5A'],
     ['calendar', <IoCalendar />, ''],
-    ['weather', <IoMdPartlySunny />, 'weather', '#3794E5'],
+    ['weather', <IoMdPartlySunny />, 'weather', '#286BA5'],
     ['time tracker', <IoCaretForwardCircle />, ''],
     ['expenses', <IoCellular />, ''],
     ['calorie counter', <IoFastFood />, ''],

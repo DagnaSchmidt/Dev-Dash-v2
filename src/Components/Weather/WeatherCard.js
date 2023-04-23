@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy } from "react-icons/wi";
+import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy, WiSnow } from "react-icons/wi";
 
-const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay} ) => {
+const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay, activeWidgetColor, blackTheme} ) => {
     const setIcon = (symbolPhrase) => {
         if(symbolPhrase === 'mostly clear' || symbolPhrase === 'partly cloudy'){
             return (
@@ -24,14 +24,23 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
             return (
                 <WiCloudy />
             )
+        }else if(symbolPhrase === 'snow'){
+            return (
+                <WiSnow />
+            )
         }
+        return (
+            <WiDaySunny />
+        )
     }
     const icon = setIcon(symbolPhrase);
   return (
     <div className='weather-card' id={date} style={{opacity: displayedDay === date ? '1' : '0'}}>
         <div className='weather-card__top'>
-            <div className='weather-card__top__current-temp display-large'>{currentTemp}<span>o</span></div>
-            <div className='weather-card__top__card'>
+            <div className='weather-card__top__current-temp' style={{backgroundColor: blackTheme ? '#E7E7E7' : activeWidgetColor, color: blackTheme ? '#1E1E1E' : '#E7E7E7'}}>
+                <p className='display-large'>{currentTemp}<span>o</span></p>
+            </div>
+            <div className='weather-card__top__card' style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor}}>
                 <div className='weather-card__top__card__text'>
                     <p className='subtitle-medium'>{maxTemp}<span>o</span></p>
                     <p className='body-large'>day</p>
@@ -41,7 +50,7 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
                     <p className='body-large'>night</p>
                 </div>
             </div>
-            <div className='weather-card__top__card'>
+            <div className='weather-card__top__card' style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor}}>
                 <div className='weather-card__top__card__text'>
                     <WiDaySunny />
                     <p className='subtitle-medium'>{sunrise.slice(0,5)}</p>
@@ -51,12 +60,12 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
                     <p className='subtitle-medium'>{sunset.slice(0,5)}</p>
                 </div>
             </div>
-            <div className='weather-card__top__symbol'>
+            <div className='weather-card__top__symbol' style={{backgroundColor: blackTheme ? '#E7E7E7' : activeWidgetColor, color: blackTheme ? '#1E1E1E' : '#E7E7E7'}}>
                 {icon}
                 <p className='body-medium'>{symbolPhrase}</p>
             </div>
         </div>
-        <div className='weather-card__bottom'>
+        <div className='weather-card__bottom' style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor}}>
             <div className='weather-card__bottom__left'>
                 <div className='weather-card__bottom__info'>
                     <h5 className='title-medium'>{pressure} mb</h5>
@@ -98,7 +107,9 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
 
 const mapStateToProps = store => {
     return { 
-        displayedDay: store.activeUser.weather.displayedDay
+        displayedDay: store.activeUser.weather.displayedDay,
+        activeWidgetColor: store.activeUser.activeWidgetColor,
+        blackTheme: store.activeUser.blackTheme
     };
   };
 
