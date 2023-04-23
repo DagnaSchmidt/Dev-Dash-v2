@@ -8,6 +8,7 @@
   --border-white-dashed: 1px dashed var(--color-white);
   --border-white-2: 2px solid var(--color-white);
   --border-white-3: 3px solid var(--color-white);
+  --weather-color: #286BA5;
 }
 
 .display-large {

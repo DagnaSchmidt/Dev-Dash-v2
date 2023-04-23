@@ -22,10 +22,8 @@ const WeatherForecastCards = ({latitude, longitude, setDisplayedDay}) => {
         };
         axios.request(weekForecast).then(function (response) {
             const json = response.data.forecast;
-            console.log(response.data.forecast);  //-> delete later
             setWeatherForecastData(json);
             setDisplayedDay(json[0].date);
-            console.log(json[0].date);  //-> delete later
         }).catch(function (error) {
             console.error(error);
         });
@@ -41,7 +39,6 @@ const WeatherForecastCards = ({latitude, longitude, setDisplayedDay}) => {
         axios.request(currentWeather).then(function (response) {
             const json = response.data.current.temperature;
             setCurrentTemp(json);
-            //console.log(response.data.current.temperature);  //-> delete later
         }).catch(function (error) {
             console.error(error);
         });
