@@ -30,7 +30,9 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
   return (
     <div className='weather-card' id={date} style={{opacity: displayedDay === date ? '1' : '0'}}>
         <div className='weather-card__top'>
-            <div className='weather-card__top__current-temp display-large'>{currentTemp}<span>o</span></div>
+            <div className='weather-card__top__current-temp'>
+                <p className='display-large'>{currentTemp}<span>o</span></p>
+            </div>
             <div className='weather-card__top__card'>
                 <div className='weather-card__top__card__text'>
                     <p className='subtitle-medium'>{maxTemp}<span>o</span></p>

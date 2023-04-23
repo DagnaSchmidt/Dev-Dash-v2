@@ -147,9 +147,6 @@
   justify-content: center;
   align-items: center;
 }
-.weather .weather-card__top__current-temp {
-  padding-top: 8px;
-}
 .weather .weather-card__top__symbol {
   flex-direction: column;
   gap: 4px;
