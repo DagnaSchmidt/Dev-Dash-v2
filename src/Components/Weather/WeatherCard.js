@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy } from "react-icons/wi";
+import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy, WiSnow } from "react-icons/wi";
 
 const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay, activeWidgetColor, blackTheme} ) => {
     const setIcon = (symbolPhrase) => {
@@ -24,7 +24,14 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
             return (
                 <WiCloudy />
             )
+        }else if(symbolPhrase === 'snow'){
+            return (
+                <WiSnow />
+            )
         }
+        return (
+            <WiDaySunny />
+        )
     }
     const icon = setIcon(symbolPhrase);
   return (
