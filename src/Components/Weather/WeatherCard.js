@@ -38,7 +38,7 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
     <div className='weather-card' id={date} style={{opacity: displayedDay === date ? '1' : '0'}}>
         <div className='weather-card__top'>
             <div className='weather-card__top__current-temp' style={{backgroundColor: blackTheme ? '#E7E7E7' : activeWidgetColor, color: blackTheme ? '#1E1E1E' : '#E7E7E7'}}>
-                <p className='display-large'>{currentTemp}<span>o</span></p>
+                <p className='display-large'>{currentTemp}<span style={{fontWeight: '400'}}>o</span></p>
             </div>
             <div className='weather-card__top__card' style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor}}>
                 <div className='weather-card__top__card__text'>
@@ -81,7 +81,7 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
                 </div>
                 <div className='weather-card__bottom__info'>
                     <h5 className='title-medium'>{precipProb} %</h5>
-                    <p className='subtitle-medium'>precipitation chance</p>
+                    <p className='subtitle-medium'>precip. chance</p>
                     <h5 className='title-medium'>{precipAccum} mm</h5>
                     <p className='subtitle-medium'>precipitation</p>
                 </div>

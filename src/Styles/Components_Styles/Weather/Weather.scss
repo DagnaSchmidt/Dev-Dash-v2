@@ -23,7 +23,6 @@
                 width: 120px;
                 height: 88px;
                 border-radius: 12px;
-                background-color: var(--color-white);
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -122,6 +121,49 @@
         }
     }
 }
-@media (max-width: 680px) {
-
+@media screen and (max-width: 1140px) {
+    .weather {
+        &__nav {
+            justify-content: space-between;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .weather {
+        .weather-card {
+            gap: 12px;
+        }
+        .weather-nav-btn {
+            &__max-min-temp {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            &__slash {
+                display: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .weather {
+        &__nav {
+            bottom: 0;
+        }
+        .weather-card {
+            &__top {
+                &__symbol, &__current-temp {
+                    width: 80px;
+                    height: 88px;
+                }
+                &__symbol {
+                    font-size: 32px;
+                }
+                &__card__text {
+                    gap: 4px;
+                }
+            }
+        }
+    }
+    
 }
