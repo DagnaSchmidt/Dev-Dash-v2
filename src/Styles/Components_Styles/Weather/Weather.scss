@@ -115,8 +115,10 @@
             color: var(--color-white);
         }
         .inactive-btn-color {
-            color: var(--weather-color);
+            background-color: var(--weather-color);
             border-color: var(--weather-color);
+            color: var(--color-white);
+            opacity: .6;
         }
     }
 }

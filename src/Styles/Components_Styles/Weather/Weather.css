@@ -233,6 +233,8 @@
   color: var(--color-white);
 }
 .weather__nav .inactive-btn-color {
-  color: var(--weather-color);
+  background-color: var(--weather-color);
   border-color: var(--weather-color);
+  color: var(--color-white);
+  opacity: 0.6;
 }/*# sourceMappingURL=Weather.css.map */
