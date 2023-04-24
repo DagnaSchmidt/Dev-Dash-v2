@@ -8,7 +8,11 @@ const WeatherNavBtn = ( {date, maxTemp, minTemp, displayedDay, setDisplayedDay, 
   return (
     <div className={`weather-nav-btn ${displayedDay === date ? blackTheme ? 'active-btn-black' : 'active-btn-color' : blackTheme ? 'inactive-btn-black' : 'inactive-btn-color'}`}  onClick={() => setDisplayedDay(date)}>
         <h5 className='title-medium '>{weekday[day]}</h5>
-        <p className='body-medium'>{maxTemp}<span>o</span> / {minTemp}<span>o</span></p>
+        <div className='weather-nav-btn__max-min-temp'>
+          <p className='body-medium'>{maxTemp}<span>o</span></p>
+          <p className='weather-nav-btn__slash'>/ </p>
+          <p className='label-medium'>{minTemp}<span>o</span></p>
+        </div>
     </div>
   )
 }

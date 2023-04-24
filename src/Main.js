@@ -8,7 +8,7 @@ const Main = ( {activeWidget, blackTheme } ) => {
   return (
     <>
     {activeWidget !== 'none' &&
-        <main className='main' style={{backgroundColor: !blackTheme && '#E7E7E7' }}>
+        <main className='main' style={{backgroundColor: !blackTheme && '#E7E7E7', outline: !blackTheme && 'transparent'}}>
             <Routes>
                 <Route path='/' element={<Weather />} />
                 <Route path='/weather' element={<Weather />} />
