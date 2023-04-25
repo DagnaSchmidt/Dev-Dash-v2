@@ -10,7 +10,7 @@ const Weather = ({ localization, latitude, longitude, city, country, weatherLati
   
   return (
     <section className='weather'>
-      {localization && weatherLatitude ?
+      {weatherLatitude ?
         <WeatherForecastCards 
           latitude={weatherLatitude}
           longitude={weatherLongitude}
