@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { IoAdd } from "react-icons/io5";
 const KEY = process.env.REACT_APP_GEODB_KEY;
 
 const WeatherAddLocalizationCard = () => {
@@ -49,19 +50,23 @@ const WeatherAddLocalizationCard = () => {
             <label 
                 htmlFor='localizationSearch' 
                 className='label'>
-                localization
+                    localization
             </label>
             <button className='btn label-medium' onClick={() => clear()}>
                 clear
             </button>
         </div>
-        
         <div className='weather__localizations'>
             {localizationPropositions.length !== 0 &&
-                localizationPropositions.map((item) => {
+                localizationPropositions.slice(0,20).map((item) => {
                     return (
-                        <button key={item.id}>
-                            {item.name}{item.country}
+                        <button key={item.id} className='weather__localizations__btn'>
+                            <div className='weather__localizations__btn__text'>
+                                <p className='body-medium '>{item.name}</p>
+                                <p className='label-medium'>{item.country}</p>
+                            </div>
+                            
+                            <IoAdd className='weather__localizations__btn__add-icon' />
                         </button>
                     )
                 })
