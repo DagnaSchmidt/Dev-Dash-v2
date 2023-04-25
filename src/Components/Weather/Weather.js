@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from "react-redux";
-import { EDIT_NOTE } from '../../actions';
+import { ADD_WEATHER_LOCALIZATION } from '../../actions';
 import '../../Styles/Components_Styles/Weather/Weather.css';
 import WeatherForecastCards from './WeatherForecastCards';
 import WeatherAddLocalizationCard from './WeatherAddLocalizationCard';
 
-const Weather = ({ localization, latitude, longitude }) => {
+const Weather = ({ localization, latitude, longitude, city, country, weatherLatitude, weatherLongitude, addWeatherLocalization }) => {
+  console.log(weatherLatitude, weatherLongitude);
+  
   return (
     <section className='weather'>
-      {localization ?
+      {weatherLatitude ?
         <WeatherForecastCards 
-          latitude={latitude}
-          longitude={longitude}
+          latitude={weatherLatitude}
+          longitude={weatherLongitude}
         />
       :
       <WeatherAddLocalizationCard />
@@ -24,12 +26,16 @@ const mapStateToProps = store => {
   return { 
     localization: store.activeUser.localization,
     latitude: store.activeUser.latitude,
-    longitude: store.activeUser.longitude
+    longitude: store.activeUser.longitude,
+    weatherLatitude: store.activeUser.weather.displayedLocalization.latitude,
+    weatherLongitude: store.activeUser.weather.displayedLocalization.longitude,
+    city: store.activeUser.city,
+    country: store.activeUser.country
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    editNote: (id, edit, changedText) => dispatch({type: EDIT_NOTE, payload: {id, edit, changedText}})
+    addWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country}})
   };
 }
 

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { IoAdd } from "react-icons/io5";
+import { connect } from "react-redux";
+import { ADD_WEATHER_LOCALIZATION } from '../../actions';
 const KEY = process.env.REACT_APP_GEODB_KEY;
 
-const WeatherAddLocalizationCard = () => {
+const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
     const [searchedLocalization, setSearchedLocalization] = useState('');
     const [localizationPropositions, setLocalizationPropositions] = useState([]);
 
@@ -59,13 +61,13 @@ const WeatherAddLocalizationCard = () => {
         <div className='weather__localizations'>
             {localizationPropositions.length !== 0 &&
                 localizationPropositions.slice(0,20).map((item) => {
+                    console.log(item.lat, item.lon);
                     return (
-                        <button key={item.id} className='weather__localizations__btn'>
+                        <button key={item.id} className='weather__localizations__btn' onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country)}>
                             <div className='weather__localizations__btn__text'>
                                 <p className='body-medium '>{item.name}</p>
                                 <p className='label-medium'>{item.country}</p>
                             </div>
-                            
                             <IoAdd className='weather__localizations__btn__add-icon' />
                         </button>
                     )
@@ -76,4 +78,10 @@ const WeatherAddLocalizationCard = () => {
   )
 }
 
-export default WeatherAddLocalizationCard;
+const mapDispatchToProps = dispatch => {
+    return {
+      addWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country}})
+    };
+  }
+
+export default connect(null, mapDispatchToProps)(WeatherAddLocalizationCard);
