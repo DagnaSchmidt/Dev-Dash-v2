@@ -304,3 +304,52 @@ ul, li {
         };
     }
 }
+///////////////////////////////////////////////////////////////////////
+/// 
+/// INPUTS
+.input-group {
+    position: relative;
+    .input {
+        height: 44px;
+        width: 80%;
+        padding: 0 12px;
+        border: var(--border-white);
+        border-radius: 12px;
+        font-size: 16px;
+        transition: var(--transition);
+        color: var(--color-white);
+        &:focus, &:active {
+            outline: none;
+            border: 1px solid var(--weather-color); 
+        }
+        &:focus ~ label, &:active ~ label, &:valid ~ label {
+            transform: translateY(-50%) scale(0.8);
+            background-color: var(--color-bg);
+            padding: 2px;
+            color: var(--weather-color);
+            font-style: normal;
+            opacity: 1;
+        }
+    }
+    .label {
+        position: absolute;
+        opacity: .8;
+        left: 12px;
+        font-style: italic;
+        pointer-events: none;
+        transform: translateY(16px);
+        transition: var(--transition);
+        color: var(--color-white);
+    }
+    .btn {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 12px;
+        margin: auto 0;
+        color: var(--color-white);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

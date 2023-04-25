@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { EDIT_NOTE } from '../../actions';
 import '../../Styles/Components_Styles/Weather/Weather.css';
 import WeatherForecastCards from './WeatherForecastCards';
+import WeatherAddLocalizationCard from './WeatherAddLocalizationCard';
 
 const Weather = ({ localization, latitude, longitude }) => {
   return (
@@ -13,9 +14,7 @@ const Weather = ({ localization, latitude, longitude }) => {
           longitude={longitude}
         />
       :
-      <div>
-        denied
-      </div>
+      <WeatherAddLocalizationCard />
       }
     </section>
   )
