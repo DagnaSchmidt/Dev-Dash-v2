@@ -183,6 +183,7 @@ export const initialStore = {
             activeUser: {
                 ...state.activeUser,
                 weather: {
+                    ...state.activeUser.weather,
                     displayedDay: action.payload.newDisplayedDay
                 }
             }
