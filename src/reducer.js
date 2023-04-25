@@ -10,7 +10,8 @@ import {
     DELETE_NOTE,
     DISPLAY_ACTIVE_NOTE,
     EDIT_NOTE,
-    SET_DISPLAYED_DAY
+    SET_DISPLAYED_DAY,
+    ADD_WEATHER_LOCALIZATION
 } from './actions';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -34,7 +35,8 @@ export const initialStore = {
         },
         weather: {
             displayedDay: '',
-            savedLocalizations: []
+            savedLocalizations: [],
+            displayedLocalization: {}
         }
     },
     users: [],
@@ -184,6 +186,10 @@ export const initialStore = {
                     displayedDay: action.payload.newDisplayedDay
                 }
             }
+        }
+    }else if(action.type === ADD_WEATHER_LOCALIZATION){
+        return {
+            state
         }
     }
       return state;
