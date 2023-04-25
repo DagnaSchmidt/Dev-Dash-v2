@@ -2,12 +2,12 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { connect } from "react-redux";
-import { DENY_LOCALIZATION, UPDATE_LOCALIZATION, CHANGE_USERNAME } from '../actions';
+import { DENY_LOCALIZATION, UPDATE_LOCALIZATION, CHANGE_USERNAME, ADD_WEATHER_LOCALIZATION } from '../actions';
 import '../Styles/Components_Styles/Info.css';
 const KEY = process.env.REACT_APP_GEODB_KEY
 
 
-const Info = ( {userName, deny, updateLocalization, error, changeUserName, localization, city, country} ) => {
+const Info = ( {userName, deny, updateLocalization, error, changeUserName, localization, city, country, addWeatherLocalization} ) => {
   const [greeting, setGreeting] = useState('');
   const [currentDay, setCurrentDay] = useState('');
   const day = new Date().getDay();
@@ -71,6 +71,7 @@ const Info = ( {userName, deny, updateLocalization, error, changeUserName, local
     axios.request(geodb).then(function (response) {
       const json = response.data.data[0];
       updateLocalization(json.city, json.country, latitude, longitude);
+      addWeatherLocalization(latitude, longitude, json.city, json.country);
     }).catch(function (error) {
       deny();
     });
@@ -138,7 +139,7 @@ const mapStateToProps = store => {
     userName: store.activeUser.userName,
     localization: store.activeUser.localization,
     city: store.activeUser.city,
-    country: store.activeUser.country
+    country: store.activeUser.country,
    };
 };
 
@@ -147,7 +148,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return { 
     deny: () => dispatch({type: DENY_LOCALIZATION}),
     updateLocalization: (city, country, latitude, longitude) => dispatch({type: UPDATE_LOCALIZATION, payload: {city, country, latitude, longitude}}),
-    changeUserName: (name) => dispatch({type: CHANGE_USERNAME, payload: {name: name}})
+    changeUserName: (name) => dispatch({type: CHANGE_USERNAME, payload: {name: name}}),
+    addWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country}})
   }
 }
 

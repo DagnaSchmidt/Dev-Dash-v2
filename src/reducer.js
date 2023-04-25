@@ -188,8 +188,26 @@ export const initialStore = {
             }
         }
     }else if(action.type === ADD_WEATHER_LOCALIZATION){
+        const newLocalization = {
+            latitude: action.payload.latitude,
+            longitude: action.payload.longitude,
+            city: action.payload.city,
+            country: action.payload.country
+        }
+        console.log(newLocalization);
         return {
-            state
+            ...state,
+            activeUser: {
+                ...state.activeUser,
+                weather: {
+                    displayedDay: '',
+                    displayedLocalization: newLocalization,
+                    savedLocalizations: [
+                        newLocalization,
+                        ...state.activeUser.weather.savedLocalizations
+                    ]
+                }
+            }
         }
     }
       return state;

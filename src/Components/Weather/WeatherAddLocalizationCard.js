@@ -61,7 +61,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
         <div className='weather__localizations'>
             {localizationPropositions.length !== 0 &&
                 localizationPropositions.slice(0,20).map((item) => {
-                    console.log(item);
+                    console.log(item.lat, item.lon);
                     return (
                         <button key={item.id} className='weather__localizations__btn' onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country)}>
                             <div className='weather__localizations__btn__text'>
@@ -84,4 +84,4 @@ const mapDispatchToProps = dispatch => {
     };
   }
 
-export default connect(mapDispatchToProps)(WeatherAddLocalizationCard);
+export default connect(null, mapDispatchToProps)(WeatherAddLocalizationCard);
