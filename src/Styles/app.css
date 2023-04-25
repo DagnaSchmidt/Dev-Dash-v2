@@ -421,4 +421,33 @@ ul, li {
   .color-theme-toggle__title {
     display: none;
   }
+}
+.input-group {
+  position: relative;
+}
+.input-group .input {
+  height: 44px;
+  width: 80%;
+  padding: 0 12px;
+  border: var(--border-dashed-white);
+  border-radius: 12px;
+  font-size: 16px;
+  transition: var(--transition);
+}
+.input-group .input:focus, .input-group .input:active {
+  outline: none;
+  border: 1px solid var(--weather-color);
+}
+.input-group .input:focus ~ label, .input-group .input:active ~ label, .input-group .input:valid ~ label {
+  transform: translateY(-50%) scale(0.8);
+  background-color: var(--color-bg);
+  padding: 2px;
+  color: var(--weather-color);
+}
+.input-group .label {
+  position: absolute;
+  left: 12px;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: var(--transition);
 }/*# sourceMappingURL=app.css.map */

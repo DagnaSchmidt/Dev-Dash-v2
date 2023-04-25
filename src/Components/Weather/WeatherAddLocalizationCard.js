@@ -9,7 +9,6 @@ const WeatherAddLocalizationCard = () => {
     const handleChange = (e) => {
         const { value } = e.target;
         setSearchedLocalization(value);
-        console.log(value);
         if(value.length >= 3){
             const locationSearch = {
                 method: 'GET',
@@ -23,31 +22,46 @@ const WeatherAddLocalizationCard = () => {
             };
             axios.request(locationSearch).then(function (response) {
                 const json = response.data.locations;
-                console.log(json);
-                //setWeatherForecastData(json);
-                //setDisplayedDay(json[0].date);
+                setLocalizationPropositions(json);
             }).catch(function (error) {
                 console.error(error);
             });
         }
     }
+    const clear = () => {
+        setSearchedLocalization('');
+        setLocalizationPropositions([]);
+    }
   return (
     <>
-        <input
-            type='text'
-            className='notes__right__title headline-medium'
-            id='localizationSearch'
-            name='localizationSearch'
-            value={searchedLocalization}
-            onChange={handleChange}
-            autoComplete='off'
-            maxLength={20}
-        />
+        <div className='input-group'>
+            <input
+                type='text'
+                className='input'
+                id='localizationSearch'
+                name='localizationSearch'
+                value={searchedLocalization}
+                onChange={handleChange}
+                autoComplete='off'
+                maxLength={20}
+            />
+            <label 
+                htmlFor='localizationSearch' 
+                className='label'>
+                localization
+            </label>
+            <button onClick={() => clear()}>
+                clear
+            </button>
+        </div>
+        
         <div className='weather__localizations'>
             {localizationPropositions.length !== 0 &&
                 localizationPropositions.map((item) => {
                     return (
-                        <button></button>
+                        <button key={item.id}>
+                            {item.name}{item.country}
+                        </button>
                     )
                 })
             }
