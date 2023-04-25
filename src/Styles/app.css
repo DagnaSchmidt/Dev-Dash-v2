@@ -429,10 +429,11 @@ ul, li {
   height: 44px;
   width: 80%;
   padding: 0 12px;
-  border: var(--border-dashed-white);
+  border: var(--border-white);
   border-radius: 12px;
   font-size: 16px;
   transition: var(--transition);
+  color: var(--color-white);
 }
 .input-group .input:focus, .input-group .input:active {
   outline: none;
@@ -443,11 +444,27 @@ ul, li {
   background-color: var(--color-bg);
   padding: 2px;
   color: var(--weather-color);
+  font-style: normal;
+  opacity: 1;
 }
 .input-group .label {
   position: absolute;
+  opacity: 0.8;
   left: 12px;
+  font-style: italic;
   pointer-events: none;
   transform: translateY(16px);
   transition: var(--transition);
+  color: var(--color-white);
+}
+.input-group .btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 12px;
+  margin: auto 0;
+  color: var(--color-white);
+}
+.input-group .btn:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=app.css.map */

@@ -44,13 +44,14 @@ const WeatherAddLocalizationCard = () => {
                 onChange={handleChange}
                 autoComplete='off'
                 maxLength={20}
+                required
             />
             <label 
                 htmlFor='localizationSearch' 
                 className='label'>
                 localization
             </label>
-            <button onClick={() => clear()}>
+            <button className='btn label-medium' onClick={() => clear()}>
                 clear
             </button>
         </div>
