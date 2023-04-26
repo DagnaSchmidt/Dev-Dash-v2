@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from "react-redux";
-import { ADD_WEATHER_LOCALIZATION } from '../../actions';
 import '../../Styles/Components_Styles/Weather/Weather.css';
 import WeatherForecastCards from './WeatherForecastCards';
 import WeatherAddLocalizationCard from './WeatherAddLocalizationCard';

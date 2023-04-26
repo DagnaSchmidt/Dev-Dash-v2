@@ -16,11 +16,11 @@
         flex-direction: column;
         gap: 24px;
         &__top {
+            width: 100%; //
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 24px;
             &__symbol, &__current-temp {
-                width: 140px;
                 height: 88px;
                 border-radius: 12px;
                 display: flex;
@@ -28,6 +28,7 @@
                 align-items: center;
             }
             &__current-temp {
+                width: 140px;
                 gap: 4px;
                 &__min-max {
                     display: flex;
@@ -37,8 +38,13 @@
                 &__divider {
                     opacity: .6;
                 }
+                &__weekday {
+                    text-transform: uppercase;
+                    padding-right: 8px;
+                }
             }
             &__symbol {
+                width: 100px;
                 flex-direction: column;
                 gap: 4px;
                 font-size: 44px;
@@ -46,9 +52,11 @@
             &__card {
                 height: 88px;
                 padding: 12px 0;
+                flex: 1;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                align-items: center;
                 color: var(--color-white);
                 &__text {
                     display: flex;
@@ -60,6 +68,28 @@
                     }
                 }
                 
+            }
+            &__localization {
+                width: 140px;
+                height: 88px;
+                padding: 12px;
+                border-radius: 12px;
+                border: var(--border-white-dashed);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 2;
+                transition: var(--transition);
+                &__text {
+                    display: flex;
+                    flex-direction: column;
+                }
+                &:hover {
+                    cursor: pointer;
+                    border-radius: 8px;
+                    border: var(--border-white);
+                    background-color: var(--color-light-grey-10);
+                }
             }
         }
         &__bottom {

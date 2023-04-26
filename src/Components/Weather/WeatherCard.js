@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy, WiSnow } from "react-icons/wi";
 
-const WeatherCard = ( {key, currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay, activeWidgetColor, blackTheme} ) => {
+
+const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay, activeWidgetColor, blackTheme, city, country} ) => {
     const setIcon = (symbolPhrase) => {
         if(symbolPhrase === 'mostly clear' || symbolPhrase === 'partly cloudy'){
             return (
@@ -35,27 +36,31 @@ const WeatherCard = ( {key, currentTemp, maxTemp, minTemp, sunrise, sunset, symb
     }
     const icon = setIcon(symbolPhrase);
 
-    console.log(key);
+    const weekday = ["Sun", "Mon","Tue","Wed","Thu","Fri","Sat"];
+    const day = new Date(date).getDay();
+
   return (
     <div className='weather-card' id={date} style={{opacity: displayedDay === date ? '1' : '0'}}>
         <div className='weather-card__top'>
             <div className='weather-card__top__current-temp' style={{backgroundColor: blackTheme ? '#E7E7E7' : activeWidgetColor, color: blackTheme ? '#1E1E1E' : '#E7E7E7'}}>
-                {}
-                <p className='display-large'>{currentTemp}<span style={{fontWeight: '400'}}>o</span></p>
+                {date.slice(-2) == new Date().getDate() ? 
+                    <p className='display-large'>{currentTemp}<span style={{fontWeight: '400'}}>o</span></p>
+                :
+                    <p className='title-medium weather-card__top__current-temp__weekday'>{weekday[day]}</p>
+                }
                 <p className='weather-card__top__current-temp__divider display-large' style={{fontWeight: '300'}}>|</p>
                 <div className='weather-card__top__current-temp__min-max'>
                     <p className='title-medium'>{maxTemp}<span>o</span></p>
                     <p className='subtitle-medium'>{minTemp}<span>o</span></p>
                 </div>
             </div>
-            <div className='weather-card__top__card' style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor}}>
-                <div className='weather-card__top__card__text'>
-                    <p className='subtitle-medium'>{maxTemp}<span>o</span></p>
-                    <p className='body-large'>day</p>
+            <div className='weather-card__top__localization' style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor}}>
+                <div className='weather-card__top__localization__text'>
+                    <p className='title-medium'>{city}</p>
+                    <p className='body-large'>{country}</p>
                 </div>
-                <div className='weather-card__top__card__text'>
-                    <p className='subtitle-medium'>{minTemp}<span>o</span></p>
-                    <p className='body-large'>night</p>
+                <div className='weather-card__top__localization__icon'>
+
                 </div>
             </div>
             <div className='weather-card__top__card' style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor}}>
@@ -117,7 +122,9 @@ const mapStateToProps = store => {
     return { 
         displayedDay: store.activeUser.weather.displayedDay,
         activeWidgetColor: store.activeUser.activeWidgetColor,
-        blackTheme: store.activeUser.blackTheme
+        blackTheme: store.activeUser.blackTheme,
+        city: store.activeUser.weather.displayedLocalization.city,
+        country: store.activeUser.weather.displayedLocalization.country
     };
   };
 

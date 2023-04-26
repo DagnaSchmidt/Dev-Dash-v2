@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { SET_DISPLAYED_DAY } from '../../actions';
 
 const WeatherNavBtn = ( {date, maxTemp, minTemp, displayedDay, setDisplayedDay, blackTheme} ) => {
-    const weekday = ["Sun", "Mon","Tue","Wed","Thur","Fri","Sat"];
+    const weekday = ["Sun", "Mon","Tue","Wed","Thu","Fri","Sat"];
     const day = new Date(date).getDay();
   return (
     <div className={`weather-nav-btn ${displayedDay === date ? blackTheme ? 'active-btn-black' : 'active-btn-color' : blackTheme ? 'inactive-btn-black' : 'inactive-btn-color'}`}  onClick={() => setDisplayedDay(date)}>
-        <h5 className='title-medium '>{weekday[day]}</h5>
+        <h5 className='title-medium'>{weekday[day]}</h5>
         <div className='weather-nav-btn__max-min-temp'>
           <p className='body-medium'>{maxTemp}<span>o</span></p>
           <p className='weather-nav-btn__slash'>/ </p>
