@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { CLEAR_WEATHER_DISPLAYED_LOCALIZATION, OPEN_WEATHER_SAVED_LOCALIZATIONS } from '../../actions';
 import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy, WiSnow } from "react-icons/wi";
+import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
-const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay, activeWidgetColor, blackTheme} ) => {
+const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay, activeWidgetColor, blackTheme, city, country, savedLocalizations, clearDisplayedLocalization, openSavedLocalizations} ) => {
     const setIcon = (symbolPhrase) => {
         if(symbolPhrase === 'mostly clear' || symbolPhrase === 'partly cloudy'){
             return (
@@ -20,7 +22,7 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
             return (
                 <WiDaySunny />
             )
-        }else if(symbolPhrase === 'overcast'){
+        }else if(symbolPhrase === 'overcast' || symbolPhrase === 'cloudy'){
             return (
                 <WiCloudy />
             )
@@ -34,20 +36,42 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
         )
     }
     const icon = setIcon(symbolPhrase);
+
+    const weekday = ["Sun", "Mon","Tue","Wed","Thu","Fri","Sat"];
+    const day = new Date(date).getDay();
+
+    const [visibleOptions, setVisibleOptions] = useState(false);
+
   return (
     <div className='weather-card' id={date} style={{opacity: displayedDay === date ? '1' : '0'}}>
         <div className='weather-card__top'>
             <div className='weather-card__top__current-temp' style={{backgroundColor: blackTheme ? '#E7E7E7' : activeWidgetColor, color: blackTheme ? '#1E1E1E' : '#E7E7E7'}}>
-                <p className='display-large'>{currentTemp}<span style={{fontWeight: '400'}}>o</span></p>
-            </div>
-            <div className='weather-card__top__card' style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor}}>
-                <div className='weather-card__top__card__text'>
-                    <p className='subtitle-medium'>{maxTemp}<span>o</span></p>
-                    <p className='body-large'>day</p>
-                </div>
-                <div className='weather-card__top__card__text'>
+                {date.slice(-2) == new Date().getDate() ? 
+                    <p className='display-large'>{currentTemp}<span style={{fontWeight: '400'}}>o</span></p>
+                :
+                    <p className='title-medium weather-card__top__current-temp__weekday'>{weekday[day]}</p>
+                }
+                <p className='weather-card__top__current-temp__divider display-large' style={{fontWeight: '300'}}>|</p>
+                <div className='weather-card__top__current-temp__min-max'>
+                    <p className='title-medium'>{maxTemp}<span>o</span></p>
                     <p className='subtitle-medium'>{minTemp}<span>o</span></p>
-                    <p className='body-large'>night</p>
+                </div>
+            </div>
+            <div className='weather-card__top__localization' onClick={() => setVisibleOptions(!visibleOptions)} style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor, borderColor: !blackTheme && activeWidgetColor, backgroundColor: visibleOptions && '#AFAFAF10', borderRadius: visibleOptions && '8px', borderStyle: visibleOptions && 'solid'}}>
+                <div className='weather-card__top__localization__text'>
+                    <p className='title-medium'>{city}</p>
+                    <p className='body-large'>{country}</p>
+                </div>
+                <div className='weather-card__top__localization__icon' style={{opacity: visibleOptions && '1'}}>
+                    {visibleOptions ? 
+                        <IoChevronUp />
+                    :
+                        <IoChevronDown />
+                    }
+                </div>
+                <div className='weather-card__top__localization__options' style={{bottom: !visibleOptions && '-10%', height: !visibleOptions && '0', border: !visibleOptions && 'none'}}>
+                    <button className='body-medium weather-card__top__localization__options__btn' onClick={() => openSavedLocalizations()}>change city</button>
+                    <button className='body-medium weather-card__top__localization__options__btn' style={{display: savedLocalizations.length >= '12' && 'none'}} onClick={() => clearDisplayedLocalization()}>add city</button>
                 </div>
             </div>
             <div className='weather-card__top__card' style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor}}>
@@ -109,8 +133,18 @@ const mapStateToProps = store => {
     return { 
         displayedDay: store.activeUser.weather.displayedDay,
         activeWidgetColor: store.activeUser.activeWidgetColor,
-        blackTheme: store.activeUser.blackTheme
+        blackTheme: store.activeUser.blackTheme,
+        city: store.activeUser.weather.displayedLocalization.city,
+        country: store.activeUser.weather.displayedLocalization.country,
+        savedLocalizations: store.activeUser.weather.savedLocalizations
     };
   };
 
-export default connect(mapStateToProps)(WeatherCard);
+const mapDispatchToProps = dispatch => {
+    return {
+        clearDisplayedLocalization: () => dispatch({type: CLEAR_WEATHER_DISPLAYED_LOCALIZATION}),
+        openSavedLocalizations: () => dispatch({type: OPEN_WEATHER_SAVED_LOCALIZATIONS})
+    };
+    }
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherCard);

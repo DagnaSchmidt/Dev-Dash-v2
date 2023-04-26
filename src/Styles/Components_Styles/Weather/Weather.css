@@ -142,19 +142,36 @@
   gap: 24px;
 }
 .weather .weather-card__top {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 24px;
 }
 .weather .weather-card__top__symbol, .weather .weather-card__top__current-temp {
-  width: 120px;
   height: 88px;
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.weather .weather-card__top__current-temp {
+  width: 140px;
+  gap: 4px;
+}
+.weather .weather-card__top__current-temp__min-max {
+  display: flex;
+  flex-direction: column;
+  opacity: 0.6;
+}
+.weather .weather-card__top__current-temp__divider {
+  opacity: 0.6;
+}
+.weather .weather-card__top__current-temp__weekday {
+  text-transform: uppercase;
+  padding-right: 8px;
+}
 .weather .weather-card__top__symbol {
+  width: 100px;
   flex-direction: column;
   gap: 4px;
   font-size: 44px;
@@ -162,9 +179,11 @@
 .weather .weather-card__top__card {
   height: 88px;
   padding: 12px 0;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   color: var(--color-white);
 }
 .weather .weather-card__top__card__text {
@@ -175,6 +194,66 @@
 }
 .weather .weather-card__top__card__text:nth-child(2) {
   opacity: 0.6;
+}
+.weather .weather-card__top__localization {
+  width: 140px;
+  height: 88px;
+  padding: 12px;
+  border-radius: 12px;
+  border: var(--border-white-dashed);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  transition: var(--transition);
+  position: relative;
+}
+.weather .weather-card__top__localization__text {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+.weather .weather-card__top__localization__icon {
+  opacity: 0;
+  font-size: 18px;
+  z-index: 2;
+}
+.weather .weather-card__top__localization:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  border: var(--border-white);
+  background-color: var(--color-light-grey-10);
+}
+.weather .weather-card__top__localization:hover .weather-card__top__localization__icon {
+  opacity: 1;
+}
+.weather .weather-card__top__localization__options {
+  position: absolute;
+  background-color: var(--color-bg);
+  width: 140px;
+  height: 88px;
+  border-radius: 8px;
+  border: var(--border-white);
+  left: 0;
+  bottom: -110%;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  z-index: 1;
+  overflow: hidden;
+}
+.weather .weather-card__top__localization__options__btn {
+  padding: 0 12px;
+  width: 100%;
+  flex: 1;
+  opacity: 0.8;
+}
+.weather .weather-card__top__localization__options__btn:first-child {
+  border-bottom: var(--border-white);
+}
+.weather .weather-card__top__localization__options__btn:hover {
+  background-color: var(--color-light-grey-10);
+  opacity: 1;
 }
 .weather .weather-card__bottom {
   width: 100%;

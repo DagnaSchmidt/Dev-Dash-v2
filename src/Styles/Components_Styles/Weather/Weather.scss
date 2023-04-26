@@ -16,18 +16,35 @@
         flex-direction: column;
         gap: 24px;
         &__top {
+            width: 100%; //
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 24px;
             &__symbol, &__current-temp {
-                width: 120px;
                 height: 88px;
                 border-radius: 12px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
+            &__current-temp {
+                width: 140px;
+                gap: 4px;
+                &__min-max {
+                    display: flex;
+                    flex-direction: column;
+                    opacity: .6;
+                }
+                &__divider {
+                    opacity: .6;
+                }
+                &__weekday {
+                    text-transform: uppercase;
+                    padding-right: 8px;
+                }
+            }
             &__symbol {
+                width: 100px;
                 flex-direction: column;
                 gap: 4px;
                 font-size: 44px;
@@ -35,9 +52,11 @@
             &__card {
                 height: 88px;
                 padding: 12px 0;
+                flex: 1;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                align-items: center;
                 color: var(--color-white);
                 &__text {
                     display: flex;
@@ -49,6 +68,67 @@
                     }
                 }
                 
+            }
+            &__localization {
+                width: 140px;
+                height: 88px;
+                padding: 12px;
+                border-radius: 12px;
+                border: var(--border-white-dashed);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 2;
+                transition: var(--transition);
+                position: relative;
+                
+                &__text {
+                    display: flex;
+                    flex-direction: column;
+                    z-index: 2;
+                }
+                &__icon {
+                    opacity: 0;
+                    font-size: 18px;
+                    z-index: 2;
+                }
+                &:hover {
+                    cursor: pointer;
+                    border-radius: 8px;
+                    border: var(--border-white);
+                    background-color: var(--color-light-grey-10);
+                    .weather-card__top__localization__icon {
+                        opacity: 1;
+                    }
+                }
+                &__options {
+                    position: absolute;
+                    background-color: var(--color-bg);
+                    width: 140px;
+                    height: 88px;
+                    border-radius: 8px;
+                    border: var(--border-white);
+                    left: 0;
+                    bottom: -110%;
+                    display: flex;
+                    flex-direction: column;
+                    transition: var(--transition);
+                    z-index: 1;
+                    overflow: hidden;
+                    &__btn {
+                        padding: 0 12px;
+                        width: 100%;
+                        flex: 1;
+                        opacity: .8;
+                        &:first-child {
+                            border-bottom: var(--border-white);
+                        }
+                        &:hover {
+                            background-color: var(--color-light-grey-10);
+                            opacity: 1;
+                        }
+                    }
+                }
             }
         }
         &__bottom {
