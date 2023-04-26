@@ -11,7 +11,9 @@ import {
     DISPLAY_ACTIVE_NOTE,
     EDIT_NOTE,
     SET_DISPLAYED_DAY,
-    ADD_WEATHER_LOCALIZATION
+    ADD_WEATHER_LOCALIZATION,
+    CLEAR_WEATHER_DISPLAYED_LOCALIZATION,
+    OPEN_WEATHER_SAVED_LOCALIZATIONS
 } from './actions';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -36,7 +38,8 @@ export const initialStore = {
         weather: {
             displayedDay: '',
             savedLocalizations: [],
-            displayedLocalization: {}
+            displayedLocalization: {},
+            openSavedLocalizations: false
         }
     },
     users: [],
@@ -195,7 +198,6 @@ export const initialStore = {
             city: action.payload.city,
             country: action.payload.country
         }
-        console.log(newLocalization);
         return {
             ...state,
             activeUser: {
@@ -203,10 +205,34 @@ export const initialStore = {
                 weather: {
                     displayedDay: '',
                     displayedLocalization: newLocalization,
+                    openSavedLocalizations: false,
                     savedLocalizations: [
                         newLocalization,
                         ...state.activeUser.weather.savedLocalizations
                     ]
+                }
+            }
+        }
+    }else if(action.type === CLEAR_WEATHER_DISPLAYED_LOCALIZATION){
+        return {
+            ...state,
+            activeUser: {
+                ...state.activeUser,
+                weather: {
+                    ...state.activeUser.weather,
+                    displayedLocalization: ''
+                }
+            }
+        }
+    }else if(action.type === OPEN_WEATHER_SAVED_LOCALIZATIONS){
+        return {
+            ...state,
+            activeUser: {
+                ...state.activeUser,
+                weather: {
+                    ...state.activeUser.weather,
+                    displayedLocalization: '',
+                    openSavedLocalizations: true
                 }
             }
         }
