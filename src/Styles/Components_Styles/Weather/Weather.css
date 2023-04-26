@@ -147,12 +147,23 @@
   justify-content: space-between;
 }
 .weather .weather-card__top__symbol, .weather .weather-card__top__current-temp {
-  width: 120px;
+  width: 140px;
   height: 88px;
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.weather .weather-card__top__current-temp {
+  gap: 4px;
+}
+.weather .weather-card__top__current-temp__min-max {
+  display: flex;
+  flex-direction: column;
+  opacity: 0.6;
+}
+.weather .weather-card__top__current-temp__divider {
+  opacity: 0.6;
 }
 .weather .weather-card__top__symbol {
   flex-direction: column;

@@ -20,12 +20,23 @@
             align-items: center;
             justify-content: space-between;
             &__symbol, &__current-temp {
-                width: 120px;
+                width: 140px;
                 height: 88px;
                 border-radius: 12px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+            }
+            &__current-temp {
+                gap: 4px;
+                &__min-max {
+                    display: flex;
+                    flex-direction: column;
+                    opacity: .6;
+                }
+                &__divider {
+                    opacity: .6;
+                }
             }
             &__symbol {
                 flex-direction: column;
