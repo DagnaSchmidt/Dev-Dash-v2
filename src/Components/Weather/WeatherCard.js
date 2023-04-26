@@ -20,7 +20,7 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
             return (
                 <WiDaySunny />
             )
-        }else if(symbolPhrase === 'overcast'){
+        }else if(symbolPhrase === 'overcast' || symbolPhrase === 'cloudy'){
             return (
                 <WiCloudy />
             )
