@@ -2,6 +2,7 @@
     --color-bg: #1E1E1E;
     --color-white: #E7E7E7;
     --color-light-grey: #AFAFAF;
+    --color-error: #FF3B30;
 
     --color-light-grey-10: #AFAFAF10;
 
@@ -12,6 +13,8 @@
 
     --border-white-2: 2px solid var(--color-white);
     --border-white-3: 3px solid var(--color-white);
+
+    --border-error: 1px solid var(--color-error);
 
     --weather-color: #286BA5;
 }
