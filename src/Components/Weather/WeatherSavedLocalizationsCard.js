@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { CHOOSE_WEATHER_DISPLAYED_LOCALIZATION } from '../../actions';
+import { CHOOSE_WEATHER_DISPLAYED_LOCALIZATION, DELETE_WEATHER_LOCALIZATION } from '../../actions';
 import { IoTrash } from "react-icons/io5";
 
-const WeatherSavedLocalizationsCard = ({ savedLocalizations, chooseWeatherLocalization }) => {
+const WeatherSavedLocalizationsCard = ({ savedLocalizations, chooseWeatherLocalization, deleteLocalization }) => {
     console.log(savedLocalizations);
   return (
     <div className='weather__saved-localizations'>
@@ -15,9 +15,10 @@ const WeatherSavedLocalizationsCard = ({ savedLocalizations, chooseWeatherLocali
                     return (
                         <div key={item.date} className='weather__saved-localizations__btn'>
                             <button className='weather__saved-localizations__btn__choose' onClick={() => chooseWeatherLocalization(item.latitude, item.longitude, item.city, item.country)}>
-                                {item.city}
+                                <p className='body-medium'>{item.city}</p>
+                                <p className='label-medium'>{item.country}</p>
                             </button>
-                            <button className='weather__saved-localizations__btn__delete'>
+                            <button className='weather__saved-localizations__btn__delete' onClick={() => deleteLocalization(item.latitude, item.longitude)}>
                                 <IoTrash />
                             </button>
                         </div>
@@ -38,7 +39,8 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      chooseWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: CHOOSE_WEATHER_DISPLAYED_LOCALIZATION, payload: {latitude, longitude, city, country}})
+      chooseWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: CHOOSE_WEATHER_DISPLAYED_LOCALIZATION, payload: {latitude, longitude, city, country}}),
+      deleteLocalization: (latitude, longitude) => dispatch({type: DELETE_WEATHER_LOCALIZATION, payload: {latitude, longitude}}) 
     };
   }
 

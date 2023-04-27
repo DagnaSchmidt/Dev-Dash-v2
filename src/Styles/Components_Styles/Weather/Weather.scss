@@ -234,11 +234,15 @@
         }
     }
     &__saved-localizations {
+        padding-top: 10px;
         display: flex;
         flex-direction: column;
         color: var(--color-white);
+        height: 100%;
         &__btns {
-            padding-top: 24px;
+            flex: 1;
+            align-items: center;
+            padding-top: 42px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 12px;
