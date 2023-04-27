@@ -2,12 +2,14 @@
   --color-bg: #1E1E1E;
   --color-white: #E7E7E7;
   --color-light-grey: #AFAFAF;
+  --color-error: #FF3B30;
   --color-light-grey-10: #AFAFAF10;
   --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
   --border-white: 1px solid var(--color-white);
   --border-white-dashed: 1px dashed var(--color-white);
   --border-white-2: 2px solid var(--color-white);
   --border-white-3: 3px solid var(--color-white);
+  --border-error: 1px solid var(--color-error);
   --weather-color: #286BA5;
 }
 
@@ -357,10 +359,66 @@
 .weather__localizations__btn:hover .weather__localizations__btn__add-icon {
   opacity: 1;
 }
+.weather__saved-localizations {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+  height: 100%;
+}
+.weather__saved-localizations__btns {
+  flex: 1;
+  align-items: center;
+  padding-top: 42px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.weather__saved-localizations__btn {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  border: var(--border-error);
+  border-color: transparent;
+  transition: var(--transition);
+}
+.weather__saved-localizations__btn:has(.weather__saved-localizations__btn__delete:hover) {
+  border-color: var(--color-error);
+  background-color: var(--color-error);
+}
+.weather__saved-localizations__btn__delete {
+  padding: 0 12px;
+  opacity: 0.7;
+}
+.weather__saved-localizations__btn__delete:hover {
+  cursor: pointer;
+  color: var(--color-bg);
+  opacity: 1;
+}
+.weather__saved-localizations__btn__choose {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border: var(--border-white-dashed);
+  border-radius: 12px;
+  padding: 12px;
+  background-color: var(--color-bg);
+}
+.weather__saved-localizations__btn__choose:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: var(--color-light-grey-10);
+}
 
 @media screen and (max-width: 1140px) {
   .weather__nav {
     justify-content: space-between;
+  }
+}
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+  .weather__saved-localizations__btns {
+    padding-top: 24px;
+    gap: 8px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -374,6 +432,19 @@
   }
   .weather .weather-nav-btn__slash {
     display: none;
+  }
+  .weather__saved-localizations {
+    padding-top: 0;
+  }
+  .weather__saved-localizations__btns {
+    padding-top: 12px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .weather__saved-localizations__btn__choose {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -389,5 +460,14 @@
   }
   .weather .weather-card__top__card__text {
     gap: 4px;
+  }
+  .weather__saved-localizations__btn__choose {
+    padding: 8px 4px;
+  }
+  .weather__saved-localizations__btn__delete {
+    padding: 0 8px;
+  }
+  .weather__saved-localizations__btns {
+    gap: 0;
   }
 }/*# sourceMappingURL=Weather.css.map */

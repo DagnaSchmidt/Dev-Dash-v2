@@ -65,7 +65,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
                     return (
                         <button key={item.id} className='weather__localizations__btn' onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country)}>
                             <div className='weather__localizations__btn__text'>
-                                <p className='body-medium '>{item.name}</p>
+                                <p className='body-medium'>{item.name}</p>
                                 <p className='label-medium'>{item.country}</p>
                             </div>
                             <IoAdd className='weather__localizations__btn__add-icon' />

@@ -13,7 +13,9 @@ import {
     SET_DISPLAYED_DAY,
     ADD_WEATHER_LOCALIZATION,
     CLEAR_WEATHER_DISPLAYED_LOCALIZATION,
-    OPEN_WEATHER_SAVED_LOCALIZATIONS
+    OPEN_WEATHER_SAVED_LOCALIZATIONS,
+    CHOOSE_WEATHER_DISPLAYED_LOCALIZATION,
+    DELETE_WEATHER_LOCALIZATION
 } from './actions';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -236,6 +238,51 @@ export const initialStore = {
                 }
             }
         }
+    }else if(action.type === CHOOSE_WEATHER_DISPLAYED_LOCALIZATION){
+        const newLocalization = {
+            latitude: action.payload.latitude,
+            longitude: action.payload.longitude,
+            city: action.payload.city,
+            country: action.payload.country
+        }
+        return {
+           ...state,
+           activeUser: {
+                ...state.activeUser,
+                weather: {
+                    ...state.activeUser.weather,
+                    openSavedLocalizations: false,
+                    displayedLocalization: newLocalization
+                }
+            } 
+        }
+    }else if(action.type === DELETE_WEATHER_LOCALIZATION){
+        const newSavedLocalizations = state.activeUser.weather.savedLocalizations.filter((item) => item.latitude !== action.payload.latitude && item.longitude !== action.payload.latitude);
+        if(newSavedLocalizations.length === 0){
+            return {
+                ...state,
+                activeUser: {
+                    ...state.activeUser,
+                    weather: {
+                        ...state.activeUser.weather,
+                        openSavedLocalizations: false,
+                        savedLocalizations: newSavedLocalizations
+                    }
+                }
+            }
+        }else{
+            return {
+                ...state,
+                activeUser: {
+                    ...state.activeUser,
+                    weather: {
+                        ...state.activeUser.weather,
+                        savedLocalizations: newSavedLocalizations
+                    }
+                }
+            }
+        }
+        
     }
       return state;
   }

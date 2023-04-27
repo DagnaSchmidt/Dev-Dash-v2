@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { CLEAR_WEATHER_DISPLAYED_LOCALIZATION, OPEN_WEATHER_SAVED_LOCALIZATIONS } from '../../actions';
-import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy, WiSnow } from "react-icons/wi";
+import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy, WiSnow, WiThunderstorm } from "react-icons/wi";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
 const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay, activeWidgetColor, blackTheme, city, country, savedLocalizations, clearDisplayedLocalization, openSavedLocalizations} ) => {
@@ -29,6 +29,10 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
         }else if(symbolPhrase === 'snow'){
             return (
                 <WiSnow />
+            )
+        }else if(symbolPhrase === 'thunderstorms'){
+            return (
+                <WiThunderstorm />
             )
         }
         return (
@@ -70,7 +74,7 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
                     }
                 </div>
                 <div className='weather-card__top__localization__options' style={{bottom: !visibleOptions && '-10%', height: !visibleOptions && '0', border: !visibleOptions && 'none'}}>
-                    <button className='body-medium weather-card__top__localization__options__btn' onClick={() => openSavedLocalizations()}>change city</button>
+                    <button className='body-medium weather-card__top__localization__options__btn' style={{display: savedLocalizations.length <= 1 && 'none'}} onClick={() => openSavedLocalizations()}>change city</button>
                     <button className='body-medium weather-card__top__localization__options__btn' style={{display: savedLocalizations.length >= '12' && 'none'}} onClick={() => clearDisplayedLocalization()}>add city</button>
                 </div>
             </div>

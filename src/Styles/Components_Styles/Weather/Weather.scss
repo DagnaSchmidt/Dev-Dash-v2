@@ -233,11 +233,72 @@
             }
         }
     }
+    &__saved-localizations {
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        color: var(--color-white);
+        height: 100%;
+        &__btns {
+            flex: 1;
+            align-items: center;
+            padding-top: 42px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+        &__btn {
+            display: flex;
+            justify-content: space-between;
+            border-radius: 12px;
+            border: var(--border-error);
+            border-color: transparent;
+            transition: var(--transition);
+            &:has(.weather__saved-localizations__btn__delete:hover) {
+                border-color: var(--color-error);
+                background-color: var(--color-error);
+            }
+            &__delete {
+                padding: 0 12px;
+                opacity: .7;
+                &:hover {
+                    cursor: pointer;
+                    color: var(--color-bg);
+                    opacity: 1;
+                }
+            }
+            &__choose {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                border: var(--border-white-dashed);
+                border-radius: 12px;
+                padding: 12px;
+                background-color: var(--color-bg);
+                &:hover {
+                    cursor: pointer;
+                    border-radius: 8px;
+                    background-color: var(--color-light-grey-10);
+                }
+            }
+        }
+    }
 }
+
 @media screen and (max-width: 1140px) {
     .weather {
         &__nav {
             justify-content: space-between;
+        }
+    }
+}
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+    .weather {
+        &__saved-localizations {
+            &__btns {
+                padding-top: 24px;
+                gap: 8px;
+            }
         }
     }
 }
@@ -254,6 +315,21 @@
             }
             &__slash {
                 display: none;
+            }
+        }
+        &__saved-localizations {
+            padding-top: 0;
+            &__btns {
+                padding-top: 12px;
+                grid-template-columns: 1fr 1fr;
+            }
+            &__btn {
+                &__choose {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 8px;
+                }
             }
         }
     }
@@ -275,6 +351,19 @@
                 &__card__text {
                     gap: 4px;
                 }
+            }
+        }
+        &__saved-localizations {
+            &__btn {
+                &__choose {
+                    padding: 8px 4px;
+                }
+                &__delete {
+                    padding: 0 8px;
+                }
+            }
+            &__btns {
+                gap: 0;
             }
         }
     }
