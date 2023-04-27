@@ -292,6 +292,16 @@
         }
     }
 }
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+    .weather {
+        &__saved-localizations {
+            &__btns {
+                padding-top: 24px;
+                gap: 8px;
+            }
+        }
+    }
+}
 @media screen and (max-width: 600px) {
     .weather {
         .weather-card {
@@ -305,6 +315,21 @@
             }
             &__slash {
                 display: none;
+            }
+        }
+        &__saved-localizations {
+            padding-top: 0;
+            &__btns {
+                padding-top: 12px;
+                grid-template-columns: 1fr 1fr;
+            }
+            &__btn {
+                &__choose {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 8px;
+                }
             }
         }
     }
@@ -326,6 +351,19 @@
                 &__card__text {
                     gap: 4px;
                 }
+            }
+        }
+        &__saved-localizations {
+            &__btn {
+                &__choose {
+                    padding: 8px 4px;
+                }
+                &__delete {
+                    padding: 0 8px;
+                }
+            }
+            &__btns {
+                gap: 0;
             }
         }
     }

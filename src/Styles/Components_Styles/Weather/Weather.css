@@ -415,6 +415,12 @@
     justify-content: space-between;
   }
 }
+@media (max-width: 1030px), screen and (max-width: 1240px) and (orientation: portrait) {
+  .weather__saved-localizations__btns {
+    padding-top: 24px;
+    gap: 8px;
+  }
+}
 @media screen and (max-width: 600px) {
   .weather .weather-card {
     gap: 12px;
@@ -426,6 +432,19 @@
   }
   .weather .weather-nav-btn__slash {
     display: none;
+  }
+  .weather__saved-localizations {
+    padding-top: 0;
+  }
+  .weather__saved-localizations__btns {
+    padding-top: 12px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .weather__saved-localizations__btn__choose {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -441,5 +460,14 @@
   }
   .weather .weather-card__top__card__text {
     gap: 4px;
+  }
+  .weather__saved-localizations__btn__choose {
+    padding: 8px 4px;
+  }
+  .weather__saved-localizations__btn__delete {
+    padding: 0 8px;
+  }
+  .weather__saved-localizations__btns {
+    gap: 0;
   }
 }/*# sourceMappingURL=Weather.css.map */
