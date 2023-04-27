@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ADD_WEATHER_LOCALIZATION } from '../../actions';
+import { CHOOSE_WEATHER_DISPLAYED_LOCALIZATION } from '../../actions';
 import { IoTrash } from "react-icons/io5";
 
-const WeatherSavedLocalizationsCard = ({ savedLocalizations }) => {
+const WeatherSavedLocalizationsCard = ({ savedLocalizations, chooseWeatherLocalization }) => {
     console.log(savedLocalizations);
   return (
     <div className='weather__saved-localizations'>
@@ -14,7 +14,7 @@ const WeatherSavedLocalizationsCard = ({ savedLocalizations }) => {
                 savedLocalizations.map((item) => {
                     return (
                         <div key={item.date} className='weather__saved-localizations__btn'>
-                            <button className='weather__saved-localizations__btn__choose'>
+                            <button className='weather__saved-localizations__btn__choose' onClick={() => chooseWeatherLocalization(item.latitude, item.longitude, item.city, item.country)}>
                                 {item.city}
                             </button>
                             <button className='weather__saved-localizations__btn__delete'>
@@ -38,7 +38,7 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      addWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country}})
+      chooseWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: CHOOSE_WEATHER_DISPLAYED_LOCALIZATION, payload: {latitude, longitude, city, country}})
     };
   }
 

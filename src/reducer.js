@@ -13,7 +13,8 @@ import {
     SET_DISPLAYED_DAY,
     ADD_WEATHER_LOCALIZATION,
     CLEAR_WEATHER_DISPLAYED_LOCALIZATION,
-    OPEN_WEATHER_SAVED_LOCALIZATIONS
+    OPEN_WEATHER_SAVED_LOCALIZATIONS,
+    CHOOSE_WEATHER_DISPLAYED_LOCALIZATION
 } from './actions';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -235,6 +236,24 @@ export const initialStore = {
                     openSavedLocalizations: true
                 }
             }
+        }
+    }else if(action.type === CHOOSE_WEATHER_DISPLAYED_LOCALIZATION){
+        const newLocalization = {
+            latitude: action.payload.latitude,
+            longitude: action.payload.longitude,
+            city: action.payload.city,
+            country: action.payload.country
+        }
+        return {
+           ...state,
+           activeUser: {
+            ...state.activeUser,
+            weather: {
+                ...state.activeUser.weather,
+                openSavedLocalizations: false,
+                displayedLocalization: newLocalization
+            }
+           } 
         }
     }
       return state;
