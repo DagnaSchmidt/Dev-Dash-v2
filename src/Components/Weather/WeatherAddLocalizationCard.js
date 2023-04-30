@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { ADD_WEATHER_LOCALIZATION } from '../../actions';
 const KEY = process.env.REACT_APP_GEODB_KEY;
 
-const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme }) => {
+const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, activeWidgetColor }) => {
     const [searchedLocalization, setSearchedLocalization] = useState('');
     const [localizationPropositions, setLocalizationPropositions] = useState([]);
 
@@ -63,7 +63,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme }) => {
                 localizationPropositions.slice(0,20).map((item) => {
                     console.log(item.lat, item.lon);
                     return (
-                        <button key={item.id} className='weather__localizations__btn' onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country)}>
+                        <button key={item.id} className={`weather__localizations__btn ${!blackTheme && 'btn-color'}`} onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country)}>
                             <div className='weather__localizations__btn__text'>
                                 <p className='body-medium'>{item.name}</p>
                                 <p className='label-medium'>{item.country}</p>
@@ -80,7 +80,8 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme }) => {
 
 const mapStateToProps = store => {
     return {
-        blackTheme: store.activeUser.blackTheme
+        blackTheme: store.activeUser.blackTheme,
+        activeWidgetColor: store.activeUser.activeWidgetColor,
     }
 }
 

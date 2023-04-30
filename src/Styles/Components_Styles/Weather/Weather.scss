@@ -232,6 +232,14 @@
                 }
             }
         }
+        .btn-color {
+            background-color: var(--weather-color);
+            border-color: var(--weather-color);
+            opacity: .8;
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
     &__saved-localizations {
         padding-top: 10px;
