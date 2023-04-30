@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { CHOOSE_WEATHER_DISPLAYED_LOCALIZATION, DELETE_WEATHER_LOCALIZATION } from '../../actions';
 import { IoTrash } from "react-icons/io5";
 
-const WeatherSavedLocalizationsCard = ({ savedLocalizations, chooseWeatherLocalization, deleteLocalization }) => {
+const WeatherSavedLocalizationsCard = ({ savedLocalizations, chooseWeatherLocalization, deleteLocalization, blackTheme, activeWidgetColor }) => {
     console.log(savedLocalizations);
   return (
     <div className='weather__saved-localizations'>
-        <h5 className='title-large'>List of your localizations:</h5>
-        <p className='body-medium'>You can save maximum of 13 localizations.</p>
+        <h5 className='title-large' style={{color: !blackTheme && activeWidgetColor}}>List of your localizations:</h5>
+        <p className='body-medium' style={{color: !blackTheme && activeWidgetColor}}>You can save maximum of 13 localizations.</p>
         <div className='weather__saved-localizations__btns'>
             {savedLocalizations.length !== 0 &&
                 savedLocalizations.map((item) => {
@@ -33,7 +33,9 @@ const WeatherSavedLocalizationsCard = ({ savedLocalizations, chooseWeatherLocali
 
 const mapStateToProps = store => {
     return { 
-        savedLocalizations: store.activeUser.weather.savedLocalizations
+        savedLocalizations: store.activeUser.weather.savedLocalizations,
+        blackTheme: store.activeUser.blackTheme,
+        activeWidgetColor: store.activeUser.activeWidgetColor
     };
   };
 

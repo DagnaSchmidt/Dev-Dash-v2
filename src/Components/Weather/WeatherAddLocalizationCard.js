@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { ADD_WEATHER_LOCALIZATION } from '../../actions';
 const KEY = process.env.REACT_APP_GEODB_KEY;
 
-const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
+const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, activeWidgetColor }) => {
     const [searchedLocalization, setSearchedLocalization] = useState('');
     const [localizationPropositions, setLocalizationPropositions] = useState([]);
 
@@ -40,7 +40,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
         <div className='input-group'>
             <input
                 type='text'
-                className='input'
+                className={`input ${!blackTheme && 'input-color'}`}
                 id='localizationSearch'
                 name='localizationSearch'
                 value={searchedLocalization}
@@ -51,10 +51,10 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
             />
             <label 
                 htmlFor='localizationSearch' 
-                className='label'>
+                className={`label ${!blackTheme && 'label-color'}`}>
                     localization
             </label>
-            <button className='btn label-medium' onClick={() => clear()}>
+            <button className='btn label-medium' onClick={() => clear()} style={{color: !blackTheme && '#1E1E1E'}}>
                 clear
             </button>
         </div>
@@ -63,7 +63,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
                 localizationPropositions.slice(0,20).map((item) => {
                     console.log(item.lat, item.lon);
                     return (
-                        <button key={item.id} className='weather__localizations__btn' onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country)}>
+                        <button key={item.id} className={`weather__localizations__btn ${!blackTheme && 'btn-color'}`} onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country)}>
                             <div className='weather__localizations__btn__text'>
                                 <p className='body-medium'>{item.name}</p>
                                 <p className='label-medium'>{item.country}</p>
@@ -78,10 +78,17 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
   )
 }
 
+const mapStateToProps = store => {
+    return {
+        blackTheme: store.activeUser.blackTheme,
+        activeWidgetColor: store.activeUser.activeWidgetColor,
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
       addWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country}})
     };
   }
 
-export default connect(null, mapDispatchToProps)(WeatherAddLocalizationCard);
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherAddLocalizationCard);

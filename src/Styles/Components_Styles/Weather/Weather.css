@@ -359,6 +359,14 @@
 .weather__localizations__btn:hover .weather__localizations__btn__add-icon {
   opacity: 1;
 }
+.weather__localizations .btn-color {
+  background-color: var(--weather-color);
+  border-color: var(--weather-color);
+  opacity: 0.8;
+}
+.weather__localizations .btn-color:hover {
+  opacity: 1;
+}
 .weather__saved-localizations {
   padding-top: 10px;
   display: flex;
