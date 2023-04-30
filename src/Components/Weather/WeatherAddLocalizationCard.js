@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { ADD_WEATHER_LOCALIZATION } from '../../actions';
 const KEY = process.env.REACT_APP_GEODB_KEY;
 
-const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
+const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme }) => {
     const [searchedLocalization, setSearchedLocalization] = useState('');
     const [localizationPropositions, setLocalizationPropositions] = useState([]);
 
@@ -40,7 +40,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
         <div className='input-group'>
             <input
                 type='text'
-                className='input'
+                className={`input ${!blackTheme && 'input-color'}`}
                 id='localizationSearch'
                 name='localizationSearch'
                 value={searchedLocalization}
@@ -51,10 +51,10 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
             />
             <label 
                 htmlFor='localizationSearch' 
-                className='label'>
+                className={`label ${!blackTheme && 'label-color'}`}>
                     localization
             </label>
-            <button className='btn label-medium' onClick={() => clear()}>
+            <button className='btn label-medium' onClick={() => clear()} style={{color: !blackTheme && '#1E1E1E'}}>
                 clear
             </button>
         </div>
@@ -78,10 +78,16 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization }) => {
   )
 }
 
+const mapStateToProps = store => {
+    return {
+        blackTheme: store.activeUser.blackTheme
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
       addWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country}})
     };
   }
 
-export default connect(null, mapDispatchToProps)(WeatherAddLocalizationCard);
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherAddLocalizationCard);

@@ -452,6 +452,13 @@ ul, li {
   font-style: normal;
   opacity: 1;
 }
+.input-group .input:focus ~ .label-color, .input-group .input:active ~ .label-color, .input-group .input:valid ~ .label-color {
+  background-color: var(--color-white);
+}
+.input-group .input-color {
+  color: var(--color-bg);
+  border: 1px solid var(--color-bg);
+}
 .input-group .label {
   position: absolute;
   opacity: 0.8;
@@ -461,6 +468,9 @@ ul, li {
   transform: translateY(16px);
   transition: var(--transition);
   color: var(--color-white);
+}
+.input-group .label-color {
+  color: var(--color-bg);
 }
 .input-group .btn {
   position: absolute;
