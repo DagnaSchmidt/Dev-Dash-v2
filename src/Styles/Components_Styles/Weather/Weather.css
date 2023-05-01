@@ -11,6 +11,7 @@
   --border-white-3: 3px solid var(--color-white);
   --border-error: 1px solid var(--color-error);
   --weather-color: #286BA5;
+  --weather-color-80: #5388B7;
 }
 
 .display-large {
@@ -403,6 +404,9 @@
   color: var(--color-bg);
   opacity: 1;
 }
+.weather__saved-localizations__btn .delete-color {
+  color: var(--color-bg);
+}
 .weather__saved-localizations__btn__choose {
   display: flex;
   flex: 1;
@@ -411,11 +415,19 @@
   border-radius: 12px;
   padding: 12px;
   background-color: var(--color-bg);
+  transition: var(--transition);
 }
 .weather__saved-localizations__btn__choose:hover {
   cursor: pointer;
   border-radius: 8px;
   background-color: var(--color-light-grey-10);
+}
+.weather__saved-localizations__btn .choose-color {
+  border: 1px solid var(--weather-color-80);
+  background-color: var(--weather-color-80);
+}
+.weather__saved-localizations__btn .choose-color:hover {
+  background-color: var(--weather-color);
 }
 
 @media screen and (max-width: 1140px) {
