@@ -275,6 +275,9 @@
                     opacity: 1;
                 }
             }
+            .delete-color {
+                color: var(--color-bg);
+            }
             &__choose {
                 display: flex;
                 flex: 1;
@@ -283,10 +286,18 @@
                 border-radius: 12px;
                 padding: 12px;
                 background-color: var(--color-bg);
+                transition: var(--transition);
                 &:hover {
                     cursor: pointer;
                     border-radius: 8px;
                     background-color: var(--color-light-grey-10);
+                }
+            }
+            .choose-color {
+                border: 1px solid var(--weather-color-80);
+                background-color: var(--weather-color-80);
+                &:hover {
+                    background-color: var(--weather-color);
                 }
             }
         }

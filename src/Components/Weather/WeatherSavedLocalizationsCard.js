@@ -14,11 +14,11 @@ const WeatherSavedLocalizationsCard = ({ savedLocalizations, chooseWeatherLocali
                 savedLocalizations.map((item) => {
                     return (
                         <div key={item.date} className='weather__saved-localizations__btn'>
-                            <button className='weather__saved-localizations__btn__choose' onClick={() => chooseWeatherLocalization(item.latitude, item.longitude, item.city, item.country)}>
+                            <button className={`weather__saved-localizations__btn__choose ${!blackTheme && 'choose-color'}`} onClick={() => chooseWeatherLocalization(item.latitude, item.longitude, item.city, item.country)}>
                                 <p className='body-medium'>{item.city}</p>
                                 <p className='label-medium'>{item.country}</p>
                             </button>
-                            <button className='weather__saved-localizations__btn__delete' onClick={() => deleteLocalization(item.latitude, item.longitude)}>
+                            <button className={`weather__saved-localizations__btn__delete ${!blackTheme && 'delete-color'}`} onClick={() => deleteLocalization(item.latitude, item.longitude)}>
                                 <IoTrash />
                             </button>
                         </div>

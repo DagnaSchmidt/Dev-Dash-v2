@@ -11,6 +11,7 @@
   --border-white-3: 3px solid var(--color-white);
   --border-error: 1px solid var(--color-error);
   --weather-color: #286BA5;
+  --weather-color-80: #5388B7;
 }
 
 .display-large {
