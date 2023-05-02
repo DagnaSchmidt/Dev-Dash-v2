@@ -441,6 +441,11 @@
     padding-top: 24px;
     gap: 8px;
   }
+  .weather__localizations {
+    padding-top: 12px;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 @media screen and (max-width: 600px) {
   .weather .weather-card {
@@ -490,5 +495,12 @@
   }
   .weather__saved-localizations__btns {
     gap: 0;
+  }
+  .weather__localizations {
+    gap: 4px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .weather__localizations__btn {
+    padding: 2px 8px;
   }
 }/*# sourceMappingURL=Weather.css.map */

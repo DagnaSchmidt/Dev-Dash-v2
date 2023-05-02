@@ -320,6 +320,11 @@
                 gap: 8px;
             }
         }
+        &__localizations {
+            padding-top: 12px;
+            gap: 8px;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 }
 @media screen and (max-width: 600px) {
@@ -384,6 +389,13 @@
             }
             &__btns {
                 gap: 0;
+            }
+        }
+        &__localizations {
+            gap: 4px;
+            grid-template-columns: 1fr 1fr;
+            &__btn {
+                padding: 2px 8px;
             }
         }
     }
