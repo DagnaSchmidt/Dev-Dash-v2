@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { CLEAR_WEATHER_DISPLAYED_LOCALIZATION, OPEN_WEATHER_SAVED_LOCALIZATIONS } from '../../actions';
-import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy, WiSnow, WiThunderstorm } from "react-icons/wi";
+import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy, WiSnow, WiThunderstorm, WiDaySnow } from "react-icons/wi";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
 const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay, activeWidgetColor, blackTheme, city, country, savedLocalizations, clearDisplayedLocalization, openSavedLocalizations} ) => {
@@ -33,6 +33,10 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
         }else if(symbolPhrase === 'thunderstorms'){
             return (
                 <WiThunderstorm />
+            )
+        }else if(symbolPhrase === 'snow showers'){
+            return (
+                <WiDaySnow />
             )
         }
         return (

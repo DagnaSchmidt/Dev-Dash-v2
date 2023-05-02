@@ -407,6 +407,9 @@
 .weather__saved-localizations__btn .delete-color {
   color: var(--color-bg);
 }
+.weather__saved-localizations__btn .delete-color:hover {
+  color: var(--color-white);
+}
 .weather__saved-localizations__btn__choose {
   display: flex;
   flex: 1;
@@ -423,11 +426,9 @@
   background-color: var(--color-light-grey-10);
 }
 .weather__saved-localizations__btn .choose-color {
-  border: 1px solid var(--weather-color-80);
-  background-color: var(--weather-color-80);
-}
-.weather__saved-localizations__btn .choose-color:hover {
-  background-color: var(--weather-color);
+  color: var(--weather-color);
+  border: 1px dashed var(--weather-color-80);
+  background-color: var(--color-white);
 }
 
 @media screen and (max-width: 1140px) {
