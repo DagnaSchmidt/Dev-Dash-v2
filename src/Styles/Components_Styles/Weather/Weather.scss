@@ -277,6 +277,9 @@
             }
             .delete-color {
                 color: var(--color-bg);
+                &:hover {
+                    color: var(--color-white);
+                }
             }
             &__choose {
                 display: flex;
@@ -294,11 +297,9 @@
                 }
             }
             .choose-color {
-                border: 1px solid var(--weather-color-80);
-                background-color: var(--weather-color-80);
-                &:hover {
-                    background-color: var(--weather-color);
-                }
+                color: var(--weather-color);
+                border: 1px dashed var(--weather-color-80);
+                background-color: var(--color-white);
             }
         }
     }
