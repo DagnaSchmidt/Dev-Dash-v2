@@ -5,9 +5,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    span {
-        vertical-align: 30%;
-    }
     .weather-card {
         position: absolute;
         width: 100%;
@@ -16,7 +13,7 @@
         flex-direction: column;
         gap: 24px;
         &__top {
-            width: 100%; //
+            width: 100%;
             display: flex;
             align-items: center;
             gap: 24px;
@@ -30,6 +27,9 @@
             &__current-temp {
                 width: 140px;
                 gap: 4px;
+                &__current {
+                    padding-top: 8px;
+                }
                 &__min-max {
                     display: flex;
                     flex-direction: column;
@@ -81,7 +81,6 @@
                 z-index: 2;
                 transition: var(--transition);
                 position: relative;
-                
                 &__text {
                     display: flex;
                     flex-direction: column;
@@ -331,6 +330,23 @@
     .weather {
         .weather-card {
             gap: 12px;
+            &__top {
+                gap: 0;
+                &__localization {
+                    width: 100px;
+                    padding: 12px 8px;
+                    margin-left: 12px;
+                }
+                &__symbol {
+                    width: 80px;
+                    height: 88px;
+                }
+                &__card {
+                    &__text {
+                        gap: 4px;
+                    }
+                }
+            }
         }
         .weather-nav-btn {
             &__max-min-temp {
@@ -366,15 +382,22 @@
         }
         .weather-card {
             &__top {
-                &__symbol, &__current-temp {
-                    width: 80px;
-                    height: 88px;
+                &__current-temp {
+                    width: 100px;
                 }
                 &__symbol {
+                    width: 60px;
                     font-size: 32px;
                 }
                 &__card__text {
-                    gap: 4px;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0;
+                    font-size: 18px;
+                }
+                &__localization {
+                    width: 80px;
+                    flex-direction: column;
                 }
             }
         }
