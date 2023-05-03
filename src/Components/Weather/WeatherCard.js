@@ -55,14 +55,14 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
         <div className='weather-card__top'>
             <div className='weather-card__top__current-temp' style={{backgroundColor: blackTheme ? '#E7E7E7' : activeWidgetColor, color: blackTheme ? '#1E1E1E' : '#E7E7E7'}}>
                 {date.slice(-2) == new Date().getDate() ? 
-                    <p className='display-large'>{currentTemp}<span style={{fontWeight: '400'}}>o</span></p>
+                    <p className='weather-card__top__current-temp__current display-large'>{currentTemp}°</p>
                 :
                     <p className='title-medium weather-card__top__current-temp__weekday'>{weekday[day]}</p>
                 }
                 <p className='weather-card__top__current-temp__divider display-large' style={{fontWeight: '300'}}>|</p>
                 <div className='weather-card__top__current-temp__min-max'>
-                    <p className='title-medium'>{maxTemp}<span>o</span></p>
-                    <p className='subtitle-medium'>{minTemp}<span>o</span></p>
+                    <p className='title-medium'>{maxTemp}°</p>
+                    <p className='subtitle-medium'>{minTemp}°</p>
                 </div>
             </div>
             <div className='weather-card__top__localization' onClick={() => setVisibleOptions(!visibleOptions)} style={{color: blackTheme ? '#E7E7E7' : activeWidgetColor, borderColor: !blackTheme && activeWidgetColor, backgroundColor: visibleOptions && '#AFAFAF10', borderRadius: visibleOptions && '8px', borderStyle: visibleOptions && 'solid'}}>

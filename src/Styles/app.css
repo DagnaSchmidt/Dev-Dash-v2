@@ -100,6 +100,14 @@
     font-size: 14px;
     line-height: 22px;
   }
+  .body-medium {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .label-medium {
+    font-size: 10px;
+    line-height: 14px;
+  }
 }
 @media screen and (max-width: 480px) {
   .display-large {
@@ -125,6 +133,10 @@
   .title-medium, .body-large, .subtitle-medium {
     font-size: 12px;
     line-height: 20px;
+  }
+  .body-medium {
+    font-size: 10px;
+    line-height: 16px;
   }
 }
 * {

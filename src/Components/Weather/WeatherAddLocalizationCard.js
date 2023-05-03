@@ -60,7 +60,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, active
         </div>
         <div className='weather__localizations'>
             {localizationPropositions.length !== 0 &&
-                localizationPropositions.slice(0,20).map((item) => {
+                localizationPropositions.slice(0,15).map((item) => {
                     console.log(item.lat, item.lon);
                     return (
                         <button key={item.id} className={`weather__localizations__btn ${!blackTheme && 'btn-color'}`} onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country)}>
