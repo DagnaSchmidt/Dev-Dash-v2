@@ -240,12 +240,7 @@ export const initialStore = {
             }
         }
     }else if(action.type === CHOOSE_WEATHER_DISPLAYED_LOCALIZATION){
-        const newLocalization = {
-            latitude: action.payload.latitude,
-            longitude: action.payload.longitude,
-            city: action.payload.city,
-            country: action.payload.country
-        }
+        const newDisplayedLocalization = state.activeUser.weather.savedLocalizations.filter((item) => item.id === action.payload.id);
         return {
            ...state,
            activeUser: {
@@ -253,7 +248,7 @@ export const initialStore = {
                 weather: {
                     ...state.activeUser.weather,
                     openSavedLocalizations: false,
-                    displayedLocalization: newLocalization
+                    displayedLocalization: newDisplayedLocalization[0]
                 }
             } 
         }
