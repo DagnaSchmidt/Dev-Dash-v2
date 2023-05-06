@@ -78,7 +78,7 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
                     }
                 </div>
                     {/* SOMETHING WRONG HERE IN STYLES (border color) CHECK LATER */}
-                <div className='weather-card__top__localization__options' style={{bottom: !visibleOptions && '-10%', height: !visibleOptions && '0', border: !visibleOptions && 'none', backgroundColor: !blackTheme && '#E7E7E7', borderColor: !blackTheme && activeWidgetColor}}> 
+                <div className='weather-card__top__localization__options' style={{bottom: !visibleOptions && '-10%', height: !visibleOptions && '0', borderWidth: !visibleOptions && '0', backgroundColor: !blackTheme && '#E7E7E7', borderColor: !blackTheme && activeWidgetColor}}> 
                     <button className='body-medium weather-card__top__localization__options__btn' style={{display: savedLocalizations.length <= 1 && 'none', borderBottomColor: !blackTheme && activeWidgetColor}} onClick={() => openSavedLocalizations()}>change city</button>
                     <button className='body-medium weather-card__top__localization__options__btn' style={{display: savedLocalizations.length >= '12' && 'none'}} onClick={() => clearDisplayedLocalization()}>add city</button>
                 </div>

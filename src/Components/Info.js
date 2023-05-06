@@ -71,7 +71,7 @@ const Info = ( {userName, deny, updateLocalization, error, changeUserName, local
     axios.request(geodb).then(function (response) {
       const json = response.data.data[0];
       updateLocalization(json.city, json.country, latitude, longitude);
-      addWeatherLocalization(latitude, longitude, json.city, json.country);
+      addWeatherLocalization(latitude, longitude, json.city, json.country, json.id);
     }).catch(function (error) {
       deny();
     });
@@ -149,7 +149,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     deny: () => dispatch({type: DENY_LOCALIZATION}),
     updateLocalization: (city, country, latitude, longitude) => dispatch({type: UPDATE_LOCALIZATION, payload: {city, country, latitude, longitude}}),
     changeUserName: (name) => dispatch({type: CHANGE_USERNAME, payload: {name: name}}),
-    addWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country}})
+    addWeatherLocalization: (latitude, longitude, city, country, id) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country, id}})
   }
 }
 
