@@ -8,18 +8,6 @@ const KEY = process.env.REACT_APP_GEODB_KEY;
 const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, savedLocalizations }) => {
     const [searchedLocalization, setSearchedLocalization] = useState('');
     const [localizationPropositions, setLocalizationPropositions] = useState([]);
-    //console.log(localizationPropositions);
-
-    // useEffect(() => {
-    //     if(savedLocalizations.length === 1){
-    //         setSavedLocalizationsIds(savedLocalizations[0].id);
-    //     }else if(savedLocalizations.length > 1){
-    //         savedLocalizations.map((item) => {
-    //             setSavedLocalizationsIds(...savedLocalizationsIds, item.id);
-    //         });
-    //     }
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
 
     let id;
     if(savedLocalizations.length !== 0){
@@ -27,7 +15,6 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, savedL
         return item.id;
        }) 
     }
-    console.log(id);
 
     const handleChange = (e) => {
         const { value } = e.target;
