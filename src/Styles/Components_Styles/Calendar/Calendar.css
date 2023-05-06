@@ -1,0 +1,164 @@
+:root {
+  --color-bg: #1E1E1E;
+  --color-white: #E7E7E7;
+  --color-light-grey: #AFAFAF;
+  --color-error: #FF3B30;
+  --color-light-grey-10: #AFAFAF10;
+  --transition: all 150ms cubic-bezier(0.4,0,0.2,1);
+  --border-white: 1px solid var(--color-white);
+  --border-white-dashed: 1px dashed var(--color-white);
+  --border-white-2: 2px solid var(--color-white);
+  --border-white-3: 3px solid var(--color-white);
+  --border-error: 1px solid var(--color-error);
+  --weather-color: #286BA5;
+  --weather-color-80: #5388B7;
+}
+
+.display-large {
+  font-weight: 500;
+  font-size: 57px;
+  line-height: 64px;
+}
+
+.display-small {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.headline-medium {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+.headline-small {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.title-large {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.title-medium {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.subtitle-medium {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.body-large {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.body-medium {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.label-medium {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+@media screen and (max-width: 1140px) {
+  .display-large {
+    font-size: 52px;
+    line-height: 60px;
+  }
+  .display-small {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .headline-medium {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .headline-small {
+    font-size: 22px;
+    line-height: 24px;
+  }
+  .title-large {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .title-medium, .body-large, .subtitle-medium {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .body-medium {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .label-medium {
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .display-large {
+    font-size: 48px;
+    line-height: 56px;
+  }
+  .display-small {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .headline-medium {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .headline-small {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  .title-large {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .title-medium, .body-large, .subtitle-medium {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .body-medium {
+    font-size: 10px;
+    line-height: 16px;
+  }
+}
+.calendar {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  display: flex;
+  gap: 48px;
+}
+.calendar__left, .calendar__right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.calendar__left {
+  padding-top: 12px;
+}
+.calendar__left__displayed-month {
+  color: var(--color-white);
+  display: flex;
+  justify-content: space-between;
+}
+.calendar__left__displayed-month__nav {
+  display: flex;
+}/*# sourceMappingURL=Calendar.css.map */
