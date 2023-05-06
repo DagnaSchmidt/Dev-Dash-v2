@@ -198,7 +198,8 @@ export const initialStore = {
             latitude: action.payload.latitude,
             longitude: action.payload.longitude,
             city: action.payload.city,
-            country: action.payload.country
+            country: action.payload.country,
+            id: action.payload.id
         }
         return {
             ...state,
@@ -257,7 +258,7 @@ export const initialStore = {
             } 
         }
     }else if(action.type === DELETE_WEATHER_LOCALIZATION){
-        const newSavedLocalizations = state.activeUser.weather.savedLocalizations.filter((item) => item.latitude !== action.payload.latitude && item.longitude !== action.payload.latitude);
+        const newSavedLocalizations = state.activeUser.weather.savedLocalizations.filter((item) => item.id !== action.payload.id);
         if(newSavedLocalizations.length === 0){
             return {
                 ...state,

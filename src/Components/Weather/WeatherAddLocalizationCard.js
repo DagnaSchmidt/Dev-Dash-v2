@@ -63,7 +63,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, active
                 localizationPropositions.slice(0,15).map((item) => {
                     console.log(item.lat, item.lon);
                     return (
-                        <button key={item.id} className={`weather__localizations__btn ${!blackTheme && 'btn-color'}`} onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country)}>
+                        <button key={item.id} className={`weather__localizations__btn ${!blackTheme && 'btn-color'}`} onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country, item.id)}>
                             <div className='weather__localizations__btn__text'>
                                 <p className='body-medium'>{item.name}</p>
                                 <p className='label-medium'>{item.country}</p>
@@ -87,7 +87,7 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      addWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country}})
+      addWeatherLocalization: (latitude, longitude, city, country, id) => dispatch({type: ADD_WEATHER_LOCALIZATION, payload: {latitude, longitude, city, country, id}})
     };
   }
 

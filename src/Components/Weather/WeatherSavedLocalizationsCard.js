@@ -18,7 +18,7 @@ const WeatherSavedLocalizationsCard = ({ savedLocalizations, chooseWeatherLocali
                                 <p className='body-medium'>{item.city}</p>
                                 <p className='label-medium'>{item.country}</p>
                             </button>
-                            <button className={`weather__saved-localizations__btn__delete ${!blackTheme && 'delete-color'}`} onClick={() => deleteLocalization(item.latitude, item.longitude)}>
+                            <button className={`weather__saved-localizations__btn__delete ${!blackTheme && 'delete-color'}`} onClick={() => deleteLocalization(item.id)}>
                                 <IoTrash />
                             </button>
                         </div>
@@ -42,7 +42,7 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
     return {
       chooseWeatherLocalization: (latitude, longitude, city, country) => dispatch({type: CHOOSE_WEATHER_DISPLAYED_LOCALIZATION, payload: {latitude, longitude, city, country}}),
-      deleteLocalization: (latitude, longitude) => dispatch({type: DELETE_WEATHER_LOCALIZATION, payload: {latitude, longitude}}) 
+      deleteLocalization: (id) => dispatch({type: DELETE_WEATHER_LOCALIZATION, payload: {id}}) 
     };
   }
 
