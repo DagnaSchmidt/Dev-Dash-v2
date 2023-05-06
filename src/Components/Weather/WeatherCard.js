@@ -54,7 +54,9 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
     <div className='weather-card' id={date} style={{opacity: displayedDay === date ? '1' : '0'}}>
         <div className='weather-card__top'>
             <div className='weather-card__top__current-temp' style={{backgroundColor: blackTheme ? '#E7E7E7' : activeWidgetColor, color: blackTheme ? '#1E1E1E' : '#E7E7E7'}}>
-                {date.slice(-2) == new Date().getDate() ? 
+                {
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+                date.slice(-2) == new Date().getDate() ? 
                     <p className='weather-card__top__current-temp__current display-large'>{currentTemp}°</p>
                 :
                     <p className='title-medium weather-card__top__current-temp__weekday'>{weekday[day]}</p>
