@@ -336,6 +336,9 @@
                     width: 100px;
                     padding: 12px 8px;
                     margin-left: 12px;
+                    &__options {
+                        width: 100px;
+                    }
                 }
                 &__symbol {
                     width: 80px;
@@ -398,6 +401,9 @@
                 &__localization {
                     width: 80px;
                     flex-direction: column;
+                    &__options {
+                        width: 80px;
+                    }
                 }
             }
         }

@@ -11,7 +11,7 @@ const Icons = ( {activeWidget, changeWidget} ) => {
   const widgetsList = [
     ['calculator', <IoCalculator />, ''],
     ['notes', <IoCopy />, 'notes', '#C00A5A'],
-    ['calendar', <IoCalendar />, ''],
+    ['calendar', <IoCalendar />, 'calendar', '#348236'],
     ['weather', <IoMdPartlySunny />, 'weather', '#286BA5'],
     ['time tracker', <IoCaretForwardCircle />, ''],
     ['expenses', <IoCellular />, ''],

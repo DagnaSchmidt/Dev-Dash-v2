@@ -471,6 +471,9 @@
     padding: 12px 8px;
     margin-left: 12px;
   }
+  .weather .weather-card__top__localization__options {
+    width: 100px;
+  }
   .weather .weather-card__top__symbol {
     width: 80px;
     height: 88px;
@@ -520,6 +523,9 @@
   .weather .weather-card__top__localization {
     width: 80px;
     flex-direction: column;
+  }
+  .weather .weather-card__top__localization__options {
+    width: 80px;
   }
   .weather__saved-localizations__btn__choose {
     padding: 8px 4px;
