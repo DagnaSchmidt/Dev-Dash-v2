@@ -1,0 +1,25 @@
+@import '../../var';
+
+.calendar {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    gap: 48px;
+    &__left, &__right {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    &__left {
+        padding-top: 12px;
+        &__displayed-month {
+            color: var(--color-white);
+            display: flex;
+            justify-content: space-between;
+            &__nav {
+                display: flex;
+            }
+        }
+    }
+}
