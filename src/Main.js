@@ -3,6 +3,7 @@ import { Route, Routes,  } from "react-router-dom";
 import { connect } from "react-redux";
 import Weather from './Components/Weather/Weather';
 import Notes from './Components/Notes/Notes';
+import Calendar from './Components/Calendar/Calendar';
 
 const Main = ( {activeWidget, blackTheme } ) => {
   return (
@@ -13,6 +14,7 @@ const Main = ( {activeWidget, blackTheme } ) => {
                 <Route path='/' element={<Weather />} />
                 <Route path='/weather' element={<Weather />} />
                 <Route path='/notes' element={<Notes />} />
+                <Route path='/calendar' element={<Calendar />} />
             </Routes>
         </main>
     }
