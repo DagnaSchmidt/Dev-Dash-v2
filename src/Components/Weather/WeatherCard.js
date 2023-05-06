@@ -5,6 +5,12 @@ import { WiDaySunny, WiNightClear, WiDayCloudy, WiShowers, WiRain, WiCloudy, WiS
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
 const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhrase, pressure, cloudiness, maxRelHumidity, minRelHumidity, maxWindSpeed, minWindSpeed, precipProb, precipAccum, uvIndex, date, displayedDay, activeWidgetColor, blackTheme, city, country, savedLocalizations, clearDisplayedLocalization, openSavedLocalizations} ) => {
+
+    let todaysDate = new Date().getDate().toString();
+    if(todaysDate.length === 1){
+        todaysDate = "0" + todaysDate;
+    }
+
     const setIcon = (symbolPhrase) => {
         if(symbolPhrase === 'mostly clear' || symbolPhrase === 'partly cloudy'){
             return (
@@ -54,9 +60,7 @@ const WeatherCard = ( {currentTemp, maxTemp, minTemp, sunrise, sunset, symbolPhr
     <div className='weather-card' id={date} style={{opacity: displayedDay === date ? '1' : '0'}}>
         <div className='weather-card__top'>
             <div className='weather-card__top__current-temp' style={{backgroundColor: blackTheme ? '#E7E7E7' : activeWidgetColor, color: blackTheme ? '#1E1E1E' : '#E7E7E7'}}>
-                {
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-                date.slice(-2) == new Date().getDate() ? 
+                {date.slice(-2) === todaysDate ? 
                     <p className='weather-card__top__current-temp__current display-large'>{currentTemp}°</p>
                 :
                     <p className='title-medium weather-card__top__current-temp__weekday'>{weekday[day]}</p>
