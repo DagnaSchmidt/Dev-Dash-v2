@@ -1,13 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { IoAdd } from "react-icons/io5";
 import { connect } from "react-redux";
 import { ADD_WEATHER_LOCALIZATION } from '../../actions';
 const KEY = process.env.REACT_APP_GEODB_KEY;
 
-const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, activeWidgetColor }) => {
+const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, savedLocalizations }) => {
     const [searchedLocalization, setSearchedLocalization] = useState('');
     const [localizationPropositions, setLocalizationPropositions] = useState([]);
+    //console.log(localizationPropositions);
+
+    // useEffect(() => {
+    //     if(savedLocalizations.length === 1){
+    //         setSavedLocalizationsIds(savedLocalizations[0].id);
+    //     }else if(savedLocalizations.length > 1){
+    //         savedLocalizations.map((item) => {
+    //             setSavedLocalizationsIds(...savedLocalizationsIds, item.id);
+    //         });
+    //     }
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
+
+    let id;
+    if(savedLocalizations.length !== 0){
+       id = savedLocalizations.map((item) => {
+        return item.id;
+       }) 
+    }
+    console.log(id);
 
     const handleChange = (e) => {
         const { value } = e.target;
@@ -63,7 +83,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, active
                 localizationPropositions.slice(0,15).map((item) => {
                     console.log(item.lat, item.lon);
                     return (
-                        <button key={item.id} className={`weather__localizations__btn ${!blackTheme && 'btn-color'}`} onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country, item.id)}>
+                        <button key={item.id} style={{display: id.includes(item.id) && 'none'}} className={`weather__localizations__btn ${!blackTheme && 'btn-color'}`} onClick={() => addWeatherLocalization(item.lat, item.lon, item.name, item.country, item.id)}>
                             <div className='weather__localizations__btn__text'>
                                 <p className='body-medium'>{item.name}</p>
                                 <p className='label-medium'>{item.country}</p>
@@ -81,7 +101,7 @@ const WeatherAddLocalizationCard = ({ addWeatherLocalization, blackTheme, active
 const mapStateToProps = store => {
     return {
         blackTheme: store.activeUser.blackTheme,
-        activeWidgetColor: store.activeUser.activeWidgetColor,
+        savedLocalizations: store.activeUser.weather.savedLocalizations
     }
 }
 
