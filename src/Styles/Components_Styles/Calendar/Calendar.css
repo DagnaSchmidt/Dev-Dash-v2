@@ -152,13 +152,22 @@
   flex-direction: column;
 }
 .calendar__left {
-  padding-top: 12px;
+  padding-top: 8px;
 }
 .calendar__left__displayed-month {
   color: var(--color-white);
   display: flex;
   justify-content: space-between;
 }
+.calendar__left__displayed-month__title {
+  padding-top: 4px;
+}
 .calendar__left__displayed-month__nav {
   display: flex;
+}
+.calendar__left__displayed-days {
+  position: relative;
+}
+.calendar__left__displayed-days .month {
+  position: absolute;
 }/*# sourceMappingURL=Calendar.css.map */

@@ -12,13 +12,22 @@
         flex-direction: column;
     }
     &__left {
-        padding-top: 12px;
+        padding-top: 8px;
         &__displayed-month {
             color: var(--color-white);
             display: flex;
             justify-content: space-between;
+            &__title {
+                padding-top: 4px;
+            }
             &__nav {
                 display: flex;
+            }
+        }
+        &__displayed-days {
+            position: relative;
+            .month {
+                position: absolute;
             }
         }
     }
