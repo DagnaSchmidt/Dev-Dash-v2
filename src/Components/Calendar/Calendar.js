@@ -4,7 +4,15 @@ import '../../Styles/Components_Styles/Calendar/Calendar.css';
 import Month from './Month';
 
 const Calendar = () => {
-    const [allMonths, setAllMonths] = useState([1, 2, 3, 4]);
+    const month = new Date().getMonth();
+    const allMonths = [];
+    for(let i = month; allMonths.length < 12; i++){
+        allMonths.push(i);
+        if(i === 12){
+            i = -1;
+        }
+    }
+    console.log(allMonths);
 
   return (
     <section className='calendar'>
@@ -21,7 +29,8 @@ const Calendar = () => {
                 </div>
             </div>
             <div className='calendar__left__displayed-days'>
-                {allMonths.map((item) => {
+                {allMonths.length !== 0 &&
+                  allMonths.map((item) => {
                     return (
                         <Month />
                     )

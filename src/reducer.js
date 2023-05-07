@@ -42,6 +42,11 @@ export const initialStore = {
             savedLocalizations: [],
             displayedLocalization: {},
             openSavedLocalizations: false
+        },
+        calendar: {
+            activeDay: '',
+            activeMonth: 0,
+            activeYear: 0
         }
     },
     users: [],
