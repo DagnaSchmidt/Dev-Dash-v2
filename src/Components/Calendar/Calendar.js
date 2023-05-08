@@ -52,6 +52,7 @@ const Calendar = ({setDisplayedDate, setDisplayedMonth, setDisplayedYear, active
                     return (
                         <Month
                             key={item}
+                            month={item}
                         />
                     )
                 })}
