@@ -26,8 +26,20 @@
         }
         &__displayed-days {
             position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
             .month {
                 position: absolute;
+                width: 100%;
+                background-color: var(--color-bg);
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+                &__day-name {
+                    opacity: .7;
+                    color: var(--color-white);
+                }
             }
         }
     }

@@ -2,12 +2,17 @@ import React from 'react';
 import CalendarDates from "calendar-dates";
 
 
-const Month = () => {
+const Month = ({key}) => {
     const calendarDates = new CalendarDates();
-    
+    const daysNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
   return (
     <div className='month'>
-        Month
+        {daysNames.map((item) => {
+            return (
+                <p className='month__day-name body-medium' key={item}>{item}</p>
+            )
+        })}
     </div>
   )
 }
