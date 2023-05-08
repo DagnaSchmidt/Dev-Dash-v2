@@ -15,7 +15,10 @@ import {
     CLEAR_WEATHER_DISPLAYED_LOCALIZATION,
     OPEN_WEATHER_SAVED_LOCALIZATIONS,
     CHOOSE_WEATHER_DISPLAYED_LOCALIZATION,
-    DELETE_WEATHER_LOCALIZATION
+    DELETE_WEATHER_LOCALIZATION,
+    CALENDAR_SET_DISPLAYED_DATE,
+    CALENDAR_SET_DISPLAYED_MONTH,
+    CALENDAR_SET_DISPLAYED_YEAR
 } from './actions';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -42,6 +45,11 @@ export const initialStore = {
             savedLocalizations: [],
             displayedLocalization: {},
             openSavedLocalizations: false
+        },
+        calendar: {
+            activeDay: '',
+            activeMonth: 0,
+            activeYear: 0
         }
     },
     users: [],
@@ -277,8 +285,40 @@ export const initialStore = {
                     }
                 }
             }
+        }  
+    }else if(action.type === CALENDAR_SET_DISPLAYED_DATE){
+        return {
+            ...state,
+            activeUser: {
+                ...state.activeUser,
+                calendar: {
+                    ...state.activeUser.calendar,
+                    activeDate: action.payload.activeDate
+                }
+            }
         }
-        
+    }else if(action.type === CALENDAR_SET_DISPLAYED_MONTH){
+        return {
+            ...state,
+            activeUser: {
+                ...state.activeUser,
+                calendar: {
+                    ...state.activeUser.calendar,
+                    activeMonth: action.payload.activeMonth
+                }
+            }
+        }
+    }else if(action.type === CALENDAR_SET_DISPLAYED_YEAR){
+        return {
+            ...state,
+            activeUser: {
+                ...state.activeUser,
+                calendar: {
+                    ...state.activeUser.calendar,
+                    activeYear: action.payload.activeYear
+                }
+            }
+        }
     }
       return state;
   }

@@ -43,7 +43,6 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
   const handleChange = (e) => {
     e.preventDefault();
     const {value, id} = e.target;
-    //const element = document.getElementById('noteContent');
     if(id === 'noteTitle'){
       editNote(activeNote.id, 'noteTitle', value)
     }else{
