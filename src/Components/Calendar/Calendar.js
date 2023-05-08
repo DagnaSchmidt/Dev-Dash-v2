@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import '../../Styles/Components_Styles/Calendar/Calendar.css';
 import Month from './Month';
+import { connect } from "react-redux";
+import { CALENDAR_SET_DISPLAYED_DATE, CALENDAR_SET_DISPLAYED_MONTH, CALENDAR_SET_DISPLAYED_YEAR } from '../../actions';
 
-const Calendar = () => {
+const Calendar = ({setDisplayedDate, setDisplayedMonth, setDisplayedYear}) => {
     const month = new Date().getMonth();
+    const date = new Date().getDate();
+    const year = new Date().getFullYear();
+
+    useEffect(() =>{
+
+    }, [])
+
     const allMonths = [];
     for(let i = month; allMonths.length < 12; i++){
         allMonths.push(i);
@@ -13,6 +22,7 @@ const Calendar = () => {
         }
     }
     console.log(allMonths);
+    console.log(month, date, year);
 
   return (
     <section className='calendar'>
@@ -32,7 +42,9 @@ const Calendar = () => {
                 {allMonths.length !== 0 &&
                   allMonths.map((item) => {
                     return (
-                        <Month />
+                        <Month
+                            key={item}
+                        />
                     )
                 })}
             </div>
@@ -44,4 +56,18 @@ const Calendar = () => {
   )
 }
 
-export default Calendar;
+const mapStateToProps = store => {
+    return { 
+      blackTheme: store.activeUser.blackTheme,
+      activeWidgetColor: store.activeUser.activeWidgetColor
+    };
+  };
+  const mapDispatchToProps = dispatch => {
+    return {
+      setDisplayedDate: (activeDate) => dispatch({type: CALENDAR_SET_DISPLAYED_DATE, payload: {activeDate}}),
+      setDisplayedMonth: (activeMonth) => dispatch({type: CALENDAR_SET_DISPLAYED_MONTH, payload: {activeMonth}}),
+      setDisplayedYear: (activeYear) => dispatch({type: CALENDAR_SET_DISPLAYED_YEAR, payload: {activeYear}})
+    };
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Calendar);
