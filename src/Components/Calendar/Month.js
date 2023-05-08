@@ -4,8 +4,9 @@ import CalendarDates from "calendar-dates";
 
 const Month = ({month}) => {
     const calendarDates = new CalendarDates();
+    const [data, setData] = useState([]);
     const daysNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    const monthDays = [];
+    let monthDays = [];
 
     const fetchDays = async () => {
         for (const meta of await calendarDates.getDates(new Date(2023, month))) {
@@ -15,7 +16,7 @@ const Month = ({month}) => {
 
     useEffect(() => {
         fetchDays();
-        console.log(monthDays);
+        setData(monthDays);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -26,13 +27,11 @@ const Month = ({month}) => {
                 <p className='month__day-name body-medium' key={item}>{item}</p>
             )
         })}
-        {/* {monthDays.length !== 0 &&
-            monthDays.map((item) => {
-                return (
-                    <p key={item.iso}>{item.date}</p>
-                )
-            })
-        } */}
+        {data.length !== 0 && data.map((item) => {
+            return (
+                <p key={item.iso} className={`month__day title-medium ${item.type}`}>{item.date}</p>
+            )
+        })}
     </div>
   )
 }
