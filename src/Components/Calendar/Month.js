@@ -49,7 +49,7 @@ const mapStateToProps = store => {
   };
   const mapDispatchToProps = dispatch => {
     return {
-        setDisplayedDate: (activeDate) => dispatch({type: CALENDAR_SET_DISPLAYED_DATE, payload: {activeDate}}),
+        setDisplayedDate: (activeDate) => dispatch({type: CALENDAR_SET_DISPLAYED_DATE, payload: {activeDate}})
     };
   }
 

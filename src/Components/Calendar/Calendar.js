@@ -13,12 +13,7 @@ const Calendar = ({setDisplayedDate, setDisplayedMonth, setDisplayedYear, active
     useEffect(() =>{
         setDisplayedYear(year);
         setDisplayedMonth(month);
-        if(date.length === 2){
-            setDisplayedDate(date);
-        }else{
-            const fullDate = parseInt(`0${date}`);
-            setDisplayedDate(fullDate);
-        }
+        setDisplayedDate(date);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
