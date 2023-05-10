@@ -12,10 +12,7 @@ const Notes = ( {activeNote, allNotes, createNewNote, deleteNote, editNote, blac
     return (
       <NotesListElement
         key={item.id}
-        title={item.title}
-        date={item.date}
-        id={item.id}
-        content={item.content}
+        {...item}
         setMobileDisplayActiveNote={setMobileDisplayActiveNote}
        />
     )
