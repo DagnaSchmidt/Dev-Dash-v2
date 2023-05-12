@@ -179,10 +179,12 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   row-gap: 24px;
+  justify-items: center;
+  align-items: center;
+  color: var(--color-white);
 }
 .calendar__left__displayed-days .month__day-name {
   opacity: 0.7;
-  color: var(--color-white);
 }
 .calendar__left__displayed-days .month .previous, .calendar__left__displayed-days .month .next {
   opacity: 0;
@@ -191,5 +193,28 @@
   cursor: default;
 }
 .calendar__left__displayed-days .month .current {
-  color: var(--color-white);
+  width: 34px;
+  height: 34px;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calendar__left__displayed-days .month .current:hover {
+  cursor: pointer;
+}
+.calendar__left__displayed-days .active-day {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  color: var(--color-bg);
+}
+.calendar__left__displayed-days .day-with-tasks {
+  text-decoration: underline;
+}
+.calendar__left__displayed-days .displayed-day {
+  border-radius: 50%;
+  border: var(--border-white-dashed);
 }/*# sourceMappingURL=Calendar.css.map */

@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 import { CALENDAR_SET_DISPLAYED_DATE } from '../../actions';
 
 
-const Month = ({month, activeDate, setDisplayedDate}) => {
+const Month = ({month, activeDate, setDisplayedDate, activeMonth}) => {
+    const currentMonth = new Date().getMonth();
+    const currentDate = new Date().getDate();
+
     const calendarDates = new CalendarDates();
     const [data, setData] = useState([]);
     const daysNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     let monthDays = [];
-    console.log(activeDate);
 
     const fetchDays = async () => {
         for (const meta of await calendarDates.getDates(new Date(2023, month))) {
@@ -24,7 +26,7 @@ const Month = ({month, activeDate, setDisplayedDate}) => {
     }, [])
 
   return (
-    <div className='month'>
+    <div className='month' style={{display: month === activeMonth ? 'grid' : 'none'}}>
         {daysNames.map((item) => {
             return (
                 <p className='month__day-name body-medium' key={item}>{item}</p>
@@ -32,7 +34,7 @@ const Month = ({month, activeDate, setDisplayedDate}) => {
         })}
         {data.length !== 0 && data.map((item) => {
             return (
-                <p key={item.iso} className={`month__day title-medium ${item.type}`} onClick={() => setDisplayedDate(item.date)}>{item.date}</p>
+                <p key={item.iso} className={`${item.type} ${currentDate === item.date && currentMonth === activeMonth && 'active-day'} ${activeDate === item.date && activeMonth === month && 'displayed-day'}`} onClick={() => setDisplayedDate(item.date)}>{item.date}</p>
             )
         })}
     </div>
