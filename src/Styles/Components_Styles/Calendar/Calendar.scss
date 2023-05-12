@@ -37,10 +37,11 @@
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                 grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
                 row-gap: 24px;
+                justify-items: center;
+                align-items: center;
                 &__day-name {
                     opacity: .7;
                     color: var(--color-white);
-
                 }
                 .previous, .next {
                     opacity: 0;
@@ -50,7 +51,27 @@
                 }
                 .current {
                     color: var(--color-white);
+                    width: 100%;
+                    height: 34px;
+                    font-weight: 700;
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
+            }
+            .active-day {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                background-color: var(--color-white);
+            }
+            .day-with-tasks {
+                text-decoration: underline;
+            }
+            .displayed-day {
+                border-radius: 50%;
+                border: var(--border-white-dashed);
             }
         }
     }

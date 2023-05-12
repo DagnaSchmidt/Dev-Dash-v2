@@ -32,7 +32,7 @@ const Month = ({month, activeDate, setDisplayedDate}) => {
         })}
         {data.length !== 0 && data.map((item) => {
             return (
-                <p key={item.iso} className={`month__day title-medium ${item.type}`} onClick={() => setDisplayedDate(item.date)}>{item.date}</p>
+                <p key={item.iso} className={`month__day ${item.type}`} onClick={() => setDisplayedDate(item.date)}>{item.date}</p>
             )
         })}
     </div>
