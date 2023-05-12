@@ -26,6 +26,7 @@ const Calendar = ({setDisplayedDate, setDisplayedMonth, setDisplayedYear, active
             i = -1;
         }
     }
+    console.log(allMonths);
 
   return (
     <section className='calendar'>

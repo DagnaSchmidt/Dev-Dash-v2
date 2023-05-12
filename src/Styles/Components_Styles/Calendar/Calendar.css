@@ -193,7 +193,7 @@
   cursor: default;
 }
 .calendar__left__displayed-days .month .current {
-  width: 100%;
+  width: 34px;
   height: 34px;
   font-weight: 700;
   font-size: 16px;
@@ -205,8 +205,8 @@
   cursor: pointer;
 }
 .calendar__left__displayed-days .active-day {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: var(--color-white);
   color: var(--color-bg);
