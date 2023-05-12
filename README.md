@@ -1,6 +1,6 @@
 
 
-Free-time project: Dashboard with widgets (in progress).
+Free-time project: Dashboard with widgets (in progress). </br>
 Demo: https://dev-dash-v2.netlify.app/
 
 Functions: create an account, log in to an account, delete account. User data stored in local storage.
