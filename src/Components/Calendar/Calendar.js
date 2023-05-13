@@ -29,38 +29,38 @@ const Calendar = ({setDisplayedDate, setDisplayedMonth, setDisplayedYear, active
             i = -1;
         }
     }
-    console.log(allMonths);
-    // console.log(allMonths.length);
-    console.log(activeMonth);
 
     const index = allMonths.indexOf(activeMonth);
-
+    const checkDisabledNext = () => {
+        if(allMonths[index +1] === allMonths[11]){
+            setIsNextDisabled(true);
+        }else{
+            setIsNextDisabled(false);
+        }
+    }
+    const checkDisabledPrev = () => {
+        if(allMonths[index -1] === allMonths[0]){
+            setIsPrevDisabled(true);
+        }else{
+            setIsPrevDisabled(false);
+        }
+    }
     const next = () => {
         if(index === 11){}else{
             const newMonth = allMonths[index +1];
             setDisplayedMonth(newMonth);
         }
+        checkDisabledNext();
+        checkDisabledPrev();
     }
-
     const prev = () => {
         if(index === 0){}else{
             const newMonth = allMonths[index -1];
             setDisplayedMonth(newMonth);
         }
+        checkDisabledNext();
+        checkDisabledPrev();
     }
-
-    useState(() => {
-        if(activeMonth === allMonths[0]){
-            setIsPrevDisabled(true);
-        }else{
-            setIsPrevDisabled(false);
-        }
-        if(activeMonth === allMonths[11]){
-            setIsNextDisabled(true);
-        }else{
-            setIsNextDisabled(false);
-        }
-    }, [activeMonth])
 
   return (
     <section className='calendar'>
