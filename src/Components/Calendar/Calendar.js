@@ -89,7 +89,7 @@ const Calendar = ({setDisplayedDate, setDisplayedMonth, setDisplayedYear, active
             </div>
         </div>
         <div className='calendar__right'>
-
+                
         </div>
     </section>
   )
