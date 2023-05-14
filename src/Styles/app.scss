@@ -191,6 +191,9 @@ ul, li {
         cursor: pointer;
         opacity: 1;
     }
+    &:disabled {
+        opacity: .3;
+    }
 }
 @media screen and (max-width: 480px) {
     .icon-48 {

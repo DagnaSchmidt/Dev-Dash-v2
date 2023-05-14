@@ -336,6 +336,9 @@ ul, li {
   cursor: pointer;
   opacity: 1;
 }
+.scroll-btn:disabled {
+  opacity: 0.3;
+}
 
 @media screen and (max-width: 480px) {
   .icon-48 {

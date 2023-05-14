@@ -10,7 +10,7 @@ const Month = ({month, activeDate, setDisplayedDate, activeMonth}) => {
 
     const calendarDates = new CalendarDates();
     const [data, setData] = useState([]);
-    const daysNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const daysNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     let monthDays = [];
 
     const fetchDays = async () => {
